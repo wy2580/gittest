@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0" />
+	
+    <!-- <link rel="stylesheet" href="styles/common.css"> -->
+	<style type="text/css">
+		/*body, html {width: 7.5rem;height: 100%;margin:0;font-family:"微软雅黑";}*/
+		#allmap{width:7.5rem;height:8rem;margin:auto;}
+		p{margin-left:5px; font-size:14px;}
+		#mapbox{width:7.5rem; position:relative; background-color:#CCC; border:.01rem solid #9CF; font-size:.12rem;left:0; top:0;overflow:hidden;margin: auto}    
+		#mapbox #map{width:100%;height:8rem; float:left;}    
+		#mapbox #results{width:2.5rem; margin-top:.1rem; float:right;}    
+		.mapheader{ height:.25rem;width:2.5rem; float:right; overflow:hidden;}    
+		#mapbox h2{ margin:auto; padding-left:.1rem; height:.6rem; line-height:.6rem; font-size:.24rem; color:#0066CC; font-weight:100; background:#9CF; cursor:move}    
+		#mapbox .close{ display:block; position:absolute; right:10px; top:0px; line-height:.22rem; text-decoration:none; color:#0000}
+		.sellectBox{
+			position: absolute;
+			left: 3%;
+			top: 40%;
+			width:3rem;
+			overflow: hidden;
+			/*display: none;*/
+		} 
+		.option{
+			overflow: hidden;
+			width: 100%;
+			height:auto;
+		}
+		.sellectBox .shipName{
+			float: left;
+			width: 80%;
+			overflow: hidden;
+			font-size: .2rem;
+			color: #333;
+			line-height: .3rem;
+		}
+		input[type=checkbox],input[type=radio]{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: .2rem;
+        height: .2rem;
+        cursor: pointer;
+        vertical-align: middle;
+        background-image: url(images/noselected.png);
+        background-size: .2rem .2rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: none;
+        outline: none;
+        float: left;
+        margin: .1rem .14rem .13rem .2rem;
+	}
+	input[type=checkbox]:checked,input[type=radio]:checked {
+	    background-image: url(images/selected.png);
+	}
+    .btn{
+        width: 1rem;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        font-size: .2rem;
+        color:#000;
+    }
+	</style>
+	<link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+	
+	
+	<script type="text/javascript" src="js/base.js"></script>
+	<title>给多个点添加信息窗口</title>
+</head>
+<body>
+	<div id="mapbox">    
+        <h2 onmousedown="drag(this.parentNode,event)">百度地图<a href="javascript:" onclick="document.getElementById('map').style.display='none'" class="close">×</a></h2>    
+        <!-- <div class="mapheader"><input type="text" id="searchtext" /><input type="button" value="搜索" id="searchbt" onclick="serachlocal()" />    
+        </div> -->    
+        <div id="map" style="cursor: crosshair;"></div>    
+        <div id="results"></div>    
+        <div id="mapx" ></div>    
+        <div id="mapy" ></div>    
+        <div id="level" ></div> 
+        <div class="sellectBox">
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">北京市东城区王府井大街88号乐天银泰百货八层</label> 
+        	</div>
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">上海市东城区东华门大街</label>
+        	</div>
+            <div class="option">
+                <input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">河北市东城区东华门大街</label>
+            </div>
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">湖南市东城区东华门大街</label> 	
+        	</div>
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">呵呵市东城区东华门大街</label>
+        	</div>
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">哈哈市东城区东华门大街</label>
+        	</div>
+        	<div class="option">
+        		<input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">北京市东城区正义路甲5号</label>
+        	</div>
+            <button class="btn">确认</button>
+        </div>
+    </div>  
+</body>
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jTNoyW6nQxcNPWxuUhFjUm6wPqOY5DkI"></script>
+<script src="jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>  
+<script type="text/javascript">
+// 复选框label标签 
+    $(".option .shipName").click(function(){
+        var item = $(this);
+        var checkBox=$(this).parent().find("input").first();
+        if(checkBox.is(':checked')) {
+            checkBox.prop("checked",false);
+            // console.log(item.parent().index());
+        }else{
+            checkBox.prop("checked",true);
+            // console.log(item.parent().index());
+        }
+    });
+    $(".BMap_button BMap_stdMpZoomOut").click(function(){
+        debugger;
+        alert(1);
+    })
+</script>  
+<script type="text/javascript">
+	     
+    //显示一个对象的所有属性  
+function showAtrributes(event){  
+    var out='';    
+    for(var p in event){    
+        if(typeof(p)!="function"){    
+            out+=p+"="+event[p]+"  ";    
+        }    
+    }    
+    alert(out);   
+}  
+var key='jTNoyW6nQxcNPWxuUhFjUm6wPqOY5DkI';  
+var map = new BMap.Map("map"); // 创建地图实例     
+var point = new BMap.Point(120.316335,36.054007); // 创建点坐标     
+map.centerAndZoom(point, 12); // 初始化地图，设置中心点坐标和地图级别    
+     
+/*    
+1.    
+NavigationControl：地图平移缩放控件，默认位于地图左上方，它包含控制地图的平移和缩放的功能。     
+OverviewMapControl：缩略地图控件，默认位于地图右下方，是一个可折叠的缩略地图。     
+ScaleControl：比例尺控件，默认位于地图左下方，显示地图的比例关系。     
+MapTypeControl：地图类型控件，默认位于地图右上方。     
+CopyrightControl：版权控件，默认位于地图左下方。     
+*/    
+//配置控件参数    
+var opts = {type: BMAP_ANCHOR_BOTTOM_RIGHT,type: BMAP_NAVIGATION_CONTROL_LARGE}       
+map.addControl(new BMap.NavigationControl(opts));    
+// map.addControl(new BMap.NavigationControl());      
+map.addControl(new BMap.ScaleControl());       
+//map.addControl(new BMap.OverviewMapControl());       
+//map.addControl(new BMap.MapTypeControl());       
+//map.setCurrentCity("台州");  
+map.setDefaultCursor("crosshair");  
+    
+/*    
+var marker = new BMap.Marker(point);        // 创建标注       
+map.addOverlay(marker);      
+    
+var opts = {       
+ //width : 250,     // 信息窗口宽度       
+ //height: 100,     // 信息窗口高度       
+ title : "Hello"  // 信息窗口标题       
+}       
+var infoWindow = new BMap.InfoWindow("World", opts);  // 创建信息窗口对象       
+map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口       
+*/    
+map.enableScrollWheelZoom();//滚轮缩放事件    
+//map.enableKeyboard(); //键盘方向键缩放事件    
+map.enableContinuousZoom(); // 开启连续缩放效果    
+//map.enableInertialDragging();　// 开启惯性拖拽效果     
+  
+preMarker='';  
+  
+//点击地图选址  
+map.addEventListener("click", function(e){   //点击事件    
+//alert(e.point.lng + ", " + e.point.lat);  
+    if(!e.overlay){  
+        document.getElementById("mapx").innerHTML="鼠标当前x位置:"+e.point.lng;    
+        document.getElementById("mapy").innerHTML="鼠标当前y位置:"+e.point.lat;    
+        document.getElementById("level").innerHTML="缩放等级:"+this.getZoom();  
+        // var targetUrl='http://api.map.baidu.com/geocoder/v2/?ak='+key+'&location='+e.point.lat+','+e.point.lng+'&output=json&pois=0';  
+        $.ajax({  
+            url:targetUrl,  
+            type:"get",  
+            async : false,  
+            dataType:'jsonp',  
+            beforeSend:function(){  
+              //alert(targetUrl);    
+            },  
+            success:function(data,status){  
+                //alert(status);  
+                if(status=='success' && data.status==0){  
+                      
+                    //alert(JSON.stringify(data));  
+                    //location.href=a.attr("href");  
+                      
+                    var myIcon = new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {  
+                        offset: new BMap.Size(10, 25), // 指定定位位置  
+                        imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移  
+                    });  
+                    // var marker=new BMap.Marker(e.point,{icon:myIcon});  
+                    // map.removeOverlay(preMarker);  
+                    // map.addOverlay(marker);  
+                    // content="<div>地址:"+data.result.formatted_address+"</div>";  
+                    // content+='<form action="around.php" method="post"><input type="hidden" name="lng" value="'+data.result.location.lng+'"><input type="hidden" name="lat" value="'+data.result.location.lat+'"><input type="submit" value="查看附近幼儿园"></form>';  
+                    // var info=new BMap.InfoWindow(content);  
+                    // marker.openInfoWindow(info);                   
+                    // preMarker=marker;  
+                }  
+            },  
+            error:function(XMLHttpRequest, textStatus, errorThrown){  
+                alert(XMLHttpRequest.status);  
+                alert(XMLHttpRequest.readyState);  
+                alert(textStatus);  
+                alert(errorThrown);  
+            }  
+        });  
+          
+    }  
+});      
+    
+    
+map.addEventListener("dragend", function(){   //拖拽事件    
+ var center = map.getCenter();       
+ document.getElementById("mapx").innerHTML="拖拽后中心x位置:"+center.lng;    
+ document.getElementById("mapy").innerHTML="拖拽后中心y位置:"+center.lat;    
+ document.getElementById("level").innerHTML="缩放等级:"+this.getZoom();    
+ //alert("地图中心点变更为：" + center.lng + ", " + center.lat);       
+});     
+    
+map.addEventListener("zoomend", function(){   //缩放事件    
+ //alert("地图缩放至：" + this.getZoom() + "级");       
+});  
+  
+/*自定义搜索2*/    
+function serachlocal(){  
+    var markerArray=new Array();  
+    var typeArray=new Array('','－公交站','','－地铁站');  
+    var local = new BMap.LocalSearch(map, {       
+    renderOptions: {       
+        map: map,       
+        //panel: "results",//结果容器id    
+        autoViewport: true,   //自动结果标注    
+        selectFirstResult: false   //不指定到第一个目标    
+    },       
+    pageCapacity: 8,  
+    //自定义marker事件  
+    onMarkersSet:function(pois){  
+        for(var i=0;i<pois.length;i++){  
+            (function(){  
+                var index=i;  
+                var curPoi=pois[i];  
+                var curMarker=pois[i].marker;  
+                markerArray[i]=curMarker;  
+                  
+                content="<h3>"+curPoi.title+typeArray[curPoi.type]+"</h3>";  
+                content+="<div>地址:"+curPoi.address+"</div>";  
+                content+='<form action="around.php" method="post"><input type="hidden" name="lng" value="'+curPoi.point.lng+'"><input type="hidden" name="lat" value="'+curPoi.point.lat+'"><input type="submit" value="查看附近幼儿园"></form>';  
+                  
+                curMarker.addEventListener('click',function(event){  
+                    //showAtrributes(event);  
+                    var info=new BMap.InfoWindow(content);  
+                    curMarker.openInfoWindow(info);  
+                    var position=curMarker.getPosition();  
+                    document.getElementById("mapx").innerHTML="拖拽后中心x位置:"+position.lng;    
+                    document.getElementById("mapy").innerHTML="拖拽后中心y位置:"+position.lat;    
+                    //document.getElementById("level").innerHTML="缩放等级:"+this.getZoom();    
+                      
+                });  
+            })();  
+        }  
+          
+    },  
+    //自定义搜索回调数据  
+    onSearchComplete:function(results){  
+        if(local.getStatus() == BMAP_STATUS_SUCCESS){  
+              
+            var html='<ol style="list-style: none outside none; padding: 0px; margin: 0px;">';  
+            for(var i=0;i<results.getCurrentNumPois();i++){  
+                var poi=results.getPoi(i);  
+                var bYposition=2-i*20;  
+                html+='<li id="poi'+i+'" index="'+i+'" style="margin: 2px 0px; padding: 0px 5px 0px 3px; cursor: pointer; overflow: hidden; line-height: 17px;">';  
+                html+='<span style="background:url(http://api.map.baidu.com/bmap/red_labels.gif) 0 '+bYposition+'px no-repeat;padding-left:10px;margin-right:3px"></span>'  
+                html+='<span style="color:#00c;text-decoration:underline"><b>'+poi.title+'</b>'+typeArray[poi.type]+'</span>';  
+                html+='<span style="color:#666;">-'+poi.address+'</span>'  
+                html+='</li>';  
+            }  
+            html+="</ol>";  
+            $("#results").html(html);  
+              
+            for(var i=0;i<results.getCurrentNumPois();i++){  
+                (function(){  
+                    var index=i+1;  
+                    var poi=results.getPoi(i);  
+                    content="<h3>"+poi.title+typeArray[poi.type]+"</h3>";  
+                    content+="<div>地址:"+poi.address+"</div>";  
+                    content+='<form action="around.php" method="post"><input type="hidden" name="lng" value="'+poi.point.lng+'"><input type="hidden" name="lat" value="'+poi.point.lat+'"><input type="submit" value="查看附近幼儿园"></form>';  
+                    var info=new BMap.InfoWindow(content)  
+                    $("#poi"+i).click(function(){  
+                        markerArray[$(this).attr('index')].openInfoWindow(info);  
+                    });  
+                })();  
+                  
+            }  
+              
+        }  
+    },  
+    });  
+      
+    local.search(document.getElementById("searchtext").value);    
+}  
+
+
+//添加折线
+    // var polyline = new BMap.Polyline([
+    //     new BMap.Point(120.346901,36.048083),
+    //     new BMap.Point(120.266988,36.119953),
+    //     new BMap.Point(120.335978,35.984558)
+    // ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    // map.addOverlay(polyline);   //增加折线
+    
+    // var polygon = new BMap.Polygon([
+    //  new BMap.Point(116.387112,39.920977),
+    //  new BMap.Point(116.385243,39.913063),
+    //  new BMap.Point(116.394226,39.917988),
+    //  new BMap.Point(116.401772,39.921364),
+    //  new BMap.Point(116.41248,39.927893)
+    // ], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建多边形
+    // map.addOverlay(polygon);   //增加多边形
+    
+    // 定义自定义覆盖物的构造函数  
+    // var map = new BMap.Map("allmap");   
+    var point4 = new BMap.Point(120.337703,36.005116); 
+    var point1 = new BMap.Point(120.346901,36.048083);    
+    var point2 = new BMap.Point(120.266988,36.119953);    
+    var point3 = new BMap.Point(120.228325,36.112022); 
+    var point5 = new BMap.Point(120.388152,36.005583);     
+    var point6 = new BMap.Point(120.35725,35.96306);  
+//根据坐标范围，缩放级别zoom自适应地图
+var points = [point1, point2,point3,point4,point5,point6];  
+var view = map.getViewport(eval(points));  
+var mapZoom = view.zoom;   
+var centerPoint = view.center;   
+map.centerAndZoom(centerPoint,mapZoom);  
+console.log(mapZoom);      
+   
+    var marker1 = new BMap.Marker(point1);    
+    var marker2 = new BMap.Marker(point2);        // 创建标注    
+    var marker3 = new BMap.Marker(point3);        // 创建标注    
+    var marker4 = new BMap.Marker(point4);        // 创建标注    
+    var marker5 = new BMap.Marker(point5);        // 创建标注    
+    var marker6 = new BMap.Marker(point6);        // 创建标注    
+// 为各个点添加标记  
+    // map.addOverlay(marker1); 
+    // map.addOverlay(marker2); 
+    // map.addOverlay(marker3); 
+    // map.addOverlay(marker4); 
+    // map.addOverlay(marker5); 
+    // map.addOverlay(marker6); 
+
+// 百度地图API功能  绘制弧线
+    var points1 = [point3,point2];
+    var curve1 = new BMapLib.CurveLine(points1, {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5}); //创建弧线对象
+    map.addOverlay(curve1); //添加到地图中
+    var points2 = [point5,point4];
+
+    var curve2 = new BMapLib.CurveLine(points2, {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5}); //创建弧线对象
+    map.addOverlay(curve2); //添加到地图中
+    // curve.enableEditing(); //开启编辑功能 
+// 添加折线
+    var polyline1 = new BMap.Polyline([
+        point4,
+        point3,
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline1);   //增加折线
+
+    var polyline2 = new BMap.Polyline([
+        point5,
+        point1,
+        point2
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline2);   //增加折线
+
+    var polyline3 = new BMap.Polyline([
+        point6,
+        point5,
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline3);   //增加折线
+    // 百度地图API功能    
+
+//定位各个船的点
+    var ship1 = new BMap.Point(120.379097,36.028003); 
+    var ship2 = new BMap.Point(120.354375,36.051351); 
+    var ship3 = new BMap.Point(120.312406,36.086826); 
+    var ship4 = new BMap.Point(120.271012,36.121819); 
+    var ship5 = new BMap.Point(120.245141,36.09056); 
+    var ship6 = new BMap.Point(120.28596,36.048083); 
+    var ship7 = new BMap.Point(120.336553,36.003247); 
+
+    var shipArr=[ship1,ship2,ship3,ship4,ship5,ship6,ship7];
+    var icon = new BMap.Icon('images/2.png', new BMap.Size(15, 21), {
+        // anchor: new BMap.Size(10, 30)
+    });
+    // for(var i=0;i<shipArr.length;i++){
+    //     var mkr = new BMap.Marker(shipArr[i], {
+    //         icon: icon
+    //     });
+    //     map.addOverlay(mkr);
+    // }
+    // 
+    // 
+// 添加轨迹线
+ 	var points = [];//原始点信息数组  
+	var bPoints = [];//百度化坐标数组。用于更新显示范围。  
+    var arrDashPoint = [[120.473011,36.03961],[120.36222,36.042997],[120.380043,36.011005],[120.376977,36.003843],[120.335583,35.984219]];
+     var makerPoints = [];  
+    var newLinePoints = [];  
+    var len=arrDashPoint.length;  
+    for(var i=0;i<len;i++){
+        points.push(arrDashPoint[i]);  
+        bPoints.push(new BMap.Point(arrDashPoint[i][0],arrDashPoint[i][1]));  
+       
+    }
+    var len = points.length;  
+	function addLine(points){  
+	    var linePoints = [],pointsLen = points.length,i,polyline;  
+	    if(pointsLen == 0){  
+	        return;  
+	    }  
+	    // 创建标注对象并添加到地图     
+	    for(i = 0;i <pointsLen;i++){  
+	        linePoints.push(new BMap.Point(points[i][0],points[i][1]));  
+	    }  
+	  
+	    polyline = new BMap.Polyline(linePoints, {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});   //创建折线  
+	    map.addOverlay(polyline);   //增加折线  
+	} 
+	//随机生成新的点，加入到轨迹中。
+    
+
+	// function dynamicLine(){  
+	    // var lng = 100+getRandom(40);  
+	    // var lat = 35+getRandom(30);  
+	    // var id = getRandom(1000);  
+	    // var pointGui = {"lng":lng,"lat":lat,"status":1,"id":id}  
+	   
+	    // makerPoints.push(pointGui);              
+	    // addMarker(makerPoints);//增加对应该的轨迹点  
+	    // points.push(pointGui);  
+	    // bPoints.push(new BMap.Point(lng,lat));  
+
+    var  newLinePoints,newmakerDash;
+    function dynamicLine(){   
+        console.log(points.length);
+	    newLinePoints = points;//最后两个点用来画线。  
+	  	// newmakerDash = new BMap.Point(bPoints[len]);//最后一个点来做标记
+
+	    addLine(newLinePoints);//增加轨迹线  
+	    setZoom(bPoints);  
+	    var time=setTimeout(dynamicLine, 3000); 
+	    // clearTimeout(time,4000);
+	    if(len>4){
+	    	clearTimeout(time);
+	    }
+        // map.removeOverlay(marker);
+        
+        var marker = new BMap.Marker(new BMap.Point(points[len-1][0],points[len-1][1]),{
+             icon: icon
+        });  // 创建标注
+        map.addOverlay(marker); 
+        // console.log(points[len][0]);
+	}  
+	 dynamicLine();
+	
+	// 获取随机数  
+	function getRandom(n){  
+	    return Math.floor(Math.random()*n+1)  
+	}  
+	//根据点信息实时更新地图显示范围，让轨迹完整显示。设置新的中心点和显示级别  
+	function setZoom(bPoints){  
+	    var view = map.getViewport(eval(bPoints));  
+	    var mapZoom = view.zoom;   
+	    var centerPoint = view.center;   
+	    map.centerAndZoom(centerPoint,mapZoom);  
+	} 
+//救援船   
+    var helpShip1 = new BMap.Point(120.238242,36.126483); 
+    var helpShip2 = new BMap.Point(120.345751,36.022866); 
+    var helpShip3 = new BMap.Point(120.351501,35.984091); 
+    var helpShipArr = [helpShip1,helpShip2,helpShip3];
+    var iconHelp = new BMap.Icon('images/1.png', new BMap.Size(26, 12), {
+        // anchor: new BMap.Size(10, 30)
+    });
+    for(var i=0;i<helpShipArr.length;i++){
+        var mkrHelp = new BMap.Marker(helpShipArr[i], {
+            icon: iconHelp
+        });
+        map.addOverlay(mkrHelp);
+    }
+
+//添加提示信息
+    // 百度地图API功能    
+    var data_info_all = [[120.379097,36.028003,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+                     [120.354375,36.051351,"地址：上海市东城区东华门大街"],
+                     [120.312406,36.086826,"地址：河北市东城区东华门大街"],
+                     [120.271012,36.121819,"地址：湖南市东城区东华门大街"],
+                     [120.245141,36.09056,"地址：呵呵市东城区东华门大街"],
+                     [120.28596,36.048083,"地址：哈哈市东城区东华门大街"],
+                     [120.336553,36.003247,"地址：北京市东城区正义路甲5号"]
+                    ];
+    for(var i=0;i<data_info_all.length;i++){
+        var marker = new BMap.Marker(new BMap.Point(data_info_all[i][0],data_info_all[i][1]),{
+             icon: icon
+        });  // 创建标注
+        // var content = data_info_all[i][2];
+        map.addOverlay(marker); // 将标注添加到地图中
+    };             
+    var data_info = [];
+    var arrIndex=0;
+    var indexArr=[];
+    var myLabel={};
+    var data_info_repeat=data_info_all; 
+    $(".btn").click(function(){
+        data_info = [];
+        indexArr = []; 
+        // map.removeOverlay(myLabel);
+         // var allOverlay = map.getOverlays(myLabel);
+         // console.log(allOverlay);
+         //删除标注
+        function deletePoint() {//删除标注点
+            var allOverlay = map.getOverlays();
+            for (var i = 0; i < allOverlay.length - 1; i++) {
+                if (allOverlay[i].toString() == "[object Label]") {
+                    map.removeOverlay(allOverlay[i]);  
+                }
+
+            }
+        };
+        deletePoint();
+        $(".option").each(function(){
+            var optionItem=$(this);
+            var selectItem=$(this).find("input").first();
+            
+            if(selectItem.is(':checked')){
+                arrIndex = optionItem.index();
+                indexArr.push(arrIndex);
+            }
+        })
+        for(var i=0;i<indexArr.length;i++){
+            var data_info_addarray=data_info_all.slice(indexArr[i],indexArr[i]+1);
+            data_info.push(data_info_addarray[0]);
+            data_info_all = data_info_repeat;
+            // map.removeOverlay(myLabel);
+            // myLabel.remove();
+        }
+        var opts = {
+                width : 100,     // 信息窗口宽度
+                height: 20,     // 信息窗口高度
+                title : "信息窗口" , // 信息窗口标题
+                enableMessage:true//设置允许信息窗发送短息
+               };
+        for(var i=0;i<data_info.length;i++){
+            // var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]),{
+            //      icon: icon
+            // });  // 创建标注
+            var content = data_info[i][2];
+            // map.addOverlay(marker);               // 将标注添加到地图中
+            // 实现绘制方法
+            var dash=new BMap.Point(data_info[i][0],data_info[i][1]);
+            myLabel = new BMap.Label('<h3 style="float:left;width:4.5rem;line-height:.36rem;font-size:.3rem;background-color:#666;margin-bottom:.2rem;color:#fff;over-flow:hidden"><span style="float:left;width:.4rem;height:.4rem;line-height:.36rem;text-align:center;margin-top:.05rem;border-radius:50%;font-size:.36rem;color:#333;background-color:green">1</span>'+content+'</h3>',     //为lable填写内容
+                {offset:new BMap.Size(10,-20),                  //label的偏移量，为了让label的中心显示在点上
+                position:dash});                                //label的位置
+            // myLabel.setTitle("我是文本标注label");               //为label添加鼠标提示
+            map.addOverlay(myLabel); 
+            console.log(data_info.length);
+            myLabel.setStyle({                                   //给label设置样式，任意的CSS都是可以的
+                color:"#fff",                   //颜色
+                fontSize:".22rem",               //字号
+                border:".02rem solid blue",                    //边
+                height:".4rem",                //高度
+                width:"3rem",                 //宽
+                textAlign:"center",            //文字水平居中显示
+                lineHeight:".4rem",            //行高，文字垂直居中显示
+                background:"url(http://cdn1.iconfinder.com/data/icons/CrystalClear/128x128/actions/gohome.png)",    //背景图片，这是房产标注的关键！
+                cursor:"pointer",
+                backgroundColor:"blue",
+                rotate:45
+                // display:"none"
+            });  
+        }
+    });
+//增加矢量图  
+var scaleZhi = 2;
+
+// var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;//浏览器兼容
+//  var config = { characterData: true}//配置对象
+//  $(".BMap_scaleTxt").each(function(){
+//     var _this = $(this);
+//     var observer = new MutationObserver(function(mutations) {//构造函数回调
+//        mutations.forEach(function(record) {
+//           if(record.type == "characterData"){//监听属性
+//  　　　　　　　alert(_this.text());
+//           }
+          
+//        });
+//     });
+//     observer.observe(_this[0], config);
+//  });
+var vectorFCArrow1 = new BMap.Marker(new BMap.Point(120.241596, 36.121207), {
+  // 初始化方向向上的闭合箭头
+    icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+        scale: scaleZhi,
+        strokeWeight: 1,
+        rotation: -95,//顺时针旋转30度
+        fillColor: 'blue',
+        fillOpacity: 0.8
+    })
+});  
+var vectorFCArrow2 = new BMap.Marker(new BMap.Point(120.36434,35.998664), {
+  // 初始化方向向上的闭合箭头
+    icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+        scale: scaleZhi,
+        strokeWeight: 1,
+        rotation: 95,//顺时针旋转30度
+        fillColor: 'blue',
+        fillOpacity: 0.8
+    })
+});  
+var vectorFCArrow3 = new BMap.Marker(new BMap.Point(120.371831,35.984069), {
+  // 初始化方向向上的闭合箭头
+    icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+        scale: scaleZhi,
+        strokeWeight: 1,
+        rotation: 35,//顺时针旋转30度
+        fillColor: 'blue',
+        fillOpacity: 0.8
+    })
+});  
+
+
+map.addOverlay(vectorFCArrow1);  
+map.addOverlay(vectorFCArrow2);  
+map.addOverlay(vectorFCArrow3);  
+ 
+
+var pointDown=[[120.260804,36.081644],[120.310011, 36.030661]];
+for(var i=0;i<pointDown.length;i++){
+    var vectorBCArrow = new BMap.Marker(new BMap.Point(pointDown[i][0],pointDown[i][1]), {
+      // 初始化方向向下的闭合箭头
+      icon: new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_CLOSED_ARROW, {
+        scale: scaleZhi,
+        strokeWeight: 1,
+        rotation: -45,
+        fillColor: 'blue',
+        fillOpacity: 0.8
+      })
+    });
+    map.addOverlay(vectorBCArrow); 
+}
+var pointUp=[[120.29787,36.09364],[120.355632, 36.039602]];
+for(var i=0;i<pointUp.length;i++){
+    var vectorFCArrow = new BMap.Marker(new BMap.Point(pointUp[i][0],pointUp[i][1]), {
+      // 初始化方向向上的闭合箭头
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+            scale: scaleZhi,
+            strokeWeight: 1,
+            rotation: -35,//顺时针旋转30度
+            fillColor: 'blue',
+            fillOpacity: 0.8
+        })
+    }); 
+    map.addOverlay(vectorFCArrow);   
+}
+
+</script>
