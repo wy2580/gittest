@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>切图/船队/角色添加管理</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="中帆联/切图/" transform="translate(-101.000000, -327.000000)">
+            <g id="切图/船队/角色添加管理" transform="translate(101.000000, 327.000000)">
+                <circle id="Mask" fill="#797979" cx="27.5" cy="27.5" r="27.5"></circle>
+                <path d="M29,27 L29,13.9981537 C29,13.4473652 28.5522847,13 28,13 C27.4438648,13 27,13.4468886 27,13.9981537 L27,27 L13.9981537,27 C13.4473652,27 13,27.4477153 13,28 C13,28.5561352 13.4468886,29 13.9981537,29 L27,29 L27,42.0018463 C27,42.5526348 27.4477153,43 28,43 C28.5561352,43 29,42.5531114 29,42.0018463 L29,29 L42.0018463,29 C42.5526348,29 43,28.5522847 43,28 C43,27.4438648 42.5531114,27 42.0018463,27 L29,27 Z" id="Combined-Shape" fill="#D8D8D8"></path>
+            </g>
+        </g>
+    </g>
+</svg>

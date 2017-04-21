@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/html5shiv.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle"></h3>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 视频播放内容部分开始 -->
+	<div id="wapper_icon_div_id" class="wapper hidden contentTop">
+		
+	</div>
+	<!-- 视频播放内容部分结束 -->
+	<!-- <div class="zsctpform hidden">
+		<a href="javascript:;" class="zscbut"></a>
+	</div> -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+
+<script type="text/javascript" >
+var myvid=document.getElementById('myvid');
+
+    var page = 0; 
+    var matchId =  $.cookie('match_vedio_id');
+    var type =  2;//视频
+    var size = 5;//分页大小
+    var islock = 0;//0:解锁，1:枷锁
+    $(function(){
+        //初始化页面
+        fillData();
+    });
+    function getUrl(){
+        return 'http://api.hanghai.onairm.cn';
+    }
+    //填充页面页面
+    function fillData(){
+        var action = getUrl()+'/match/getResourceList';
+        var data = {page:page,type:type,size:size,matchId:matchId};
+        jQuery.ajax({
+            url:action,
+            type:"get",
+            async:false,
+            data:data,
+            beforeSend:function(){
+            },
+            success:function(returnData){                                                    
+                var data = JSON.parse(returnData);
+                if(data.statusCode === 0){
+                    var html = "";                            
+                    if(data.pageSize > 0){
+                        for(var i in data.data){
+                             if($("#vedio"+data.data[i].rid).length<=0){
+                                html += appendHtmlPress(data.data[i]);   
+                            }
+                            
+                        }
+                        $("#wapper_icon_div_id").append(html);
+                        page++; 
+                        if(islock){
+                            islock = 0;
+                        }
+                    }else{
+//                        alert("加载完成");
+                    }
+                }else{
+                        alert(data.message);
+                }
+                var x=0;
+                $(".zscspbofang").each(function(i){
+                     $(this).on("click",function(){
+                        // console.log(i); 
+                        x+=1;
+                        if(x%2!=0){
+                            $(".myvid").eq(i).css({display:"none"});
+                        }else{
+                            $(".myvid").eq(i).css({display:"block"});
+                        }
+                     })
+                });
+            }
+        });
+    }
+
+    function appendHtmlPress(data){
+        var strhtml = '';
+        var num = 0;
+        if(data.teamName){
+            strhtml += '<a href="javascript:;" class="zsctpchuandui">'+data.teamName+'</a>';
+            num++;
+        }
+        if(data.userName){
+            strhtml += '<a href="javascript:;" class="zsctpchuandui">'+data.userName+'</a>';
+            num++;
+        }
+        $.each(data.keywords.split(","),function(i){
+            if(num > 3){
+                return;
+            }
+            strhtml += '<a href="javascript:;" class="zsctpchuandui">'+data.keywords.split(",")[i]+'</a>';
+            num++;
+        }) 
+        return [
+            '<div class="zshtupianpart hidden" id="vedio'+data.rid+'">',
+            '    <video src="'+formatFileUrl(data.ext.key)+'" alt="" class="zshtupianimg" controls="" preload="none" width="7.2rem" height="5rem" poster="'+formatFileUrl(data.ext.icon)+'" class="myvideo"></video>',
+            '    <a href="javascript:;" class="zsctpsheying zscspsheying hidden"><img src="images/weidenglu.png" alt="" class="uploaderIcon"><span class="uploadName">'+data.name+'</span></a>',
+            // '    <a href="javascript:;" class="zscspbofang"></a>',
+            '    <div class="zshtppizhu hidden">'+ strhtml,  
+            '    </div>',
+            '</div>'
+        ].join('');
+        // var html = '';
+        // alert(formatFileUrl(data.ext.key));
+        // // var icon = formatFileUrl(data.ext.key, '/images/1.png');
+        // html += '<div class="wapper hidden">';
+        // html += '<div class="zshtupianpart hidden">';
+        // html += '<video width="1" height="1" controls loop="loop" src></video>';
+        // // html += '<source src="images/video.webm" type="video/webm">';
+        // html += '<source src="images/video.mp4" type="video/mp4">';
+        // html += '<object width="430" height="275" type="application/x-shockwave-flash" data="images/video.swf" classid="clsid:D72CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0">  ';
+        // html += '<param name="movie" value="images/video.swf" />';
+        // html += '</object> ';
+        // html += '<p class="vediop">Your browser does not support the video tag.</p> ';
+        // html += '</video> ';
+        // // html += '<img src="images/1.png" alt="" class="zshtupianimg">';
+        
+        // html +='<p class="zscspp">'+data.discription+'</p>';
+        
+        // html +='<a href="javascript:;" class="zsctpsheying zscspsheying">'+data.name+'[特邀摄影师]</a>';
+        // html+='<a href="javascript:;" class="zscspbofang"></a>';
+        // html +='<div class="zshtppizhu hidden">';
+        // if(data.teamName !== undefined && data.teamName !== '' && data.teamName !== null){
+        //     html +='<a href="javascript:;" class="zsctpchuandui">'+data.teamName+'</a>';  
+        // }
+        // if(data.sailingName !== undefined && data.sailingName !== '' && data.sailingName !== null){
+        //     html +='<a href="javascript:;" class="zsctpchuanxing">'+data.sailingName+'</a>';
+        // }
+        // html +='<a href="javascript:;" class="zsctpmingzi">'+data.userName+'</a>';
+        // html +='</div></div>';
+        // html +='</div></div>';
+        // return html;              
+    } 
+
+    
+    //检测滚动条是否到底
+    $(window).scroll(function () {
+        if(!islock){
+            var viewH = $(window).height();//可视页面高度
+            var pageH = $(document).height(); //整个页面高度
+            var scrollH =   $(document).scrollTop();//对顶部已滚动距离
+            if(scrollH >=  pageH - viewH - 100){
+                islock = 1;
+                fillData();
+            }
+        }
+    });
+    $(".ztitle").html(saveMatchName()); 
+    document.title=saveMatchName();
+</script>
+</html>

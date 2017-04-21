@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/chuanduizuye.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle zhuanghaibei"></h3>
+		<a href="gerenyemian.html" class="shipinsuoluetu hidden" id="cdbmzhuyetouxiang">
+			<img src="images/headsuoluetu.png" alt="" class="headsuoluetu">
+		</a>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 船队报名系列部分内容开始 -->
+	<div class="wapper hidden zcdbmkuang">
+		<div class="zfenlei hidden">
+			<a href="cdbmziye.html" class="zfenleia zfenleia1">船队报名</a>
+			<a href="gerenbaoming.html" class="zfenleia">个人报名</a>
+		</div>
+		<div class="zfenleicon">
+			<div class="zbianju">
+				<div class="zcdbmsafe">
+					<h3 class="zcdbmtitle">创建我们的船队</h3>
+					<p class="zcdbmp">请认真填写如下信息，您的船队有可能创造中国航海运动的神话传奇，期待你们起航的时刻。</p>
+					<form class="zscform hidden" onsubmit="return createTeam();">
+						<div class="inputkuang hidden">
+							<label for="teamName" class="sclabel">队名:</label>
+                            <input id="teamName" type="text" placeholder="请勿填写赞助商名，报名时添加船队前后缀。" class="scinput duiming" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="teamEnglishName" class="sclabel">英语队名：</label>
+                            <input id="teamEnglishName" type="text" placeholder="同时为船队域名后缀（cnsa.cc/team/）" class="scinput yingyuduiming" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="uName" class="sclabel">船长或船队经理姓名：</label>
+                            <input id="uName" type="text" placeholder="负责船队日常联系" class="scinput xingming" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="phone" class="sclabel">手机号码：</label>
+                            <input id="phone" type="text" placeholder="接收组委会通知" class="scinput mobile" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="telExtra" class="sclabel">备用电话：</label>
+                            <input id="telExtra" type="text" placeholder="您出海的时候，急事找谁？" class="scinput beiyongmobile" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="clubName" class="sclabel">所属俱乐部或企业：</label>
+                            <input id="clubName" type="text" placeholder="显示在船队首页" class="scinput guishu" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="clubAddress" class="sclabel">俱乐部或企业地址：</label>
+                            <input id="clubAddress" type="text" placeholder="显示在船队首页" class="scinput guishudi" value="">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="tel" class="sclabel">固定电话：</label>
+                            <input id="tel" type="text" placeholder="显示在船队首页" class="scinput guhua">
+						</div>
+						<label for="description" class="sclabel miaoshulabel">船队介绍：</label>
+                        <!-- <input id="description" type="text" placeholder="这个家伙很懒什么都没有留下" class="scinput zcdmiaoshu" value=""> -->
+                        <textarea id="description" placeholder="这个家伙很懒什么都没有留下" class="scinput zcdmiaoshu" value=""></textarea>
+						<!--p class="zcdbmp">历史成绩，请按如下格式如实填写：</p-->
+						<!-- 添加删除 -->
+						<!--div class="zcdbmsafe hidden cdbmformsafe">
+							<div class="remove">
+								<input type="text" class="scinput saishiname" placeholder="黄海杯帆船赛">
+								<div class="bisainianfen">
+									<input type="text" placeholder="2016" class="scinput nianfeninput">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">2016</li>
+										<li class="xlselectli">2015</li>
+										<li class="xlselectli">2014</li>
+										<li class="xlselectli">2013</li>
+										<li class="xlselectli">2012</li>
+									</ul>
+								</div>
+								<div class="bisainianfen">
+									<input type="text" placeholder="F28R" class="scinput nianfeninput nianfeninput2">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">Farcd1</li>
+										<li class="xlselectli">F28R</li>
+										<li class="xlselectli">F26R</li>
+										<li class="xlselectli">F29R</li>
+									</ul>
+								</div>
+								<div class="bisainianfen">
+									<input type="text" placeholder="18名" class="scinput nianfeninput">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">16名</li>
+										<li class="xlselectli">19名</li>
+										<li class="xlselectli">11名</li>
+										<li class="xlselectli">8名</li>
+									</ul>
+								</div>
+								<img src="images/jianhao.svg" alt="" class="jianhao">
+							</div>
+							<div class="remove add">
+								<input type="text" class="scinput saishiname" placeholder="赛事名称">
+								<div class="bisainianfen">
+									<input type="text" placeholder="年份" class="scinput nianfeninput">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">2016</li>
+										<li class="xlselectli">2015</li>
+										<li class="xlselectli">2014</li>
+										<li class="xlselectli">2013</li>
+										<li class="xlselectli">2012</li>
+									</ul>
+								</div>
+								<div class="bisainianfen">
+									<input type="text" placeholder="级别" class="scinput nianfeninput nianfeninput2">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">Farcd1</li>
+										<li class="xlselectli">F28R</li>
+										<li class="xlselectli">F26R</li>
+										<li class="xlselectli">F29R</li>
+									</ul>
+								</div>
+								<div class="bisainianfen">
+									<input type="text" placeholder="成绩" class="scinput nianfeninput">
+									<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+									<ul class="xialaselect hidden">
+										<li class="xlselectli xlselectli1">16名</li>
+										<li class="xlselectli">19名</li>
+										<li class="xlselectli">11名</li>
+										<li class="xlselectli">8名</li>
+									</ul>
+								</div>
+								<img src="images/yuanjiahao.svg" alt="" class="xmxjiahao">
+							</div>
+						</div-->
+						<!-- form按钮部分 -->
+                        <a href="javascript:createTeam();" class="chuanlichuanduia" style="margin-top: 20px;"><button type="submit" class="submitbut" >创立船队</button></a>
+						<a href="javascript:;" class="quexiaoa"><button class="cancelbut">取消</button></a>
+					</form>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!-- 船队报名系列部分内容结束 -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script>
+    //注册
+    function createTeam(){
+        var baseUrl = 'http://api.hanghai.onairm.cn';
+        //验证数据有效性和完整性
+        var validate = function(){
+            //处理错误信息
+            var error = function(id, msg){
+                if(id){
+                    $('#'+id).focus();
+                }
+                return false;
+            };
+            //队名
+            var teamName = $('#teamName').val();
+            if(teamName.length < 1){
+                return error('teamName', '队名不能为空');
+            }
+            //英语队名
+            var teamEnglishName = $('#teamEnglishName').val();
+            if(teamEnglishName.length < 1){
+                return error('teamEnglishName', '英语队名不能为空');
+            }
+            //船长或船队经理姓名
+            var uName = $('#uName').val();
+            if(uName.length < 1){
+                return error('uName', '船长或船队经理姓名不能为空');
+            }
+            //手机号码
+            var phone = $('#phone').val();
+            if(phone.length < 1){
+                return error('phone', '手机号码不能为空');
+            }
+            //备用电话
+            var telExtra = $('#telExtra').val();
+            if(telExtra.length < 1){
+                return error('telExtra', '备用电话不能为空');
+            }
+            //所属俱乐部或企业
+            var clubName = $('#clubName').val();
+            if(clubName.length < 1){
+                return error('clubName', '所属俱乐部或企业不能为空');
+            }
+            //俱乐部或企业地址
+            var clubAddress = $('#clubAddress').val();
+            if(clubAddress.length < 1){
+                return error('clubAddress', '俱乐部或企业地址不能为空');
+            }
+            //固定电话
+            var tel = $('#tel').val();
+            if(tel.length < 1){
+                return error('tel', '固定电话不能为空');
+            }
+            //船队介绍
+            var description = $('#description').val();
+            if(description.length < 1){
+                return error('tel', '船队介绍不能为空');
+            }
+            return true;
+        }
+        //验证
+        if(!validate()){
+            return false;
+        }
+        postData({
+            url : '/team/createTeam',
+            data : {
+                matchId : getMatchId(),
+                teamName : $('#teamName').val(),
+                teamEnglishName : $('#teamEnglishName').val(),
+                uName : $('#uName').val(),
+                phone : $('#phone').val(),
+                telExtra : $('#telExtra').val(),
+                clubName : $('#clubName').val(),
+                clubAddress : $('#clubAddress').val(),
+                tel : $('#tel').val(),
+                description : $('#description').val()
+            },
+            callback : function(data){
+                alert('创建成功！');
+                window.location.href="cdcansaixinxi.html";
+            }
+        });
+        return false;
+    }
+
+    $(".zhuanghaibei").html(saveMatchName());
+    document.title=saveMatchName();
+</script>
+</html>

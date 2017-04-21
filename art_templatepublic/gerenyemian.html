@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/chuanduizuye.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<!-- head部分开始 -->
+<div class="gerenhead">
+	<div class="consafe hidden">
+		<img src="images/back.svg" alt="" class="back gerenback">
+		<img id="userIcon" src="images/weidenglu.png" alt="" class="gerentouxiang">
+		<div class="gerenxinxi hidden">
+			<h3 id="userNickname" class="gerenname"></h3>
+			<h4 id="userPhone" class="gerenmobile"></h4>
+		</div>
+	</div>
+</div>
+<!-- head部分结束 -->
+<div class="gerencon hidden">
+	<div class="consafe hidden">
+		<div class="gerenconpart hidden">
+			<h3 class="grcph3">参赛管理</h3>
+			<p class="grcppa"><a href="gerenbaoming.html" class="grcpa">已报名的比赛</a></p>
+		</div>
+        <div class="gerenconpart hidden" style="padding-bottom: 2em;">
+			<h3 class="grcph3">船队管理</h3>
+			<p id="createTeamBtn" class="grcppa"><a href="cdbmziye.html" class="grcpa grcpa3">创建新船队</a></p>
+		</div>
+		<!--div class="gerenconpart hidden">
+			<h3 class="grcph3">我的作品</h3>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa4">我的摄影作品</a></p>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa5">我上传的视频</a></p>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa6">我发表的文章</a></p>
+		</div>
+		<div class="gerenconpart hidden">
+			<h3 class="grcph3">我的订单</h3>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa7">我的购买</a></p>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa8">交易记录</a></p>
+		</div>
+		<div class="gerenconpart hidden gerenconpartlast">
+			<h3 class="grcph3">帮助</h3>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa9">常见问题</a></p>
+			<p class="grcppa"><a href="javascript:;" class="grcpa grcpa10">在线客服</a></p>
+		</div-->
+	</div>
+</div>
+	
+</body>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script>
+$(function(){
+    loginCheck();//登录验证
+    //填充用户基本信息
+    (function(){
+        var user = getLoginUser();
+        $('#userIcon').attr('src', formatFileUrl(user.icon, '/images/chengyuan1.png'));
+        $('#userNickname').html(user.realName || user.nickName);
+        $('#userPhone').html(user.phone);
+    })(); 
+    //船队信息初始化
+    (function(){
+        var teams = getMyTeamList();
+        for(var i in teams){
+            var team = teams[i];
+            var item = $('<p class="grcppa"><a href="javascript:toTeamMainPage(\''+team['teamId']+'\');" class="grcpa grcpa2">'+team['name']+'</a></p>');
+            $('#createTeamBtn').before(item);
+        }
+    })();
+});
+//获取个人船队列表
+function getMyTeamList(){
+    return getData({
+        url : '/user/getTeamList'
+    });
+}
+//跳转到船队主页
+function toTeamMainPage(teamId){
+    $.cookie('teamMainPageTeamId', teamId);
+    window.location.href="chuanduizhuye.html";
+}
+document.title=saveMatchName();
+</script>
+</html>

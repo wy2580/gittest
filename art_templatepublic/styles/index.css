@@ -1,0 +1,2022 @@
+body{
+	width: 7.5rem;
+  	margin: 0 auto;
+}
+/*head部分开始*/
+.syhead{
+	width: 7.5rem;
+  	height: 5rem;
+  	overflow: hidden;
+  	position: relative;
+}
+.sybannera{
+	float: left;
+	width: 7.5rem;
+	height: 5rem;
+}
+.syhead img{
+	width: 7.5rem;
+	height: 5rem;
+}
+.fenxiang{
+	position: absolute;
+	left: .25rem;
+	top: .13rem;
+	width: .69rem;
+	height: .66rem;
+	background-image: url(../images/fenxiang.svg);
+	background-repeat: no-repeat;
+	background-size: .69rem .66rem;
+	z-index: 1;
+}
+.day{
+	position: absolute;
+	top: .16rem;
+	height: .42rem;
+	line-height: .42rem;
+	text-align: center;
+	color: #fff;
+	font-size: .28rem;
+	border-radius: .04rem;
+	background-color: rgba(0,0,0,.5);
+	z-index: 1;
+}
+.day{
+	width: 1.5rem;
+	right: 1.9rem;
+}
+.date{
+	width: 1.6rem;
+	right: .2rem;
+}
+.span1{
+	margin-right: .08rem;
+}
+
+.syxinghao{
+	position: absolute;
+	left: .30rem;
+	bottom: .12rem;
+	z-index: 1;
+}
+.chuanxinga{
+	float: left;
+	height: .44rem;
+	border-radius: .06rem;
+	background-color: rgba(0,0,0,.5);
+	margin-left: .04rem;
+	overflow: hidden;
+}
+.chuanxinga1{
+	margin-left: 0;
+}
+.innerspan{
+	float: left;
+	font-size: .28rem;
+	color:  #e2e2e2;
+	padding: .036rem .05rem;
+}
+/*head部分结束*/
+/*武汉船赛部分开始*/
+.sychuansai{
+	height: 1rem;
+	line-height: 1rem;
+	background-color:  #1f2832;
+	/*opacity: .5;*/
+}
+.syh{
+	float: left;
+	margin-left: .32rem;
+	font-size: .36rem;
+	color: #fff;
+}
+.floatright{
+	float: right;
+	margin-right: .32rem;
+}
+.weizhi{
+	float: right;
+	font-size: .28rem;
+	color: #55ccff;
+	text-align: center;
+}
+.weizhimap{
+	float: right;
+	width: .3rem;
+	height: .32rem;
+	background-image: url(../images/dingwei.svg);
+	background-repeat: no-repeat;
+	background-size: .3rem .32rem;
+	margin-top: .34rem;
+	margin-right: .1rem;
+}
+/*武汉船赛部分结束*/
+/*iconarea部分开始*/
+.iconarea{
+	background-color: #2e3840;
+	border: none;
+	/*padding-bottom: .2rem;*/
+}
+.iconli{
+	float: left;
+	width: 1.2rem;
+	overflow: hidden;
+	margin: .3rem .1rem;
+}
+.iconli:nth-child(5n){
+	margin-right: 0;
+}
+.iconlichihe{
+	margin-left: -.9rem;
+}
+.iconlia{
+	display: block;
+	width: 100%;
+}
+.iconareaLinka{
+	position: relative;
+	width: 100%;
+	height: 1.3rem;
+}
+.iconimg{
+	position: absolute;
+	width: .48rem;
+	height: .60rem;
+	left: 50%;	
+	top: 0;
+}
+.saishiimg{
+	margin-left: -.24rem;
+}
+.gonggaoimg{
+	width: .48rem;
+	height: .62rem;	
+	margin-left: -.24rem;
+}
+.xiangjieimg{
+	width: .64rem;
+	height: .68rem;	
+	margin-left: -.32rem;
+}
+.dituimg{
+	width: .56rem;
+	height: .58rem;
+	margin-left: -.28rem;
+}
+.baomingimg{
+	width: .58rem;
+	height: .56rem;	
+	margin-left: -.29rem;
+}
+.shipTailAfter{
+	width: .74rem;
+	height: .68rem;
+	margin-left: -.37rem;
+}
+.navigationalWeather{
+	width: .64rem;
+	height: .64rem;
+	margin-left: -.32rem;
+}
+.tupianimg{
+	width: .54rem;
+	height: .48rem;
+	margin-left: -.27rem;	
+	top: .1rem;
+}
+.shipinimg{
+	width: .68rem;
+	height: .64rem;	
+	margin-left: -.34rem;
+}
+.historyReview{
+	width: .54rem;
+	height: .54rem;	
+	margin-left: -.27rem;
+}
+.lifeReview{
+	width: .74em;
+	height: .68rem;	
+	margin-left: -.37rem;
+}
+.questionReview{
+	width: .56em;
+	height: .56rem;	
+	margin-left: -.28rem;
+}
+.iconlip{
+	position: absolute;
+	width: 100%;
+	font-size: .2rem;
+	text-align: center;
+	color: #b8e986;
+	left: 50%;
+	margin-left: -50%;
+	bottom: .1rem;
+}
+.gonggaop{
+	color: #fb6660;
+}
+.xiangjiep{
+	color:  #f6a650;
+}
+.changdip{
+	color:  #76ca58;
+}
+.baomingp{
+	color:  #f8e71c;
+}
+.navigationalWeatherp{
+	color:  #f3cd56;
+}
+.tupianp{
+	color:  #7ed321;
+}
+.shipinp{
+	color:  #9051a8;
+}
+.shipTailAfterp{
+	color: #53baf2;
+}
+.historyReviewp{
+	color: #fb6660;
+}
+.lifeReviewp{
+	color:  #d87724;
+}
+.questionReviewp{
+	color: #00b3ff;
+}
+/*iconarea部分结束*/
+/*比赛成绩开始*/
+.morea{
+	float: right;
+	width: .4rem;
+	height: .22rem;
+	background-image: url(../images/more.svg);
+	background-repeat: no-repeat;
+	background-size: .4rem .22rem;
+	margin-top: .3rem;
+	margin-right: .5rem;
+}
+.bisaichengji{
+	position: relative;
+	width: 7.5rem;
+	/*height: 3.96rem;*/
+}
+/*#wrapper{
+	width: 100%;
+}*/
+#xmxwrapper{
+	height: 2.1rem;
+	width: 100%;
+	/*position: relative;*/
+}
+.chengjiul{
+	width: 9.3rem;
+}
+.chengjili{
+	float: left;
+	width: 3.08rem;
+	border-right: .01rem solid #000;
+}
+.chengjip{
+	float: left;
+	width: 3.08rem;
+	font-size: .28rem;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: .3rem;
+	margin: .22rem 0 ;
+	text-align: center;
+	color: #55ccff;
+}
+.smwave{
+	float: left;
+	width: .5rem;
+	height: .06rem;
+	margin-left: 1.26rem;
+	margin-bottom: .02rem;
+	display: block;
+}
+.chengjimingci{
+	float: left;
+	width: 3.08rem;
+	height: 100%;
+	font-size: .28rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: .5rem;
+    color: #9b9b9b;
+}
+.bscjap{
+	float: left;
+	width: 100%;
+	height: 100%;
+	color: #9b9b9b;
+}
+.mingcixiangqing{
+	width: 2.6rem;
+	margin: 0 auto;
+	/*padding-bottom: .28rem;*/
+}
+.indexduiming{
+	float: left;
+	width: 2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mingci{
+	float: right;
+}
+/*比赛成绩结束*/
+/*船队介绍部分开始*/
+.chuanduijieshao{
+	clear: both;
+	width: 7.5rem;
+	background-color: #1f2832;
+}
+#scroller{
+	width: 7.5rem;
+	height: 2.8rem;
+	background-color: #2e3840;
+}
+.wapperhudong{
+	width: 7.5rem;
+	height: 2.8rem;
+	position: relative;
+}
+.chuanduijieshaodiv{
+	width: 9.7rem;
+	height: 2.8rem;
+}
+.chuanduia{
+	float: left;
+	width: 2rem;
+	height: 2.8rem;
+	margin-right: .04rem;
+	position: relative;
+}
+.chuanduiimg{
+	width: 2rem;
+	height: 2.8rem;
+}
+.chuanduimingzi{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: .54rem;
+	line-height: .54rem;
+	text-align: center;
+	font-size: .28rem;
+	color: #fff;
+	opacity: .9rem;
+	z-index: 1;
+	width: 100%;
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap; 
+}
+/*船队介绍部分结束*/
+/*赛事直击部分开始*/
+.saishizhijikuang{
+	width: 7.5rem;
+	/*background-color: #2e3840;*/
+}
+.lilinka{
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+.saishizhijili{
+	float: left;
+	width: 100%;
+	border-bottom: .02rem solid #1f2832;
+}
+.saishizhijih{
+	width: 100%;
+	float: left;
+	font-size: .36rem;
+  	font-weight: normal;
+  	font-style: normal;
+ 	font-stretch: normal;
+    line-height: 1rem;
+    height: 1rem;
+  	color: #fff;
+  	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap; 
+}
+.zhijijieshao{
+	float: left;
+	width: 100%;
+	padding-bottom: .28rem;
+}
+.zhijijieshaoimg{
+	float: left;
+	width: 2.7rem;
+	height: 1.8rem;
+}
+.shjswenzi{
+	float: right;
+}
+.shzjwenzip{
+	width: 4.02rem;
+  	opacity: 0.7;
+  	font-size: .28rem;
+ 	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .36rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	text-align: justify;
+	text-align-last: auto;
+}
+.shzjwenzitime{
+	width: 4.02rem;
+  	opacity: 0.5;
+  	font-size: .24rem;
+ 	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	text-align: justify;
+  	color: #ffffff;
+}
+.imgvedio{
+	float: left;
+	position: relative;
+}
+.bofangicon{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 1.64rem;
+	height: 1.64rem;
+	margin-left: -.82rem;
+	margin-top: -.82rem;
+
+}
+.jiazaimorea{
+	float: left;
+	width: 2.4rem;
+	margin: .32rem 3rem;
+	text-align: center;
+	margin: .3rem 3rem;
+}
+.jiazaiwave{
+	float: left;
+	width: .5rem;
+	height: .06rem;
+	margin: .1rem .9rem;
+}
+.jiazaimorenew{
+	width: 2.4rem;
+	font-size: .26rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	text-align: center;
+  	color: #55ccff;
+  	margin-bottom: .1rem;
+}
+/*赛事直击部分结束*/
+/*赛事论坛部分开始*/
+#saishiluntaiul{
+	padding-bottom: .2rem;
+}
+.luntanli{
+	width: 7.2rem;
+	margin: auto;
+	line-height: .44rem;
+	font-size: .28rem;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	color: #ffffff;
+	margin: 0 .15rem;
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap; 
+}
+.luntanli1{
+	margin-top: .15rem;
+}
+.luntanli3{
+	margin-bottom: .15rem;
+}
+.luntana{
+	color: #fff;
+}
+/*赛事论坛部分结束*/
+/*赛事行程部分开始*/
+#matchArrangeConTitle{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	border-top: .02rem solid #000;
+	background-color: rgba(31,40,50,1);
+}
+.saishishijian{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	/*border-top: .02rem solid #000;
+	background-color: rgba(31,40,50,1);*/
+}
+#journeyarrange{
+	color: #fff;
+}
+.jadate{
+	float: left;
+	width: .88rem;
+	height: .44rem;
+	line-height: .44rem;
+	text-align: center;
+	margin-top: .32rem;
+	font-size: .32rem;
+  	color: #fff;
+  	margin-right: .16rem;
+  	/*border-bottom: .04rem solid #55ccff;*/
+}
+.jadate1{
+	margin-left: .3rem;
+}
+.anpaikuang{
+	width: 100%;
+	background-color: rgba(31,40,50,.9);
+}
+.journeyarrange{
+	width: 37.5rem;
+}
+.jacontent{
+	width: 7.5rem;
+	margin: .34rem auto;
+	float: left;
+}
+.jacontime{
+	opacity: 0.7;
+  	font-size: .28rem;
+  	line-height: .3rem;
+  	text-align: center;
+  	color: #ffffff;
+}
+.jaconp{
+	font-size: .28rem;
+  	line-height: .4rem;
+  	text-align: center;
+  	color: #ffffff;
+}
+.jacondizhi{
+	color: #9b9b9b;
+}
+/*赛事行程部分结束*/
+/*合作伙伴部分开始*/
+.hezuolianjie{
+	width: 7.5rem;
+	background-color: rgba(46,56,65,1);
+}
+.hezuolianjiea{
+	float: left;
+	width: 1.26rem;
+	height: .56rem;
+	background-repeat: no-repeat;
+	background-size: 1.26rem .56rem;
+	margin: .3rem .3rem;
+}
+/*.hezuolianjiea1{
+	background-image: url(../images/lianjie1.png);
+}
+.hezuolianjiea2{
+	background-image: url(../images/lianjie2.png);
+}
+.hezuolianjiea3{
+	background-image: url(../images/lianjie3.png);
+}
+.hezuolianjiea4{
+	background-image: url(../images/lianjie4.png);
+}
+.hezuolianjiea5{
+	background-image: url(../images/lianjie5.png);
+}
+.hezuolianjiea6{
+	background-image: url(../images/lianjie6.png);
+}
+.hezuolianjiea7{
+	background-image: url(../images/lianjie7.png);
+}
+.hezuolianjiea8{
+	background-image: url(../images/lianjie8.png);
+}*/
+/*.sinanCooperateLogo,.huanghaiCooperateLogo,.sinanOrganizerLogo,.huanghaiOrganizierLogo,.matchCooperateLogo,.matchOrganizierLogo{*/
+	/*display: block;*/
+	/*width: 7.5rem;*/
+	/*height: 3.5rem;*/
+	/*!*margin: .48rem .44rem .44rem .44rem;*!*/
+	/*display: none;*/
+	/*float: left;*/
+/*}*/
+.organizerLogo,.cooperateLogo{
+	display: block;
+	width: 7.5rem;
+	height: 3.5rem;
+	float: left;
+}
+
+.huanghaiCooperateLogo{
+	height: 4.18rem;
+}
+.huanghaiOrganizierLogo{
+	height: 2.51rem;
+}
+.coperationParner{
+	display: block;
+	width: 7.5rem;
+	height: 3.5rem;
+	margin: auto;
+}
+/*合作伙伴部分结束*/
+/*承办单位部分开始*/
+.chengbandanwei{
+	background-color: #1f2832;
+}
+.zuweihui{
+	padding: .28rem 0;
+}
+.chengbandanweip{
+	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	color: #9b9b9b;
+}
+.lianxifangshi{
+	padding: .05rem 0 .2rem;
+}
+.zhidaodanwei{
+	padding-bottom: .34rem;
+}
+
+/*承办单位部分结束*/
+/*logo部分部分开始*/
+.logo{
+	height: 3rem;
+	background-color: #2e3840;
+	position: relative;
+}
+.logoimgCnsa{
+	position: absolute;
+	width: 1.02rem;
+	height: .7rem;
+	left: 25%;
+	top: 50%;
+	margin-top: -.35rem;
+}
+.logoimg,.matchlogoimg{
+	position: absolute;
+	width: 1.88rem;
+	height: 1rem;
+	right: 25%;
+	top: 50%;
+	margin-top: -.6em;
+	display: none;
+}
+.logoimg{
+	display: block;
+}
+.huanghailogoimg{
+	position: absolute;
+	width: 3.72rem;
+	height: 1.98rem;
+	right: 20%;
+	top: 50%;
+	margin-top: -.99em;
+	display: none;
+}
+/*logo部分部分结束*/
+/*footer部分开始*/
+.footer{
+  	height: .96rem;
+  	line-height: .96rem;
+  	background-color: #1f2832;
+}
+.footp{
+	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .96rem;
+  	text-align: center;
+  	color: #9b9b9b;
+}
+/*footer部分结束*/
+
+
+/*环海南岛国际大帆船赛部分开始*/
+.zsaishijieshao{
+  height: 1rem;
+  background-color: #262f38;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  width: 7.5rem;
+  margin: 0 auto;
+}
+.back{
+	float: left;
+	width: .24rem;
+	height: .42rem;
+	background-image: url(../images/back.svg);
+	background-repeat: no-repeat;
+	background-size: .24rem .42rem;
+	margin: .29rem .3rem;
+	margin-right: 0;
+}
+.ztitle{
+	font-size: .36rem;
+  	line-height: 1rem;
+  	text-align: center;
+  	color: #ffffff;
+}
+/*赛事介绍内容部分开始*/
+.zshjscon{
+	background-color: rgba(0, 8, 14, 0.5);
+	margin: 1rem 0 0 0;
+	text-align: justify;
+	text-align-last: auto;
+}
+
+.zshjstitle{
+	font-size: .36rem;
+  	line-height: .6rem;
+  	color: #ffffff;
+}
+.zshjsp{
+	width: 100%;
+	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	text-align: justify;
+  	color: #cecece;
+}
+.zshjstitle{
+	width: 100%;
+	height: 100%;
+}
+.zshjsimg{
+	display: block;
+	width: 6.9rem;
+	height: 4.04rem;
+	margin: .3rem .15rem;
+}
+.zshjspizhu{
+	font-size: .24rem;
+  	line-height: .3rem;
+  	text-align: center;
+  	color: #ffffff;
+  	opacity: .5;
+  	filter: alpha(opacity=50%);
+}
+.zshjsp2{
+	padding-bottom: .4rem;
+}
+/*赛事介绍内容部分结束*/
+/*环海南岛国际大帆船赛部分结束*/
+
+/*环海南岛国际大帆船赛赛船详解部分开始*/
+.scqjyemain{
+	position: relative;
+	margin: 1rem 0 0 0;
+}
+#cxwrapper{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	border-top: .02rem solid #000;
+	background-color: rgba(31,40,50,1);
+}
+/*#zsaishichuanxing{
+	width: 7.5rem;
+	height: 1rem;
+	line-height: 1rem;
+	border-top: .02rem solid #000;
+	background-color: rgba(31,40,50,1);
+}*/
+.saixhuancxcont{
+	width: 100%;
+	height: 100%;
+}
+.zsaichuanxiangjie{
+	height: 1rem;
+	background-color: #262f38;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 3;
+}
+.contentTop{
+	/*position: absolute;
+	left: 0;
+	top: 1rem;*/
+	margin: 1rem 0 0 0;
+}
+.mapContentTop{
+	margin: 1rem 0 ;
+}
+.scxjkuang{
+	width: 100%;
+	background-color: rgba(31,40,50,.9);
+	position: relative;
+}
+#zshinfo{
+	width: 7.2rem;
+	margin: 0 auto;
+	text-align: justify;
+	text-align-last: auto;
+}
+.zinfocon{
+	float: left;
+	width: 7.2rem;
+	padding-bottom: .3rem;
+	margin: 0 auto;
+	/*display: none;*/
+}
+.zinfoconimg{
+	display: block;
+	width: 6.9rem;
+	height: 4.6rem;
+	margin: .3rem .15rem;
+}
+.zinfoconimg{
+	height: 4.72rem;
+}
+.zchuanxing{
+	float: left;
+	width: 1.4rem;
+	height: .45rem;
+	font-size: 16px;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .45rem;
+  	text-align: center;
+  	color: #fff;
+  	margin: .26rem .1rem 0;
+}
+.zchuanxing1{
+	display: block;
+	margin-left: 2.72rem;
+}
+
+
+/*环海南岛国际大帆船赛赛船详解部分结束*/
+
+/*上传图片部分开始*/
+.zshtupianpart{
+	width: 100%;
+	height: 5rem;
+	position: relative;
+}
+.zshtupianimg{
+	width: 7.5rem;
+	height: 5rem;
+}
+.zsctpsheying{
+	position: absolute;
+	left: .2rem;
+	top: .2rem;
+	height: .7rem;
+	line-height: .7rem;
+	/*background-image: url(../images/weidenglu.png);
+	background-repeat: no-repeat;
+	background-size: .64rem .64rem;
+	background-position: 0 0;*/
+	/*text-indent: .74rem;*/
+	font-size: .28rem;
+	color: #00b1ff;
+}
+.uploaderIcon{
+	width: .64rem;
+	height: .64rem;
+	float: left;
+}
+.uploadName{
+	font-size: .28rem;
+	line-height: .7rem;
+	color: #00b1ff;
+	margin-left: .1rem;
+}
+.zshtppizhu{
+	position: absolute;
+	left: .3rem;
+	bottom: .9rem;	
+	z-index: 1;
+}
+.pictureZshtppizhu{
+	bottom: .4rem;
+}
+.zsctpchuandui,.zsctpchuanxing,.zsctpmingzi{
+	float: left;
+	height: .36rem;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	font-size: .24rem;
+	padding: .05rem .1rem;
+	margin-right: .1rem;
+}
+.zsctpform{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 7.5rem;
+	height: .88rem;
+	z-index: 2;
+}
+.zscbut{
+	float: left;
+	width: 2.12rem;
+	height: .88rem;
+	background-image: url(../images/shangchuanpic.svg);
+	background-repeat: no-repeat;
+	background-size: 2.12rem .88rem;
+	margin-left: 2.72rem;
+}
+/*上传图片部分结束*/
+
+/*上传图片部分开始*/
+.shipinsuoluetu{
+	float: right;
+	width: .64rem;
+	height: .64rem;
+	border-radius: 50%;
+	margin: .2rem .28rem 0 0;
+}
+.headsuoluetu{
+	float: left;
+	width: .64rem;
+	height: .64rem;
+}
+.zhuanghaibei{
+	float: left;
+	width: 6rem;
+}
+.zscspp{
+	position: absolute;
+	left: .2rem;
+	top: .2rem;
+	font-size: .32rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	color: #ffffff;
+  	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);	
+}
+.zscspsheying{
+	top: .68rem;
+}
+.zscspbofang{
+	width: 1.64rem;
+	height: 1.64rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -.82rem;
+	margin-top: -.82rem;
+	background-image: url(../images/bofangicon.svg);
+	background-repeat: no-repeat;
+	background-size: 1.64rem 1.64rem;
+	z-index: 2;
+}
+.zscspfenxiang{
+	width: .52rem;
+	height: .52rem;
+	position: absolute;
+	right: .32rem;
+	bottom: .32rem;
+	background-image: url(../images/fenxiang.svg);
+	background-repeat: no-repeat;
+	background-size: .52rem .52rem;
+}
+.zscshipinbut{
+	background-image: url(../images/shangchuanvedio.svg);
+}
+/*上传图片部分结束*/
+
+
+/*船队报名系列开始*/
+/*船队报名首页开始*/
+.zcdbmkuang{
+	margin: 1rem 0 0 0;
+}
+.zbaomingxitong{
+	background-color: #262f38;
+}
+.zcdbmsafe{
+	width: 6.9rem;
+	margin: 0 auto;
+}
+.zfenlei{
+	width: 100%;
+	height: 1rem;
+  	background-color: #1f2832;
+}
+.zfenleia{
+	float: left;
+	width: 1.6rem;
+	height: .4rem;
+	font-size: .32rem;
+  	line-height: .4rem;
+  	text-align: center;
+  	color: #ffffff;
+  	margin-right: .1rem;
+  	margin-top: .3rem;
+  	padding-bottom: .1rem;
+}
+.zfenleia1{
+	margin-left: 2.14rem;
+}
+.zfenleicon{
+	width: 100%;
+	background-color: #2e3840;
+}
+.zcdbmtitle{
+	font-size: .36rem;
+  	line-height: .38rem;
+  	color: #ffffff;
+  	padding: .4rem 0;
+}
+.zcdbmp{
+	font-size: .28rem;
+ 	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .36rem;
+  	text-align: justify;
+  	color: #cecece;
+}
+.zceratecd{
+	display: block;
+	width: 6.9rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #55ccff;
+  	font-size: .36rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+ 	line-height: .84rem;
+ 	text-align: center;
+  	color: #55ccff;
+  	margin: .36rem 0;
+}
+.zcdbmp2{
+	padding-bottom: 2.12rem;
+}
+/*船队报名首页结束*/
+
+/*船队报名子页部分cdbmziye开始*/
+.menu{
+	float: left;
+	width: .4rem;
+	height: .3rem;
+	background-image: url(../images/menu.svg);
+	background-repeat: no-repeat;
+	background-size: .4rem .3rem;
+	margin: .35rem .3rem;
+	margin-right: 0;
+}
+
+.zscform{
+	width: 6.9rem;
+	margin-top: .2rem;
+	padding-bottom: .6rem;
+}
+.sclabel{
+	float: left;
+	font-size: .28rem;
+ 	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	color: #ffffff;
+  	margin-top: .28rem;
+}
+.scinput{
+	float: right;
+  	height: .32rem;
+  	line-height: .32rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #0f1518;
+  	opacity: 0.5;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: 1.29;
+  	color: #ffffff;
+  	padding: .24rem .24rem;
+}
+.duiming{
+	width: 5.58rem;
+}
+.yingyuduiming,.mobile,.beiyongmobile,.guhua,.zcdmiaoshu{
+	width: 4.94rem;
+}
+.xingming{
+	width: 3.48rem;
+}
+.guishu,.guishudi{
+	width: 3.84rem;
+}
+.miaoshulabel{
+	margin-top: .3rem;
+}
+.zcdmiaoshu{
+	height: .96rem;
+	padding: .12rem .24rem;
+	resize: none;
+	outline: none;
+}
+.heyingshangchuan{
+	position: relative;
+	width: 6.9rem;
+	height: .84rem;
+	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #0f1518;
+  	margin-bottom: .3rem;
+}
+.scjindu{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 45%;
+	height: .84rem;
+	border-radius: .04rem;
+  	background-color: #00b1ff;
+}
+.scwenzi{
+	width: 6.9rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: .36rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .84rem;
+  	text-align: center;
+  	color: #ffffff;
+  	z-index: 1;
+}
+
+.zcdbmp{
+	clear: both;
+	padding-top: .3rem;
+}
+/*添加删除 部分*/
+.saishiname{
+	float: left;
+	width: 1.78rem;
+	height: .46rem;
+	line-height: .46rem;
+	margin-right: .08rem;
+}
+.remove{
+	width: 100%;
+	height: .98rem;
+	margin: .2rem 0;
+}
+.bisainianfen{
+	float: left;
+	display: block;
+	position: relative;
+	width: 1.3rem;
+	height: .98rem;
+	line-height: .98rem;
+	margin-right: .06rem;
+	position: relative;
+}
+.nianfeninput{
+	width: .78rem;
+	height: .46rem;
+	line-height: .46rem;
+	padding-left: .2rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.xiajiantou{
+	position: absolute;
+	right: .18rem;
+	top: .4rem;
+	width: .18rem;
+	height: .14rem;
+}
+.xialaselect{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: .84rem;
+	background-color: #000;
+	z-index: 3;
+	display: none;
+}
+
+.xlselectli{
+	float: left;
+	width: 100%;
+	height: .5rem;
+	line-height: .5rem;
+	text-align: center;
+	background-color: #1f2832;
+	 font-size: .28rem;
+  	font-weight: 300;
+  	color: #fff;
+  	margin-bottom: .02rem;
+  	z-index: 5;
+}
+.xlselectli1{
+	color: red;
+}
+.removejianhao{
+	float: right;
+	width: .4rem;
+	height: .4rem;
+	margin-top: .3rem;
+}
+.chuanlichuanduia,.quexiaoa{
+	float: left;
+	width: 6.9rem;
+  	height: .84rem;
+}
+.quexiaoa{
+	margin-top: .3rem;
+}
+.fwxybacka{
+	width: 1.8rem;
+  	height: .84rem;
+  	position: fixed;
+  	right: .4rem;
+  	bottom: .4rem;
+  	font-size: .4rem;
+  	line-height: .84rem;
+  	text-align: center;
+  	background-color: #999;
+  	color: #333;
+
+}
+.submitbut{
+	float: left;
+	width: 6.9rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #00b1ff;
+  	border: solid .02rem #00b1ff;
+  	font-size: .36rem;
+  	text-align: center;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .84rem;
+  	color: #ffffff;
+}
+.cancelbut{
+	float: left;
+	width: 6.9rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #00b1ff;
+  	font-size: .36rem;
+  	text-align: center;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .84rem;
+  	color: #00b1ff;
+}
+/*船队报名子页部分cdbmziye结束*/
+
+/*船队报名参赛信息开始*/
+.cdbmalert{
+	width: 100%;
+}
+.bigwave{
+	display: block;
+	width: .8rem;
+	height: .1rem;
+	padding: .8rem 0 .4rem 3.5rem;
+}
+.tiship{
+	text-align: center;
+	 font-size: .42rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .6rem;
+  	text-align: center;
+  	color: #55ccff;
+}
+.cdselect{
+	width: 5rem;
+	height: .86rem;
+	float: right;
+	position: relative;
+}
+.cdselect2{
+	width: 4.5rem;
+}
+.cansaizu{
+	width: 4.7rem;
+	text-align: center;
+}
+.cansaiteam{
+	width: 4rem;
+	text-align: center;
+}
+.zcansaiduiming{
+	width: 4.3rem;
+}
+.inputkuang{
+	width: 100%;
+	height: .86rem;
+	margin: .16rem 0;
+}
+#csxqcansaizu{
+	width: 4.5rem;
+}
+.daibiao{
+	width: 4.1rem;
+}
+.lishu{
+	width: 3.8rem;
+}
+.cdzanzhushang{
+	width: 4.5rem;
+}
+/*船队报名参赛信息结束*/
+
+/*船队报名系列结束*/
+/*二期航海网首页开始*/
+.f_left{
+	float: left;
+}
+.f_right{
+	float: right;
+}
+/*头部导航部分开始*/
+
+.indexHeader{
+	height: 1.2rem;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: #1f2832;
+	z-index: 10;
+}
+.indexHeaderUl{
+	width: 4.93rem;
+	height: .94rem;
+	position: absolute;
+	border-radius: .03rem;
+	left: 50%;
+	bottom: 0;
+	margin-left: -2.46rem;
+}
+.indexHeaderli,.indexHeaderli1{
+	width: 2.46rem;
+	height: .94rem;
+  	border-radius: .6rem;
+  	font-size: .36rem;
+  	line-height: .94rem;
+  	letter-spacing: normal;
+  	text-align: center;
+  	color:  #9b9b9b;
+  	position: relative;
+  	text-align: center;
+}
+.indexHeaderli2{
+	width: 2.46rem;
+	height: .94rem;
+  	border-radius: .6rem;
+  	font-size: .36rem;
+  	line-height: .94rem;
+  	letter-spacing: normal;
+  	text-align: center;
+  	color:  #9b9b9b;
+  	position: relative;
+  	text-align: center;
+}
+.indexHeaderli1::after{
+	content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    background: #a5acaf;
+    background-color: rgba(165,172,175,.4);
+    -moz-transform: perspective(1rem) rotateX(5deg);
+    -ms-transform: perspective(1rem) rotateX(5deg);
+    -webkit-transform: perspective(1rem) rotateX(5deg);
+    transform: perspective(1rem) rotateX(3deg);
+    transform-origin: bottom;
+}
+.indexHeaderli2::after{
+	content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    /*background: #2e3840;*/
+    background: rgba(46,56,64,1);
+    -moz-transform: perspective(1rem) rotateX(5deg);
+    -ms-transform: perspective(1rem) rotateX(5deg);
+    -webkit-transform: perspective(1rem) rotateX(5deg);
+    transform: perspective(1rem) rotateX(-3deg);
+    transform-origin: bottom;
+}
+.indexHeaderUl .indexHeaderli2{
+	color: #fff;
+	z-index: 6;
+}
+/*头部导航部分结束*/
+/*内容部分开始*/
+.indexCon{
+	/*position: absolute;
+	left: 0;
+	right: 0;*/
+	padding-top: 1.2rem;
+	min-height: .7rem;
+}
+.indexConPart{
+	width: 100%;
+	display: none;	
+}
+.indexConPart1{
+	display: block;
+}
+.scheduleState{
+	width: 7.5rem;
+	height: .9rem;
+  	background-color: #2e3840;
+  	position: fixed;
+  	top: 1.2rem;
+  	left: 0;
+  	right: 0;
+  	z-index: 3;
+}
+.smState{
+	margin-left: .26rem;
+}
+.stateDash{
+	width: .18rem;
+  	height: .18rem;
+  	border-radius: 50%;
+  	background-color: #7f909d;
+  	margin: .36rem .15rem .36rem 0;
+}
+.stateWord{
+  	font-size: .28rem;
+  	line-height: .9rem;
+  	letter-spacing: normal;
+  	color: #ffffff;
+}
+.stateDashLan{
+	background-color: #55ccff;
+}
+.stateDashGreen{
+	background-color: #71bf56;
+}
+/*内容部分*/
+.scheduleCon{
+	padding: 1rem 0 1.4rem;
+	background-color: #1f2832;
+}
+.kong{
+	width: 100%;
+	height: .05rem;
+	background-color: transparent;
+}
+.scheduleArrangePart{
+	width: 100%;
+}
+.scheduleDate{
+	padding: .2rem .14rem;
+	border-radius: .04rem;
+ 	background-color: #2e3840;
+ 	font-size: .28rem;
+ 	text-align: center;
+ 	line-height: 4rem;
+  	line-height: 0.86;
+  	letter-spacing: normal;
+  	color: #ffffff;
+}
+.scheduleLinka{
+	float: left;
+	width: 100%;
+}
+.scheduleConLeft{
+	position: relative;
+	width: .01rem;
+	height: .5rem;
+	background-color: #2e3840;
+	margin-left: .62rem;
+	padding: .46rem 0 .4rem 0;
+}
+.scheduleConPar{
+	width: 100%;
+	clear: both;
+}
+.lineDash{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -0.09rem;
+	margin-top: -0.09rem;
+
+}
+.scheduleConRight{
+	width: 83%;
+	height: .9rem;
+	margin: .25rem 0 0 .6rem;
+}
+.scheduleConDate{
+	width: .7rem;
+	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	vertical-align: middle;
+  	margin-top: .1rem;
+}
+.scheduleConDateSpan{
+	font-size: .28rem;
+  	line-height: .34rem;
+  	letter-spacing: normal;
+  	text-align: center;
+  	color: #9b9b9b;
+}
+.scheduleArrange{
+	width: 80%;
+	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
+  	margin-left: .4rem;
+  	vertical-align: middle;
+}
+.schedulName{
+	font-size: .36rem;
+  	line-height: .4rem;
+  	color: #55ccff;
+  	margin-bottom: .1rem;
+  	display: -webkit-box;
+  	overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+.schedulIntro{
+	display: flex;
+  	flex-wrap: nowrap;
+  	justify-content: flex-start;
+}
+.schedulIntroiconEnter,.schedulIntroiconMap{
+	width: .28rem;
+	height: .26rem;
+	background-image: url(../images/twopeople.svg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center center;
+	margin-right: .1rem;	
+}
+.schedulIntrospan{
+	font-size: .28rem;
+  	line-height: .34rem;
+  	color: #9b9b9b;
+  	margin-top: -.02rem;
+}
+.schedulIntroEnter{
+	margin-right: .24rem;
+}
+.schedulIntroiconMap{
+	background-image: url(../images/dingwei2.svg);	
+}
+/*第二部分赛事新闻*/
+.indexConPart2{
+	background-color: #1f2832;
+}
+.matchNew{
+	width: 100%;
+	background-color: #2e3840;
+	margin-bottom: .05rem;
+	padding-bottom: .22rem;
+}
+.safe{
+	width: 6.9rem;
+	margin: 0 auto;
+}
+.matchNewName{
+	font-size: .28rem;
+  	line-height: .34rem;
+  	color: #55ccff;
+  	padding: .36rem 0 .2rem;
+}
+.matchNewTitle{
+	font-size: .36rem;
+  	line-height: .4rem;
+  	letter-spacing: normal;
+  	color: #ffffff;
+  	margin-bottom: .24rem;
+  	text-align: justify;
+  	text-align-last: auto;
+}
+.matchNewCon{
+	width: 100%;
+}
+.matchNewImg{
+	width: 2.7rem;
+    height: 1.8rem;
+}
+.matchNewWord{
+	width: 4.02rem;
+}
+.matchNewWordp{
+	opacity: 0.7;
+  	font-size: .28rem;
+  	line-height: .36rem;
+  	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+  	letter-spacing: normal;
+  	text-align: justify;
+  	text-align-last: auto;
+  	color: #ffffff;
+  	margin-bottom: .1rem;
+  	max-height: 1.44rem;
+}
+.matchNewWordpword{
+	-webkit-line-clamp: 3;
+	max-height: 1.08rem;
+}
+.matchNewWordTime{
+	opacity: 0.5;
+  	font-size: .28rem;
+  	line-height: .34rem;
+  	letter-spacing: normal;
+  	color: #ffffff;
+}
+.matchNewVedio{
+	width: 2.7rem;
+    height: 1.8rem;
+    position: relative;
+}
+.matchNewBofangIcon{
+	width: 1.64rem;
+	height: 1.64rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -.82rem;
+	margin-top: -.82rem;
+}
+/*点击加载更多*/
+.newsAddmore{
+	width: 7.5rem;
+	height: 1.4rem;
+	background-color: #1f2832;
+	/*position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;*/
+}
+.newsAddmorea{
+	height: 100%;
+	position: relative;
+}
+.addmorewave{
+	width: .8rem;
+	height: .1rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -.4rem;
+	top: 25%;
+}
+.newsAddmorep{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 45%;
+	font-size: .28rem;
+  	line-height: .36rem;
+  	letter-spacing: normal;
+  	text-align: center;
+  	color: #55ccff;
+}
+#scheduleArrCon,.matchNewConKuang{
+	width: 100%;
+}
+/*内容部分结束*/
+/*二期航海网首页结束*/
+
+
+/*增加样式*/
+.content-data img{
+	max-width:100%;
+	height: auto;
+}
+.content-data table{
+	max-width:100%;
+	height: auto;
+}
+.content-data table table{
+	max-width:100%;
+	height: auto;
+}
+.content-data audio{
+	max-width:100%;
+	height: auto;
+}
+.content-data video{
+	max-width:100%;
+	height: auto;
+}
+.content-data iframe{
+	max-width:100%;
+	height: auto;
+}
+
+
+.saichuanwapper{
+	width: 7.5rem;
+	height: 100%;
+}
+
+/*首页船队部分*/
+#shipwrapper,#gradewrapper{
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	-ms-touch-action: none;
+}
+#shipwrapper{
+	width: 7.5rem;
+	height: 2.8rem;
+}
+#shipscroller,#gradsrcoller{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+#gradewrapper{
+	width: 100%;
+	height: 100%;
+}
+#gradsrcoller{
+	height: 100%;
+}
+/*船队主页滑动部分*/
+#cdwrapper,#xmxwrapper{
+	width: 100%;
+	height: 1.8rem;
+	position: relative;
+	z-index: 1;
+}
+#cdsrcoller,#xmxscroller{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+/*新梦想船队滑动部分*/
+#xmxwrapper{
+	width: 100%;
+}
+#xmxscroller{
+	height: 100%;
+}
+/*二期页面赛场地图*/
+.matchmapcon{
+	width: 7.5rem;
+	background-color: #2e3843;
+	margin: 1rem 0 0 0;
+	font-size: .34rem;
+	color: #fff;
+	line-height: .5rem;
+	text-align: justify;
+	text-align-last: auto;
+}
+.matchmapconTitle{
+	width: 100%;
+	height: 1rem;
+	background-color: #1f2832;
+}
+.matchMaph3{
+	line-height: 1rem;
+	font-size: .36rem;
+	color: #fff;
+}
+.bitmap1,.bitmap2{
+	display: block;
+	width: 100%;
+	height: 4.48rem;
+}
+.bitmap2{
+	height: 6.08rem;
+}
+.matchmapsafe{
+	width: 7.2rem;
+	margin: auto;
+}
+.matchMapp{
+	font-size: .28rem;
+	color: #cecece;
+	line-height: .36rem;
+	padding: .2rem 0 .35rem;
+}
+.goback{
+	width: .4rem;
+	height: .64rem;
+	display: block;
+	margin: auto;
+	padding: .2rem 0;
+}
+/*比赛成绩 页面*/
+.matchScoreCon{
+	background-color: #1f2832;
+}
+#shipTypeSolid{
+	width: 7.5rem;
+	margin: auto;
+	height: 1rem;
+}
+.shipTypeSolidUl{
+	margin: auto;
+}
+.shipTypeSolidLi{
+	width: 2.2rem;
+	height: 100%;
+}
+.shipTypeName{
+	width: 100%;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	white-space: nowrap;
+    -webkit-box-orient: vertical;
+}
+.shipTypeName{
+	width: 100%;
+	font-size: .32rem;
+	line-height: .4rem;
+	letter-spacing: normal;
+	text-align: center;
+	color: #fff;
+	padding: .2rem 0 .15rem;
+	/*border-bottom: .04rem solid  #00b1ff;*/
+}
+.shipTypeScore{
+	width: 100%;
+	background-color: #2e3840;
+	padding: .1rem;
+}
+.shipTypeScoreShip{
+	width: 5.3rem;
+}
+.shipScoreView{
+	width: 2.1rem;
+}
+.shipTypeScoreShipTitle{
+	width: 100%;
+	height: .4rem;
+	line-height: .4rem;
+	float: left;
+}
+.shipRank,.scoreMatchShipName{
+	font-size: .28rem;
+	line-height: .4rem;
+	letter-spacing: normal;
+	color: #9b9b9b;
+	text-align: center;
+}
+.allScore,.chengji{
+	width: .8rem;
+	/*margin: 0 .2rem;*/
+	font-size: .28rem;
+	line-height: .4rem;
+	letter-spacing: normal;
+	color: #9b9b9b;
+	text-align: center;
+}
+.shipRank{
+	width: .78rem;
+	
+}
+.scoreMatchShipName{
+	width: 2.8rem;
+}
+.shipScoreViewLi{
+	width: .9rem;
+	/*line-height: .4rem;
+	height: .4rem;
+	font-size: .28rem;
+	letter-spacing: normal;
+	color: #9b9b9b;
+	text-align: center;*/
+}
+.singleScoreli{
+	width: .9rem;
+	line-height: .4rem;
+	height: .4rem;
+	font-size: .28rem;
+	letter-spacing: normal;
+	color: #9b9b9b;
+	text-align: center;
+}
+.lunciSpan{
+	width: .9rem;
+	line-height: .4rem;
+	height: .4rem;
+	font-size: .28rem;
+	letter-spacing: normal;
+	color: #9b9b9b;
+	text-align: center;
+}
+.scoreDescription{
+	font-size: .28rem;
+	line-height: .36rem;
+	letter-spacing: normal;
+	text-align: justify;
+	text-align-last: auto;
+	color: #797979;
+	padding: .2rem 0;
+}
+.scroreFooter{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#joinMatchCon{
+	font-size: .32rem;
+	line-height: .48rem;
+	color: #fff;
+}

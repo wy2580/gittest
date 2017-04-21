@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/chuanduizuye.css">
+</head>
+<body>
+	<div class="wapper qrsqnj">
+		<!-- head部分开始 -->
+		<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+			<a href="javascript:;" class="back"></a>
+			<h3 id="pageTitle" class="ztitle zhuanghaibei">船队主页-菜鸟1号帆船队</h3>
+			<a href="javascript:;" class="chuanduitouxiang"></a>
+		</div>
+		<!-- head部分结束 -->
+		<!-- 船队报名系列部分内容开始 -->
+		<div class="consafe hidden qrsqcon">
+			<p class="qrsqconp1">申请加入船队</p>
+			<p class="qrsqconp2">参加环海南岛大帆船赛？</p>
+			<a href="javascript:joinTeam();" class="qrsqa1">申请加入船队，参加此次比赛</a>
+			<a href="#" class="qrsqa2 quexiaoa">取消</a>
+		</div>
+		<!-- 船队报名系列部分内容结束 -->
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script>
+var teamId= $.cookie('applyToJoinTeamId');
+	//页面初始化
+    $(function(){
+        var team = getTeamInfo($.cookie('applyToJoinTeamId'));
+        $('#pageTitle').text('船队主页-'+team['teamName']);
+    });
+    //获取船队信息
+    function getTeamInfo(teamId){
+        return getData({
+            url : '/team/getTeamDetail',
+            data : {teamId : teamId}
+        });
+    }
+    //报名
+    function joinTeam(teamId){
+        loginCheck();//验证用户登录
+        postData({
+            url : '/user/jionTeam',
+            data : {
+                matchId : $.cookie('applyToJoinTeamMatchId') || getMatchId(),
+                teamId : $.cookie('applyToJoinTeamId')
+            },
+            callback : function(data){
+                alert('报名成功！');
+                window.location.href="gerenbaoming.html";
+            }
+        });
+    }
+    
+    $(".qrsqconp2").text("参加"+saveMatchName()+"?");
+    document.title=saveMatchName();
+</script>
+</html>

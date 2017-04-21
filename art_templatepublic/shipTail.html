@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/shipTail.css">
+    <link rel="stylesheet" href="styles/index.css">
+	<script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+    <!-- head部分开始 -->
+    <div class="zsaishijieshao wapper hidden">
+        <a href="javascript:;" class="back"></a>
+        <h3 class="ztitle"></h3>
+    </div> 
+	<div id="mapbox">    
+        <div id="map" style="cursor: crosshair;"></div>    
+       <!--  <div id="results"></div>    
+        <div id="mapx" ></div>    
+        <div id="mapy" ></div>    
+        <div id="level" ></div>  -->
+        <div class="shipNameSelect hidden">
+            <!-- <div class="sellectBoxHead hidden"><span class="closeMenu">关闭菜单</span></div>
+            <div class="titleInfo hidden">
+                <span class="kaiguanSpan f_left">开关</span>
+                <span class="bianhaoSpan f_left">编号</span>
+                <span class="shipNameSpan f_left">船队名</span>
+            </div>
+            <div class="sellectBox" id="sellectBox">
+                <div class="option">
+                    <input type="checkbox"  class="noselectimg" name="selection"><label  class="shipName">北京市东城区王府井大街88号乐天银泰百货八层</label> 
+                </div>
+               
+            </div> -->
+        </div>
+        <img src="images/shipRouteline.png" class="shipRoutLine">
+        <img src="images/layerSetBtn.png" class="layerSetBtn">
+
+        <img src="images/boat1.svg" class="layerSetBtn">
+        <img src="images/boat2.svg" class="layerSetBtn">
+        <div class="showSelect hidden">
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn1"><label  class="btnSelectLabel f_left">船名</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn2"><label  class="btnSelectLabel f_left">轨迹</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn3"><label  class="btnSelectLabel f_left">气象</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn4"><label  class="btnSelectLabel f_left">赛道</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn5"><label  class="btnSelectLabel f_left">起终点</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn6"><label  class="btnSelectLabel f_left">工作船</label>   
+            </div>
+            <div class="btnSelectDiv hidden">
+                <input type="checkbox"  class="noselectimg f_left" name="selection" id="selectBtn7"><label  class="btnSelectLabel f_left">浮标</label>   
+            </div>
+            <div class="btnSelectCloseDiv hidden">
+                <span class="showSelectCloseBtn f_left">关闭菜单</span>
+            </div>
+        </div>
+        <!-- <div class="dateselect">
+            <input type="text" class="Wdate" id="d412" onfocus="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'2016-03-08',maxDate:'2016-03-10'})" value="2016-03-09" runat=server/>
+        </div> -->
+        <div class="matchSelectTitleDiv1 hidden" id="matchSelectTitleDiv1">
+            <img src="images/matchSelectImg.png" class="matchSelectTitleBj">
+            <h3 class="matchSelectTitle matchSelectTitle1">比赛场次选择</h3>
+        </div>
+        <div class="matchSelectTitleDiv matchSelectTitleDiv1 matchSelectTitleDiv3 hidden">
+            <img src="images/xialajiantou.svg" class="getMatchSelectjiantou">
+            <div class="levelDetial hidden">
+                <h3 class="getMatchSelectName f_left">博纳多40.7 <span class="getMatchPlayed">R2</span></h3>
+                <span class="getMatchSelectDateEnd f_left">2017.01.01</span>
+            </div>
+        </div>
+        <div class="speedControlDov hidden">
+            <img src="images/playedImg.png" class="playedImg f_left">
+            <div class="inputDrafting hidden f_left">
+                <!-- <input runat="server" type="range" name="colorRange2" class="rangeColor f_left" id="rangeColor" min="0" max="1000" step="1" value="1" /> -->
+                <div id="box">
+                    <div class="allRoute">
+                        <div class="activeRoute"></div>  
+                    </div>
+                    <div class="activeDash"></div>
+                </div>
+                 <span class="draftingSpeedSpan f_left"><span class="draftingSpeed">1000</span>ms</span>
+                
+            </div>
+            <!-- <div class="routTimePlay f_right hidden">
+                <div class="routTimeLine hidden">
+                    <span class="routTimeLineDash1 f_left"></span>
+                    <span class="routTimeLineDash2 f_right"></span>
+                    <div class="routTimeLineJinDU">
+                        <div class="routTimeLineJinDUactive"></div>
+                        <img src="images/routTimePlayimg.svg" class="routTimePlayimg">
+                    </div>
+                    <div class="routTimeTimeDiv hidden">
+                        <span class="routTimeBeginTime f_left">10:00</span>
+                        <span class="routTimeEndTime f_right">12:00</span>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>  
+    <!-- 比赛场次选择／ -->
+    <div class="matchSelect hidden">
+        <div class="matchSelectTitleDiv matchSelectTitleDiv2 hidden">
+            <img src="images/matchSelectImg.png" class="matchSelectTitleBj">
+            <h3 class="matchSelectTitle">比赛场次选择</h3>
+        </div>
+        
+        <ul class="matchSelectUl hidden" id="matchSelectUl">
+            <!-- <li class="matchSelectLi hidden">
+                <h3 class="matchSelectName f_left">博纳多40.7 <span class="matchPlayed">R2</span></h3>
+                <div class="matchSelectDate f_right">
+                    <span class="matchSelectDateBegin f_left">2016.12.31 12:00</span>
+                    <span class="matchSelectDateEnd f_left">2017.01.01 21:35</span>
+                </div>
+            </li>
+            <li class="matchSelectLi hidden">
+                <h3 class="matchSelectName f_left">博纳多40.7 <span class="matchPlayed">R2</span></h3>
+                <div class="matchSelectDate f_right">
+                    <span class="matchSelectDateBegin f_left">2016.12.31 12:00</span>
+                    <span class="matchSelectDateEnd f_left">2017.01.01 21:35</span>
+                </div>
+            </li>
+            <li class="matchSelectLi hidden">
+                <h3 class="matchSelectName f_left">博纳多40.7 <span class="matchPlayed">R2</span></h3>
+                <div class="matchSelectDate f_right">
+                    <span class="matchSelectDateBegin f_left">2016.12.31 12:00</span>
+                    <span class="matchSelectDateEnd f_left">2017.01.01 21:35</span>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=jTNoyW6nQxcNPWxuUhFjUm6wPqOY5DkI"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/CurveLine/1.5/src/CurveLine.min.js"></script>  
+<script type="text/javascript" src="http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script type="text/javascript" src="js/touch.js"></script>
+
+<script type="text/javascript">
+$(".ztitle").html(saveMatchName()); 
+var headerHeight=$(".zsaishijieshao").height();
+var clientHeight=document.documentElement.clientHeight;
+clientHeight=clientHeight-headerHeight;
+$("#mapbox").height(clientHeight);
+$(".matchSelect").css({"min-height":clientHeight});
+$(".BMap_stdMpCtrl BMap_stdMpType4 BMap_noprint anchorBR").css({bottom:"20px"});
+// 船队复选框label标签 
+    $(".option .shipName").click(function(){
+        var item = $(this);
+        var checkBox=$(this).parent().find("input").first();
+        if(checkBox.is(':checked')) {
+            checkBox.prop("checked",false);
+        }else{
+            checkBox.prop("checked",true);
+        }
+    });
+    //默认全选
+    // 左侧按钮复选框
+    $(".showSelect .btnSelectDiv").each(function(){
+        var item=$(this).find("input").first();
+        item.attr("checked", true);
+    });
+// 左侧按钮选择复选框
+    $(".btnSelectDiv .btnSelectLabel").click(function(){
+        var item = $(this);
+        var checkBox=$(this).parent().find("input").first();
+        if(checkBox.is(':checked')) {
+            checkBox.prop("checked",false);
+        }else{
+            checkBox.prop("checked",true);
+        }
+    });
+    // $(".BMap_button BMap_stdMpZoomOut").click(function(){
+    //     debugger;
+    // })
+    $(".shipRoutLine").click(function(){
+        $(".shipNameSelect").show();
+    });
+    $(".layerSetBtn").click(function(){
+        $(".showSelect").show();
+    });
+    $(".btnSelectCloseDiv").click(function(){
+        $(".showSelect").hide();
+    })
+    $("#d412").blur(function(){
+        var date=$("#d412").val();
+        date = new Date(Date.parse(date.replace(/-/g, "/")));
+        date = date.getTime();
+    });
+    $(".matchSelectTitleDiv2").click(function(){
+        $("#mapbox").show();
+        $(".matchSelect").hide();
+        $(".matchSelectTitleDiv3").show();
+    })
+    // $('#matchSelectUl').on('click','li',function(){
+    //     var item=$(this);
+    //     $(this).click(function(){
+    //         $('.matchSelectLi').css({color:"#7f909d"});
+    //         item.css({color:"#fff"});
+    //         $(".matchSelect").hide();
+    //         $("#mapbox").show();
+    //     })
+    // })
+document.title=saveMatchName();
+</script>  
+<script type="text/javascript">	     
+    //显示一个对象的所有属性  
+function showAtrributes(event){  
+    var out='';    
+    for(var p in event){    
+        if(typeof(p)!="function"){    
+            out+=p+"="+event[p]+"  ";    
+        }    
+    }    
+    alert(out);   
+}  
+var key='jTNoyW6nQxcNPWxuUhFjUm6wPqOY5DkI';  
+//初始化地图
+var map = new BMap.Map("map"); // 创建地图实例     
+// var point = new BMap.Point(120.316335,36.054007); // 创建点坐标     
+// map.centerAndZoom(point, 12); // 初始化地图，设置中心点坐标和地图级别    
+     
+/*    
+1.    
+NavigationControl：地图平移缩放控件，默认位于地图左上方，它包含控制地图的平移和缩放的功能。     
+OverviewMapControl：缩略地图控件，默认位于地图右下方，是一个可折叠的缩略地图。     
+ScaleControl：比例尺控件，默认位于地图左下方，显示地图的比例关系。     
+MapTypeControl：地图类型控件，默认位于地图右上方。     
+CopyrightControl：版权控件，默认位于地图左下方。     
+*/    
+//配置控件参数    
+// var opts = {type: BMAP_ANCHOR_BOTTOM_RIGHT,type: BMAP_NAVIGATION_CONTROL_LARGE}  ;
+var opts = {offset: new BMap.Size(20, 135),anchor:BMAP_ANCHOR_BOTTOM_LEFT,'z-index':100}         
+map.addControl(new BMap.NavigationControl(opts));    
+// map.addControl(new BMap.NavigationControl());      
+map.addControl(new BMap.ScaleControl());       
+//map.addControl(new BMap.OverviewMapControl());       
+//map.addControl(new BMap.MapTypeControl());       
+//map.setCurrentCity("台州");  
+map.setDefaultCursor("crosshair");  
+    
+/*    
+var marker = new BMap.Marker(point);        // 创建标注       
+map.addOverlay(marker);      
+    
+var opts = {       
+ //width : 250,     // 信息窗口宽度       
+ //height: 100,     // 信息窗口高度       
+ title : "Hello"  // 信息窗口标题       
+}       
+var infoWindow = new BMap.InfoWindow("World", opts);  // 创建信息窗口对象       
+map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口       
+*/    
+map.enableScrollWheelZoom();//滚轮缩放事件    
+//map.enableKeyboard(); //键盘方向键缩放事件    
+map.enableContinuousZoom(); // 开启连续缩放效果    
+//map.enableInertialDragging();　// 开启惯性拖拽效果 
+
+var opcityx=0;
+//设置地图午夜蓝风格
+function setMapStyle(){
+    map.setMapStyle({
+        styleJson:[
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": {
+                        "color": "#021019",
+                        "opcity":0.2
+                }
+            },
+            {
+                "featureType": "highway",
+                "elementType": "geometry.fill",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "highway",
+                "elementType": "geometry.stroke",
+                "stylers": {
+                        "color": "#147a92",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "arterial",
+                "elementType": "geometry.fill",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "arterial",
+                "elementType": "geometry.stroke",
+                "stylers": {
+                        "color": "#0b3d51",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "local",
+                "elementType": "geometry",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "land",
+                "elementType": "all",
+                "stylers": {
+                        "color": "#08304b",
+                        "opcity": opcityx
+                }
+            },
+            {
+                "featureType": "railway",
+                "elementType": "geometry.fill",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity": opcityx
+                }
+            },
+            {
+                "featureType": "railway",
+                "elementType": "geometry.stroke",
+                "stylers": {
+                        "color": "#08304b",
+                        "opcity": opcityx
+                }
+            },
+             {
+                "featureType": "subway",
+                "elementType": "geometry",
+                "stylers": {
+                        "lightness": -70
+                }
+            },
+            {
+                "featureType": "building",
+                "elementType": "geometry.fill",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": {
+                        "color": "#857f7f",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": {
+                        "color": "#000000",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "building",
+                "elementType": "geometry",
+                "stylers": {
+                        "color": "#022338",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "green",
+                "elementType": "geometry",
+                "stylers": {
+                        "color": "#062032",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "boundary",
+                "elementType": "all",
+                "stylers": {
+                        "color": "#1e1c1c",
+                        "opcity":opcityx
+                }
+            },
+            {
+                "featureType": "manmade",
+                "elementType": "all",
+                "stylers": {
+                        "color": "#022338",
+                        "opcity":opcityx
+                }
+            }
+        ]
+    }); 
+}
+setMapStyle();
+
+preMarker='';  
+  
+//点击地图选址  
+function getMapPosition(){
+    map.onclick=function(e){
+        console.log("鼠标当前x位置:"+e.point.lng) ;
+    }
+}
+getMapPosition();    
+map.addEventListener("dragend", function(){   //拖拽事件    
+ // var center = map.getCenter();       
+ // document.getElementById("map").innerHTML="拖拽后中心x位置:"+center.lng;    
+ // document.getElementById("map").innerHTML="拖拽后中心y位置:"+center.lat;    
+ // document.getElementById("level").innerHTML="缩放等级:"+this.getZoom();    
+ //alert("地图中心点变更为：" + center.lng + ", " + center.lat);       
+});     
+    
+map.addEventListener("zoomend", function(){   //缩放事件    
+ //alert("地图缩放至：" + this.getZoom() + "级");       
+});  
+
+var itemTeamId;
+newMatchId=$.cookie('new_MatchId');
+var teamNameItem=[];
+var matchMapId=$.cookie('match_map_infi_id');
+var match_map_name=$.cookie('match_map_name');
+var stopTime,startTime,requestCount;
+//所有颜色数组
+    var colorArr=["#08B891","#D0021B","#00B3FF","#21A1B2","#BD10E0","#EC9300","#417505","#F8E71C","#FF0000","#A5ACAF","#70FF00","#5B6332","#FD6D4C","#DD4250","#00FFC3","#4C00FF","#006eff","#ff008f","#8800FF"];
+//所有赛船组成的数组
+   var matchShipArr=['images/boat1.svg','images/boat2.svg','images/boat3.svg','images/boat4.svg','images/boat5.svg','images/boat6.svg','images/boat7.svg','images/boat8.svg','images/boat9.svg','images/boat10.svg','images/boat11.svg','images/boat12.svg','images/boat13.svg','images/boat14.svg','images/boat15.svg','images/boat16.svg','images/boat17.svg','images/boat18.svg','images/boat19.svg'];
+// 将所有船队的teamID放在数组里，统计总共的船队
+   var  allShipTeamArr=[];
+//场次点击事件执行的函数
+function getIdDetial(roundId,sailingId,matchSailingId,startAt,endAt){
+    $(".matchSelect").hide();
+    $("#mapbox").show();
+    roundIdCookie=roundId;
+    sailingIdCookie=sailingId;
+    matchSailingIdCookie=matchSailingId; 
+    startAtCookie=startAt; 
+    endAtCookie=endAt;
+
+    map = new BMap.Map("map"); // 创建地图实例  
+    // var point = new BMap.Point(120.316335,36.054007); // 创建点坐标     
+    // map.centerAndZoom(point, 12); // 初始化地图，设置中心点坐标和地图级别  
+    var opts = {offset: new BMap.Size(20, 135),anchor:BMAP_ANCHOR_BOTTOM_LEFT,'z-index':100}         
+    map.addControl(new BMap.NavigationControl(opts));    
+    map.addControl(new BMap.ScaleControl());       
+    map.setDefaultCursor("crosshair");  
+    map.enableScrollWheelZoom();//滚轮缩放事件    
+    map.enableContinuousZoom(); // 开启连续缩放效果    
+    setMapStyle();  
+    //清除所有定时器
+        //定义的数组为空
+        rountPointAll=[];
+    for(var j=0;j<routeTime.length;j++){
+        clearInterval(routeTime[j]);   
+    }  
+    //发送请求 
+    teamAjax(); 
+    getShipTypeMakerData();
+    // getRouteData(); 
+    $('.speedControlDov').find("div.routTimePlay").remove();
+    $(".speedControlDov").append(getMatchTimeFoot(startAtCookie,endAtCookie));
+    // 右侧船队复选框
+    $(".sellectBox .option").each(function(){
+        var item=$(this).find("input").first();
+        item.attr("checked", true);
+    });
+}
+//页面初始化
+$(function(){
+    // var xflag=true;
+    var playObj=getMatchPlayData();
+    var playData=playObj.data;
+    if(playObj.statusCode===0){
+        if(!playObj){
+            alert("网络错误！");
+            return;
+        };
+        for(var i in playData){
+            var item=playData[i];
+            if($("#roundId"+item['roundIds']).length<=0){
+                $("#matchSelectUl").append(getMatchPlay(item));
+                $(".speedControlDov").append(getMatchTimeFoot(item['startAt'],item['endAt']));
+
+            }   
+        }
+    };
+    // 设置li点击字体颜色
+    $('.matchSelectLi').each(function(){
+        var item=$(this);
+        $(this).click(function(){
+            $('.matchSelectLi').css({color:"#7f909d"});
+            item.css({color:"#fff"});
+            $(".matchSelect").hide();
+            $("#mapbox").show();
+            var matchSailingId=item.attr("matchSailingId");
+            var roundId=item.attr("roundId");
+            var startAt=item.attr("startAt");
+            var endAt=item.attr("endAt");
+            var sailingId=item.attr("sailingId");
+            getIdDetial(roundId,sailingId,matchSailingId,startAt,endAt);
+
+            var text=item.find("h3.matchSelectName").text();
+            var time=item.find("span.matchSelectDateBegin").text().substring(0,10) ;
+            $(".getMatchSelectName").text(text);
+            $(".getMatchSelectDateEnd").text(time);
+            $("#matchSelectTitleDiv1").hide(500);
+            $(".matchSelectTitleDiv3").show(1000);
+            $('.playedImg').attr({src:'images/playedImg.svg'});
+
+        })
+    })
+    $(".matchSelectTitleDiv3").click(function(){
+        $(".matchSelectTitleDiv3").hide();
+         $("#mapbox").hide();
+        $(".matchSelect").show();
+        for(var j=0;j<routeTime.length;j++){
+            clearInterval(routeTime[j]);   
+        } 
+
+    })
+    $('.matchSelectLi').eq(0).click();
+    $(".matchSelectLi").eq(0).css({color:"#fff"});
+    newMatchId=$.cookie('new_MatchId');
+
+})
+//获取比赛场次选择渲染数据
+function getMatchPlayData(){
+    return getAllData({
+        url : '/match/getMatchRoundList',
+        data : {matchId :  newMatchId,
+            }
+    });
+}
+//赛事场次div
+function getMatchPlay(item){
+    var str='';  
+    str+='<li class="matchSelectLi hidden" id="roundId'+item['roundId']+'" matchSailingId="'+item['matchSailingId']+'" roundId="'+item['roundId']+'" sailingId="'+item['sailingId']+'" startAt="'+item['startAt']+'" endAt="'+item['endAt']+'" >';
+    str+='    <h3 class="matchSelectName f_left">'+item['sailingShortName']+' <span class="matchPlayed">'+item['round']+'</span></h3>';
+    str+='    <div class="matchSelectDate f_right">';
+    str+='        <span class="matchSelectDateBegin f_left">'+handleTime(item['startAt'])+'</span>';
+    str+='        <span class="matchSelectDateEnd f_left">'+handleTime(item['endAt'])+'</span>';
+    str+='    </div>';
+    str+='</li>';
+    return str;
+}
+//顶部显示信息
+function topShowPlayDetial(item){    
+    var str=''; 
+    str+='<div class="matchSelectTitleDiv matchSelectTitleDiv1 matchSelectTitleDiv3 hidden">'; 
+    str+='   <img src="images/xialajiantou.svg" class="getMatchSelectjiantou">';
+    str+='   <div class="levelDetial hidden">';
+    str+='       <h3 class="getMatchSelectName f_left">'+item['sailingShortName']+' <span class="getMatchPlayed">'+item['round']+'</span></h3>';
+    str+='       <span class="getMatchSelectDateEnd f_left">'+handleTimedata(item['endAt'])+'</span>';
+    str+='   </div>';
+    str+=' </div>';
+    return str;
+}
+//底部播放按钮和时间的html
+function getMatchTimeFoot(startTime,endTime){
+    var str='';         
+    str+='<div class="routTimePlay f_right hidden">';       
+    str+='    <div class="routTimeLine hidden">';
+    str+='        <span class="routTimeLineDash1 f_left"></span>';
+    str+='        <span class="routTimeLineDash2 f_right"></span>';
+    str+='        <div class="routTimeLineJinDU">';
+    str+='             <div class="routTimeLineJinDUactive"></div>';
+    str+='             <img src="images/routTimePlayimg.svg" class="routTimePlayimg">';
+    str+='         </div>';
+    str+='         <div class="routTimeTimeDiv hidden">';
+    str+='              <span class="routTimeBeginTime f_left">'+showRouteTime(startTime)+'</span>';
+    str+='              <span class="routTimeEndTime f_right">'+showRouteTime(endTime)+'</span>';
+    str+='         </div>';
+    str+='     </div>';
+    str+='</div>';
+    return str;
+}
+//获取船队名称
+function teamAjax(){
+    $.ajax({
+        type:"GET",
+        url: "http://api.hanghai.onairm.cn/team/getMatchTeamList",
+        dataType:"json",
+        data: {"matchId":newMatchId,
+                "matchSailingId":matchSailingIdCookie
+            },   
+        async:false,  
+        cache:true,  
+        success: function(data){
+            if(data.statusCode==0){
+                // if(data.data['isJoin']==1){
+                    $(".shipNameSelect").empty();
+                    allShipTeamArr=[];
+                    $('.shipNameSelect').append(teamSelectMenu());
+                    var itemTeams=data.data['teams'];
+                    for(var i in itemTeams){
+                        var item=itemTeams[i];
+                        teamNameItem.push(item['name']);
+                        i=parseInt(i)+1;
+                        if($("#team_id"+item['teamId']).length<=0){  
+                            $("#sellectBox").append(matchShipName(item,i));
+                            $("#team_id"+item['teamId']).find("span.shipNum").css({"background-color":colorArr[i]});
+                            allShipTeamArr.push(item['teamId']);
+
+                        }
+                    }
+                // }
+            }
+            
+        }
+    });
+    requestCount=allShipTeamArr.toString();
+
+    getRouteData();
+
+
+    // 右侧船队复选框
+    $(".sellectBox .option").each(function(){
+        var item=$(this).find("input").first();
+        item.attr("checked", true);
+    });
+};
+//选择船队的菜单栏框
+function teamSelectMenu(){
+    return $([
+        '<div class="sellectBoxHead hidden"><span class="closeMenu">关闭菜单</span></div>',
+        '<div class="titleInfo hidden">',
+        '    <span class="kaiguanSpan f_left">开关</span>',
+        '    <span class="bianhaoSpan f_left">编号</span>',
+        '    <span class="shipNameSpan f_left">船队名</span>',
+        '</div>',
+        '<div class="sellectBox" id="sellectBox">',
+        '</div>',
+    ].join(''));
+}
+//船队名称div
+function matchShipName(item,i){
+    return $([
+        '<div class="option" id="team_id'+item['teamId']+'" teamid="'+item['teamId']+'">',
+        '   <input type="checkbox"  class="noselectimg" name="selection" id="selection'+item['teamId']+'"><span class="shipNum" style="float:left;width:.36rem;height:.36rem;line-height:.36rem;border-Radius:50%;font-size:.24rem;text-align:center;margin: 0 .4rem;background-color:#21a1b2">'+i+'</span><label  class="shipName" for="selection'+item['teamId']+'">'+item['name']+'</label>',
+        '</div>'
+        ].join(''))
+}
+//比赛场次选择渲染
+//获取的时间戳的处理
+function handleTime(times){
+    var getTimeDate=getTime1(times);
+    return getTimeDate.substr(0,16).replace(/-/g, '.');
+}
+//获取的时间戳的处理年月日
+function handleTimedata(times){
+    var getTimeDate=getTime1(times);
+    return getTimeDate.substr(0,10).replace(/-/g, '.');
+}
+//底部时间轨迹的时间处理
+function showRouteTime(times){
+    var getShowTimeDate=getTime1(times);
+    return getShowTimeDate.substr(10,6).replace(/-/g, '.');
+}
+//各种船的坐标请求数据的函数
+function getShipTypeMakerData(){
+    // roundId=roundIdCookie;
+    $.ajax({
+        type:"GET",
+        url: "http://api.hanghai.onairm.cn/match/getMatchSailingRoundPoint",
+        dataType:"json",
+        data: {"matchId":newMatchId,
+                "roundId":roundIdCookie
+            },   
+        async:false,  
+        cache:true,  
+        success: function(data){
+            if(data.statusCode==0){
+                var typaDatas=data.data;
+                 // console.log(typaDatas);
+                for(var i in typaDatas){
+                    var item=typaDatas[i];
+                    getShipTypeMaker(item);//打印所有点
+                    if(item['type']==6 || item['type']==11){
+                        postionMarkerBegin.push(new BMap.Point(item['lng'],item['lat']));
+                    }
+                    if(item['type']==7 ||item['type']==12){
+                        postionMarkerfinish.push(new BMap.Point(item['lng'],item['lat']));
+                    }
+                }
+                // var point = new BMap.Point(120.316335,36.054007); // 创建点坐标     
+                map.centerAndZoom(postionMarkerBegin[1], 10); // 初始化地图，设置中心点坐标和地图级别   
+
+                // //绘制有数据船队的轨迹线
+                setTimeout(function(){ 
+                    speed=$(".draftingSpeed").text();
+
+                    var flag=true;
+                    if(flag){
+                        flag=false;
+                        for(var j=0;j<allShipTeamArr.length;j++){
+                            shipRoute(j,speed);
+                        } 
+                       
+                    } 
+                    $(".BMap_scaleTxt").css({color:"#fff"});
+                },700);
+                //绘制起始和终止船与浮标的轨迹线
+                drawShipMarker(postionMarkerBegin);
+                drawShipMarker(postionMarkerfinish);
+            }else{
+                alert("暂无数据！");
+                map = new BMap.Map("map"); // 创建地图实例
+                if(postionMarkerBegin != 0){
+                    if(postionMarkerBegin[1] && postionMarkerBegin[1] != 0){
+                        map.centerAndZoom(postionMarkerBegin[1], 5); // 初始化地图，设置中心点坐标和地图级别
+                    }else{
+                        var point = new BMap.Point(116.775405,40.160927); // 创建点坐标
+                        map.centerAndZoom(point, 8); // 初始化地图，设置中心点坐标和地图级别
+                    }
+                }else{
+                    var point = new BMap.Point(116.775405,40.160927); // 创建点坐标
+                    map.centerAndZoom(point, 8); // 初始化地图，设置中心点坐标和地图级别
+
+                }
+
+                setMapStyle();  
+                //取消播放图片的绑定事件
+                $('.playedImg').unbind("click");
+                var opts = {offset: new BMap.Size(20, 135),anchor:BMAP_ANCHOR_BOTTOM_LEFT,'z-index':100}         
+                map.addControl(new BMap.NavigationControl(opts));    
+                map.addControl(new BMap.ScaleControl());       
+                map.setDefaultCursor("crosshair");  
+                map.enableScrollWheelZoom();//滚轮缩放事件    
+                map.enableContinuousZoom(); // 开启连续缩放效果    
+                return;
+                }
+            }
+
+       
+    });
+}
+
+// 各种类型船的坐标添加函数
+var postionMarkerBegin=[];
+var postionMarkerfinish=[];
+function getShipTypeMaker(item){
+    if(item['type'] < 10){
+        var icon_str = 'typeIcon'+item['type'];
+        icon_str=eval(icon_str);
+        var typeMarker = new BMap.Marker(new BMap.Point(item['lng'],item['lat']),{
+            icon: icon_str
+        });  // 创建标注
+        typeMarker.setRotation(45);
+        map.addOverlay(typeMarker);
+    }else if(item['type'] == 10){
+        icon_str =  'typeMarkerIcon'+item['number'];
+        icon_str=eval(icon_str);
+        var typeMarker = new BMap.Marker(new BMap.Point(item['lng'],item['lat']),{
+            icon: icon_str
+        });  // 创建标注
+        // typeMarker.setRotation(45);
+        map.addOverlay(typeMarker);
+    }else if(item['type'] == 11 || item['type'] == 12){
+        var typeMarker = new BMap.Marker(new BMap.Point(item['lng'],item['lat']),{
+            icon: routePositionMark
+        });  // 创建标注
+        // typeMarker.setRotation(45);
+        map.addOverlay(typeMarker);
+    }
+    var arrMarkBPoints=[];
+    arrMarkBPoints.push(new BMap.Point(item['lng'],item['lat']));
+    setZoom(arrMarkBPoints); 
+}
+//绘制起始／终止船和起始／终止浮标的轨迹
+function drawShipMarker(points){
+    var shipMarkerarrPolyline = new BMap.Polyline(points, {strokeColor:"#fff", strokeWeight:2, strokeOpacity:0.5});   //创建折线        
+    map.addOverlay(shipMarkerarrPolyline);   //增加折线   
+}
+$('#matchSelectTitleDiv1').click(function(){
+    $("#mapbox").hide();
+    $(".matchSelect").show(); 
+})
+
+//获取赛船运动轨迹的数据
+    function getShipMatchData(){
+        return getData({
+            url : '/team/getHistoryTrack',
+            data : {matchId :  newMatchId,
+                    teamId:  requestCount,
+                    stopTime: endAtCookie,
+                    startTime: startAtCookie
+                }
+        });
+    }
+//时间戳的月日的处理
+function handleHourMinute(times){
+    var getTimeDate=getTime1(times);
+    return getTimeDate.substring(11, 16);
+}
+
+var teamDash=[],teamDashItem=[],rountPointAll=[];
+// 定义变量
+var arrMarker=[],arrPolyline=[],arrBPoints=[],teamDash=[],label=[],routeTime=[];
+var rountPointAll=[];
+
+//各种船型的icon
+//红色工作船
+var typeIcon1 = new BMap.Icon('images/redWorkShip.svg', new BMap.Size(52, 24), {
+    imageRotate: -45,//顺时针旋转30度
+    // offset: new BMap.Size(10, 25), // 指定定位位置  
+    // imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移 
+    // anchor: new BMap.Size(10, 30)
+});
+//蓝色工作船
+var typeIcon3 = new BMap.Icon('images/blueWorkShip.svg', new BMap.Size(52, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//绿色工作船
+var typeIcon2 = new BMap.Icon('images/greenWorkShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//eqm工作船
+var typeIcon4 = new BMap.Icon('images/eqmWorkShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//终点船
+var typeIcon7 = new BMap.Icon('images/finalShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//起始船
+var typeIcon6 = new BMap.Icon('images/startShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//RC工作船
+var typeIcon5 = new BMap.Icon('images/RCShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//赛船
+var matchShip1Icon = new BMap.Icon('images/matchShip1.svg', new BMap.Size(16, 38), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//医疗工作船
+var typeIcon8 = new BMap.Icon('images/mediacalBoat.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//媒体工作船
+var typeIcon9 = new BMap.Icon('images/mediaShip.svg', new BMap.Size(54, 24), {
+    rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+//定位浮标1
+var typeMarkerIcon1 = new BMap.Icon('images/positionIndicatingMark1.svg', new BMap.Size(24, 26), {
+    // anchor: new BMap.Size(10, 30)
+});
+//定位浮标2
+var typeMarkerIcon2 = new BMap.Icon('images/positionIndicatingMark2.svg', new BMap.Size(24, 26), {
+    // anchor: new BMap.Size(10, 30)
+});
+//定位浮标3
+var typeMarkerIcon3 = new BMap.Icon('images/positionIndicatingMark3.svg', new BMap.Size(24, 26), {
+    // anchor: new BMap.Size(10, 30)
+});
+//定位浮标4
+var typeMarkerIcon4 = new BMap.Icon('images/positionIndicatingMark4.svg', new BMap.Size(24, 26), {
+    // anchor: new BMap.Size(10, 30)
+});
+//起始和结束定位浮标
+var routePositionMark = new BMap.Icon('images/routePositionMark.svg', new BMap.Size(18, 20), {
+    anchor: new BMap.Size(5, 5)
+});
+//赛船
+var matchShipIcon = new BMap.Icon('images/matchShip1.svg', new BMap.Size(16, 38), {
+    // rotation: 45,//顺时针旋转30度
+    // anchor: new BMap.Size(10, 30)
+});
+var iconShipArr=[],iconPositionArr=[];
+iconShipArr=[typeIcon1,typeIcon2,typeIcon3,typeIcon4,typeIcon5,typeIcon6,typeIcon7,typeIcon8,typeIcon9];
+iconPositionArr=[typeMarkerIcon1,typeMarkerIcon2,typeMarkerIcon3,typeMarkerIcon4];
+
+var icon=matchShipIcon;           
+var data_info = [];
+var arrIndex=0,itemTeamId=0;
+// var indexArr=[],teamIdArr=[];
+
+// 页面加载完成之后，请求数据，绘制轨迹线
+var getTeamDataArr=[];
+function getRouteData(){
+    var matchTeam=getShipMatchData();
+    if(!matchTeam){
+        alert("网络错误！");
+    }
+    
+        for(var j=0;j<allShipTeamArr.length;j++){
+            //循环数据，添加到页面
+            var x=allShipTeamArr[j];
+            var items=matchTeam[x];
+
+            if(items){
+                var teamdata=items.teamdata;
+                var trackdata=items.trackdata;
+                
+                getTeamDataArr.push(teamdata['teamId']);
+                // console.log(getTeamDataArr.length);  
+                var teamDash='teamDash'+i+'';
+                teamDash=[];
+                // console.log(teamDash);
+                if(trackdata){
+                    for(var i in trackdata){
+                        var item=trackdata[i];
+                        teamDash.push([
+                            item['longitude'],
+                            item['latitude'],
+                            item['time'],
+                            item['course'],
+                        ]);
+                        if(i==20){
+                            break;
+                        }        
+                    }
+                    rountPointAll.push(teamDash);
+                    // if(j==teamIdArr.length-1){
+                    //     break;
+                    // }
+                }
+                
+            }
+        } 
+}
+var label;
+//定义一些全局变量
+for(var i=0;i<allShipTeamArr.length;i++){    
+    var itemM='marker'+i+'';
+    var itemP='polyline1'+i+'';
+    var itemB='bPoints'+i+'';
+    var itemteamDash='teamDash'+i+'';
+    var labelitem='leabel'+i+'';
+    var routeTimeItem='routeTime'+i+'';
+    arrMarker.push(itemM);
+    arrPolyline.push(itemP);
+    arrBPoints.push(itemB);
+    label.push(labelitem);
+    routeTime.push(routeTimeItem);
+    // teamDash.push(itemteamDash);
+    arrBPoints[i]=[];
+}
+var speed;
+
+var getTeamDataArrLen=allShipTeamArr.length;
+var $allRoute=$(".allRoute");
+var $activeRoute=$(".activeRoute");
+var $activeDash=$(".activeDash");
+var $box=$("#box");
+var width=$(".allRoute").width()-$('.activeDash').width();
+var ox = 0;
+var lx = 0;
+var left=0;
+var bgleft = 0;
+var statu = false;
+
+function shipRoute(index,speed){ 
+    var t=0;
+    var points = [];//原始点信息数组  
+    var item=rountPointAll[index];
+    if(item==0){
+        return;
+    }
+    if(item!=0){
+        var arrDashPoint = [];
+        arrBPoints[index]=[];
+        var markerT;
+        lenP=item.length;
+        itemStep=$(".routTimeLine").width()/lenP;
+        function huizhiRout(){
+            if(markerT){
+                markerT.hide();   
+            }
+            //从某个船队的总数据里单个的添加到中间数组里，做动态效果
+            arrDashPoint.push(item[t]);  
+               
+            arrBPoints[index].push(new BMap.Point(arrDashPoint[t][0],arrDashPoint[t][1]));
+            var rotate=arrDashPoint[t][3];
+            t=t+1;
+            if(t>(lenP-1)){
+                clearInterval(routeTime[index]);
+                $(".shipRoutLine").show();
+                $('.playedImg').unbind("click");
+                
+            }
+            var len = arrDashPoint.length;   
+            var linePoints = [],pointsLen = arrDashPoint.length,i;  
+            if(pointsLen == 0){  
+                return;  
+            }  
+            //颜色 
+            // var x=allShipTeamArr[index];
+            var content=teamNameItem[index];
+            var shipNum = index+1;
+            
+            var colorItem = colorArr[shipNum];
+
+            arrPolyline[index] = new BMap.Polyline(arrBPoints[index], {strokeColor:colorItem, strokeWeight:2, strokeOpacity:0.5});   //创建折线
+            
+            map.addOverlay(arrPolyline[index]);   //增加折线    
+            if(index==getTeamDataArrLen-1){
+                // setZoom(arrBPoints[index]);
+                map.centerAndZoom(arrBPoints[index],0.5); 
+
+            } 
+            arrMarker[index] = new BMap.Marker(new BMap.Point(arrDashPoint[len-1][0],arrDashPoint[len-1][1]),{
+                icon: new BMap.Icon(matchShipArr[shipNum], new BMap.Size(14, 36), {
+                        // anchor: new BMap.Size(10, 30)
+                    })
+
+            });  
+
+            arrMarker[index].setRotation(rotate);
+
+            // 创建标注
+            // console.log(arrDashPoint[t]);
+            label[index] = new BMap.Label('<h3 style="width:4.5rem;height:.4rem;over-flow:hidden"><span style="float:left;width:.4rem;height:.4rem;line-height:.4rem;text-align:center;margin-top:.05rem;border-radius:50%;font-size:.36rem;color:#333;background-color:'+colorItem+'">'+shipNum+'</span><span style="float:left;width:3rem;height:100%;background-color:'+colorItem+';line-height:.4rem;font-size:.3rem;color:#fff;">'+content+'</span></h3>',     //为lable填写内容
+                {offset:new BMap.Size(5,-10),                  //label的偏移量，为了让label的中心显示在点上
+                });                                //label的位置
+            label[index].setStyle({
+                width:'4.5rem',
+                height:'.4rem',
+                backgroundColor:'transparent',
+                border:'none',
+                display:"block"
+                
+            })
+            arrMarker[index].setLabel(label[index]);
+           
+            map.addOverlay(arrMarker[index]);
+            markerT=arrMarker[index];
+            // var itemLabel=$(".btnSelectDiv").eq(0).find("label .btnSelectLabel");
+            timeSpeed(t);
+            // 根据点信息实时更新地图显示范围，让轨迹完整显示。设置新的中心点和显示级别  
+
+            function setZoom(bPoints){  
+                var view = map.getViewport(eval(bPoints));  
+                var mapZoom = view.zoom/1000;   
+                var centerPoint = view.center;   
+                map.centerAndZoom(centerPoint,mapZoom);  
+            } 
+        }
+        routeTime[index]=setInterval(huizhiRout,speed); 
+        
+
+
+        //绘制轨迹的速度选择，移动端touch事件
+        $box.click(function(e){
+            if(!statu){
+                bgleft = $allRoute.offset().left;
+                left = e.pageX - bgleft;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > width){
+                    left = width;
+                }
+                
+                $activeRoute.stop().animate({width:left},500);
+                $activeDash.css('left',left);
+                
+                left=parseInt((left/width)*1000);
+                $(".draftingSpeed").text(left); 
+                
+                speed=left;
+                for(var j=0;j<routeTime.length;j++){
+                    clearInterval(routeTime[j]);   
+                } 
+                if(abclick==0){
+                    if(t<(lenP-1)){
+                        setTimeout(function(){
+                            routeTime[index]=setInterval(huizhiRout,speed); 
+                        },1000);
+                    }
+                }
+ 
+            }
+        });
+        $activeDash.bind("touchstart",function(e){
+            e.preventDefault();// 阻止浏览器默认事件，重要 
+            var touch = e.targetTouches;
+            // lx = $activeDash.offset().left;
+            // ox = touch.pageX - left;
+            var _touch = e.originalEvent.targetTouches[0];
+            ox= _touch.pageX- left;
+            statu = true;
+        });
+        $activeDash.bind("touchend",function(e){
+            statu = false;
+        });
+        $box.bind("touchmove",function(e){
+            e.preventDefault();// 阻止浏览器默认事件，重要
+            var _touch = e.originalEvent.targetTouches[0];
+            var _x= _touch.pageX;
+
+            if(statu){
+                left = _x - ox;
+                if(left < 0){
+                    left = 0;
+                    statu = false;
+                }
+                if(left > width){
+                    left = width;
+                }
+                $activeRoute.stop().animate({width:left},500);
+                $activeDash.css('left',left);
+                left=parseInt((left/width)*1000);
+                // left=parseInt(left/2);
+                $(".draftingSpeed").text(left);
+                speed=left;
+            
+            }
+        });
+        //点击播放和暂停图片，清除和继续计时器
+        var abclick=0;
+        $(".playedImg").bind('click',function(){
+            if(abclick==0){
+                $('.shipRoutLine').show();
+                $('.layerSetBtn').hide();
+                $('.playedImg').attr({src:'images/routeStop.svg'});
+                for(var j=0;j<routeTime.length;j++){
+                    clearInterval(routeTime[j]);   
+                } 
+                abclick=1;
+            }else if(abclick==1){
+                $('.shipRoutLine').hide();
+                $('.layerSetBtn').hide();
+                $('.playedImg').attr({src:'images/playedImg.svg'});
+                if(t<(lenP-1)){
+                    setTimeout(function(){
+                        routeTime[index]=setInterval(huizhiRout,speed); 
+                    },1000);
+            
+                }
+                abclick=0;
+            }
+        });
+        
+    }
+}
+
+
+    
+
+//设置时间运动图片的宽度和距离
+function timeSpeed(t){
+    var leftStep=t*itemStep;
+    var widthTimeRoute=$(".routTimeLineJinDU").width();
+    if(leftStep>widthTimeRoute){
+        leftStep=widthTimeRoute;
+    }
+    $(".routTimePlayimg").css({left:leftStep});
+    $(".routTimeLineJinDUactive").css({width:leftStep});
+}
+function setZoom(bPoints){  
+    var view = map.getViewport(eval(bPoints));  
+    var mapZoom = view.zoom/1.8;   
+    var centerPoint = view.center;   
+    map.centerAndZoom(centerPoint,mapZoom);  
+} 
+// 左侧按钮选择复选框选择完成后样式的变化
+$(".showSelectCloseBtn").click(function(){
+    if(!$("#selectBtn1").is(':checked')){
+        for(var j=0;j<allShipTeamArr.length;j++){
+            if(label[j]){
+                label[j].setStyle({width:'4.5rem',
+                height:'.4rem',
+                backgroundColor:'transparent',
+                border:'none',
+                display:"none"});
+            }
+        }
+    }else{
+        for(var j=0;j<allShipTeamArr.length;j++){
+            if(label[j]){
+               label[j].setStyle({width:'4.5rem',
+                height:'.4rem',
+                backgroundColor:'transparent',
+                border:'none',
+                display:"block"});   
+            }
+        }            
+    };
+    if(!$("#selectBtn2").is(':checked')){
+        for(var j=0;j<allShipTeamArr.length;j++){
+            if(arrPolyline[j]){
+                map.removeOverlay(arrPolyline[j]);   // 删除折线 
+            }
+        }       
+    }else{
+        // zheLine();
+        for(var j=0;j<allShipTeamArr.length;j++){
+            if(arrPolyline[j]){
+                var colorItem = colorArr[j-1];
+                arrPolyline[j] = new BMap.Polyline(arrBPoints[j], {strokeColor:colorItem, strokeWeight:2, strokeOpacity:0.5});
+                if(arrPolyline[j]){
+                    map.addOverlay(arrPolyline[j]);   //增加折线    
+                } 
+            }
+            
+        }           
+    };
+    if(!$("#selectBtn4").is(':checked')){
+        for(var j=0;j<allShipTeamArr.length;j++){
+            if(arrPolyline[j]){
+                map.removeOverlay(arrPolyline[j]);   // 删除折线 
+                var colorItem = colorArr[j-1];
+                arrPolyline[j] = new BMap.Polyline(arrBPoints[j], {strokeColor:colorItem, strokeWeight:2, strokeOpacity:0.5});
+                if(arrPolyline[j]){
+                    map.addOverlay(arrPolyline[j]);   //增加折线    
+                }
+            }
+        } 
+        // removeShiLiangTu();//删除矢量图
+    }else{
+        // zheLine();
+        for(var j=0;j<teamNameItem.length;j++){
+            if(arrPolyline[j]){
+                arrPolyline[j] = new BMap.Polyline(arrBPoints[j], {strokeColor:"transparent", strokeWeight:2, strokeOpacity:0});
+                if(arrPolyline[j]){
+                    map.addOverlay(arrPolyline[j]);   //增加折线    
+                }
+            }
+        } 
+        // addShiLiangTu();//增加矢量图
+    };
+})
+
+// 关闭菜单按钮显示所选船的label信息
+$(".shipNameSelect").on('click','span.closeMenu',function(){
+    $(".shipNameSelect").hide();
+    var data_info = [];
+    var indexArr = []; 
+    var arrIndex=[];
+    var teamIdArr=[];
+     //删除标注
+    function deletePoint() {//删除标注点
+        var allOverlay = map.getOverlays();
+        for (var i = 0; i < allOverlay.length - 1; i++) {
+            if (allOverlay[i].toString() == "[object Label]") {
+                map.removeOverlay(allOverlay[i]);  
+            }
+
+        }
+    };
+    deletePoint();
+    $(".option").each(function(){
+        var optionItem=$(this);
+        var selectItem=$(this).find("input").first();
+        if(selectItem.is(':checked')){
+            arrIndex = optionItem.index();
+            itemTeamId = parseInt(optionItem.attr("teamid"));
+            indexArr.push(arrIndex);
+            teamIdArr.push(itemTeamId);
+        }
+    });
+    //删除所有轨迹线
+    for(var m=0;m<label.length;m++){
+        if(label[m]){
+            label[m].setStyle({
+            display:"none"});
+            // 删除轨迹线
+            map.removeOverlay(arrPolyline[m]);
+            // zheLine();
+        }
+    }
+    // 重绘所选船队的轨迹
+    for(var j=0;j<teamIdArr.length;j++){
+        var xi=teamIdArr[j];
+        var index;
+        if(xi){
+            
+            for(var i=0;i<allShipTeamArr.length;i++){
+                if(xi==allShipTeamArr[i]){
+                   index=i;
+                };
+            }
+            if(label[index]){
+                label[index].setStyle({width:'4.5rem',
+                height:'.4rem',
+                backgroundColor:'transparent',
+                border:'none',
+                display:"block"});
+                //添加轨迹线
+                // zheLine();
+               
+                var colorItem = colorArr[index+1];
+                arrPolyline[index] = new BMap.Polyline(arrBPoints[index], {strokeColor:colorItem, strokeWeight:2, strokeOpacity:0.5});
+            }
+            if(arrPolyline[index]){
+                map.addOverlay(arrPolyline[index]);   //增加折线    
+            }   
+        }else{
+            break;
+        }   
+    }
+});
+// 定义自定义覆盖物的构造函数   
+var point4 = new BMap.Point(120.337703,36.005116); 
+var point1 = new BMap.Point(120.346901,36.048083);    
+var point2 = new BMap.Point(120.266988,36.119953);    
+var point3 = new BMap.Point(120.228325,36.112022); 
+var point5 = new BMap.Point(120.388152,36.005583);     
+var point6 = new BMap.Point(120.35725,35.96306);  
+var points = [point1, point2,point3,point4,point5,point6];  
+var view = map.getViewport(eval(points));  
+var mapZoom = view.zoom;   
+var centerPoint = view.center;   
+map.centerAndZoom(centerPoint,mapZoom);  
+     
+   
+    var marker1 = new BMap.Marker(point1);    
+    var marker2 = new BMap.Marker(point2);        // 创建标注    
+    var marker3 = new BMap.Marker(point3);        // 创建标注    
+    var marker4 = new BMap.Marker(point4);        // 创建标注    
+    var marker5 = new BMap.Marker(point5);        // 创建标注    
+    var marker6 = new BMap.Marker(point6);        // 创建标注    
+//绘制赛事轨道
+function zheLine(){
+    // 百度地图API功能  绘制弧线
+    var points1 = [point3,point2];
+    var curve1 = new BMapLib.CurveLine(points1, {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5}); //创建弧线对象
+    map.addOverlay(curve1); //添加到地图中
+    var points2 = [point5,point4];
+
+    var curve2 = new BMapLib.CurveLine(points2, {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5}); //创建弧线对象
+    map.addOverlay(curve2); //添加到地图中
+    // curve.enableEditing(); //开启编辑功能 
+    // 添加折线
+    var polyline1 = new BMap.Polyline([
+        point4,
+        point3,
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline1);   //增加折线
+
+    var polyline2 = new BMap.Polyline([
+        point5,
+        point1,
+        point2
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline2);   //增加折线
+
+    var polyline3 = new BMap.Polyline([
+        point6,
+        point5,
+    ], {strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+    map.addOverlay(polyline3);   //增加折线
+    // 百度地图API功能    
+};
+
+//增加矢量图  
+var vectorFCArrow1;
+var vectorFCArrow2;
+var vectorFCArrow3;
+var vectorBCArrow1;
+var vectorBCArrow2;
+var vectorFCArrow4;
+var vectorFCArrow5;
+var scaleZhi = 1.5;
+var lineWeight=1;
+function shiLiangTu(){
+    //增加矢量图  
+    vectorFCArrow1 = new BMap.Marker(new BMap.Point(120.241596, 36.121207), {
+      // 初始化方向向上的闭合箭头
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+            scale: 1*scaleZhi,
+            strokeWeight: 1*lineWeight,
+            rotation: -95,//顺时针旋转30度
+            fillColor: 'blue',
+            fillOpacity: 0.8
+        })
+    }); 
+    vectorFCArrow2 = new BMap.Marker(new BMap.Point(120.36434,35.998664), {
+      // 初始化方向向上的闭合箭头
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+            scale: 1*scaleZhi,
+            strokeWeight: 1*lineWeight,
+            rotation: 95,//顺时针旋转30度
+            fillColor: 'blue',
+            fillOpacity: 0.8
+        })
+    });  
+    vectorFCArrow3 = new BMap.Marker(new BMap.Point(120.371831,35.984069), {
+      // 初始化方向向上的闭合箭头
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+            scale: scaleZhi,
+            strokeWeight: lineWeight,
+            rotation: 35,//顺时针旋转30度
+            fillColor: 'blue',
+            fillOpacity: 0.8
+        })
+    });  
+    map.addOverlay(vectorFCArrow1);  
+    map.addOverlay(vectorFCArrow2);  
+    map.addOverlay(vectorFCArrow3);  
+    vectorBCArrow1 = new BMap.Marker(new BMap.Point(120.310011, 36.030661), {
+          // 初始化方向向下的闭合箭头
+          icon: new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_CLOSED_ARROW, {
+            scale: scaleZhi,
+            strokeWeight: lineWeight,
+            rotation: -45,
+            fillColor: 'blue',
+            fillOpacity: 0.8
+          })
+        });
+    map.addOverlay(vectorBCArrow1);
+    vectorBCArrow2 = new BMap.Marker(new BMap.Point(120.260804,36.081644), {
+          // 初始化方向向下的闭合箭头
+          icon: new BMap.Symbol(BMap_Symbol_SHAPE_BACKWARD_CLOSED_ARROW, {
+            scale: scaleZhi,
+            strokeWeight: lineWeight,
+            rotation: -45,
+            fillColor: 'blue',
+            fillOpacity: 0.8
+          })
+        });
+    map.addOverlay(vectorBCArrow2); 
+    vectorFCArrow4 = new BMap.Marker(new BMap.Point(120.29787,36.09364), {
+          // 初始化方向向上的闭合箭头
+            icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+                scale: scaleZhi,
+                strokeWeight: lineWeight,
+                rotation: -35,//顺时针旋转30度
+                fillColor: 'blue',
+                fillOpacity: 0.8
+            })
+        }); 
+    map.addOverlay(vectorFCArrow4);
+    vectorFCArrow5 = new BMap.Marker(new BMap.Point(120.355632, 36.039602), {
+      // 初始化方向向上的闭合箭头
+        icon: new BMap.Symbol(BMap_Symbol_SHAPE_FORWARD_CLOSED_ARROW, {
+            scale: scaleZhi,
+            strokeWeight: lineWeight,
+            rotation: -35,//顺时针旋转30度
+            fillColor: 'blue',
+            fillOpacity: 0.8
+        })
+    }); 
+    map.addOverlay(vectorFCArrow5); 
+};
+
+//删除矢量图
+function removeShiLiangTu(){
+    vectorFCArrow1.remove();
+    vectorFCArrow2.remove();
+    vectorFCArrow3.remove();
+    vectorBCArrow1.remove();
+    vectorBCArrow2.remove();
+    vectorFCArrow4.remove();
+    vectorFCArrow5.remove();
+}
+//添加矢量图
+function addShiLiangTu(){
+    map.addOverlay(vectorFCArrow1); 
+    map.addOverlay(vectorFCArrow2); 
+    map.addOverlay(vectorFCArrow3); 
+    map.addOverlay(vectorBCArrow1); 
+    map.addOverlay(vectorBCArrow2); 
+    map.addOverlay(vectorFCArrow4); 
+    map.addOverlay(vectorFCArrow5); 
+}
+</script>

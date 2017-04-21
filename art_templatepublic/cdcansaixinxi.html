@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle zhuanghaibei"></h3>
+		<a href="gerenyemian.html" class="shipinsuoluetu"></a>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 船队报名系列部分内容开始 -->
+	<div class="wapper hidden zcdbmkuang">
+		<div class="zfenlei hidden">
+			<a href="cdbmziye.html" class="zfenleia zfenleia1">船队报名</a>
+			<a href="gerenbaoming.html" class="zfenleia">个人报名</a>
+		</div>
+		<div class="zfenleicon hidden cdcansaibj">
+			<div class="zbianju hidden">
+				<div class="zcdbmsafe hidden">
+					<div class="cdbmalert">
+						<img src="images/bigwave.svg" alt="" class="bigwave">
+						<p class="tiship">有了船队，请填写参赛信息！</p>
+					</div>
+					<form class="zscform hidden" onsubmit="return teamEnroll();">
+						<div class="inputkuang">
+							<label for="sailingInput" class="sclabel">选择参赛组：</label>
+							<div class="cdselect">
+                                <input id="sailingInput" type="text" placeholder="点击选择参赛组" class="scinput cansaizu" value="">
+                                <input id="sailingId" type="hidden" value="">
+								<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+								<ul id="sailingSeletor" class="xialaselect hidden">
+								</ul>
+							</div>
+						</div>
+						<div class="inputkuang">
+							<label for="teamInput" class="sclabel">选择参赛的船队：</label>
+							<div class="cdselect cdselect2">
+								<input id="teamInput" type="text" placeholder="点击选择参赛的船队" class="scinput cansaiteam">
+                                <input id="teamId" type="hidden" value="">
+								<img src="images/xiajiantou.svg" alt="" class="xiajiantou">
+								<ul id="teamSeletor" class="xialaselect hidden">
+								</ul>
+							</div>
+						</div>
+						<div class="inputkuang hidden">
+							<label for="teamName" class="sclabel">本次参赛队名：</label>
+                            <input id="teamName" type="text" placeholder="可在船队名称前后添加赞助商名称" class="scinput zcansaiduiming">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="area" class="sclabel">代表国家或地区：</label>
+                            <input id="area" type="text" class="scinput daibiao">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="club" class="sclabel">隶属俱乐部或企业：</label>
+                            <input id="club" type="text" class="scinput lishu">
+						</div>
+						<div class="inputkuang hidden">
+							<label for="sponsor" class="sclabel">船队赞助商：</label>
+                            <input id="sponsor" type="text" class="scinput cdzanzhushang">
+						</div>
+						<!-- form按钮部分 -->
+						<a href="javascript:teamEnroll();" class="chuanlichuanduia"><button type="submit" class="submitbut">保存参赛信息</button></a>
+						<a href="javascript:;" class="quexiaoa"><button class="cancelbut">取消</button></a>
+					</form>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!-- 船队报名系列部分内容结束 -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script>
+    $(function(){
+        //初始化赛船选择
+        (function(){
+            var sailings = getMatchSailings();
+            $('#sailingSeletor').html('');
+            $('#sailingInput').val('');
+            $('#sailingId').val('');
+            for(var i in sailings){
+                var sailing = sailings[i];
+                var name = sailing['name'];
+                var sailingId = sailing['sailingId'];
+                $('<li class="xlselectli">'+sailing['name']+'</li>').attr('data-id', sailing['sailingId']).appendTo($('#sailingSeletor'));
+            }
+            $('#sailingSeletor li').click(function(){
+                $('#sailingInput').val($(this).text());
+                $('#sailingId').val($(this).attr('data-id'));
+                $('#sailingSeletor li').removeClass('xlselectli1');
+                $(this).addClass('xlselectli1').siblings().removeClass('xlselectli1');
+                $('#sailingSeletor').hide();
+            });
+            $('#sailingInput').focus(function(){
+                $('#teamSeletor').hide();
+                $('#sailingSeletor').show();
+            });
+        })();
+        //初始化船队选择
+        (function(){
+            var teams = getUserTeam();
+            $('#teamSeletor').html('');
+            $('#teamInput').val('');
+            $('#teamId').val('');
+            for(var i in teams){
+                var team = teams[i];
+                var name = team['name'];
+                var teamId = team['teamId'];
+                $('<li class="xlselectli">'+team['name']+'</li>').attr('data-id', team['teamId']).appendTo($('#teamSeletor'));
+            }
+            $('#teamSeletor li').click(function(){
+                $('#teamInput').val($(this).text());
+                $('#teamId').val($(this).attr('data-id'));
+                $('#teamSeletor li').removeClass('xlselectli1');
+                $(this).addClass('xlselectli1').siblings().removeClass('xlselectli1');
+                $('#teamSeletor').hide();
+            });
+            $('#teamInput').focus(function(){
+                $('#sailingSeletor').hide();
+                $('#teamSeletor').show();
+            });
+        })();
+    });
+    //船队报名
+    function teamEnroll(){
+        //验证数据有效性和完整性
+        var validate = function(){
+            //处理错误信息
+            var error = function(id, msg){
+                if(id){
+                    $('#'+id).focus();
+                }
+                alert(msg);
+                return false;
+            };
+            //参赛组
+            var sailingId = $('#sailingId').val();
+            if(sailingId.length < 1){
+                return error('sailingId', '参赛组不能为空');
+            }
+            //参赛船队
+            var teamId = $('#teamId').val();
+            if(teamId.length < 1){
+                return error('teamId', '参赛船队不能为空');
+            }
+            //本次参赛队名
+            var teamName = $('#teamName').val();
+            if(teamName.length < 1){
+                return error('teamName', '本次参赛队名不能为空');
+            }
+            //代表国家或地区
+            var area = $('#area').val();
+            if(area.length < 1){
+                return error('area', '代表国家或地区不能为空');
+            }
+            //隶属俱乐部或企业
+            var club = $('#club').val();
+            if(club.length < 1){
+                return error('club', '隶属俱乐部或企业不能为空');
+            }
+            //船队赞助商
+            var sponsor = $('#sponsor').val();
+            if(sponsor.length < 1){
+                return error('sponsor', '船队赞助商不能为空');
+            }
+            return true;
+        }
+        //验证
+        if(!validate()){
+            return false;
+        }
+        postData({
+            url : '/team/jionMatch',
+            data : {
+                matchId : getMatchId(),
+                sailingId : $('#sailingId').val(),
+                teamId : $('#teamId').val(),
+                teamName : $('#teamName').val(),
+                area : $('#area').val(),
+                club : $('#club').val(),
+                sponsor : $('#sponsor').val()
+            },
+            callback : function(data){
+                alert('报名成功！');
+                window.location.href="chuanduibaoming.html";
+            }
+        });
+        return false;
+    }
+    //获取赛船组
+    function getMatchSailings(){
+        return getData({
+            url : '/match/getMatchSailingList',
+            data : {matchId : getMatchId()}
+        });
+    }
+    //获取当前用户所有船队
+    function getUserTeam(){
+        return getData({
+            url : '/user/getTeamList'
+        });
+    }
+$(".ztitle").html(saveMatchName());
+document.title=saveMatchName();
+</script>
+</html>

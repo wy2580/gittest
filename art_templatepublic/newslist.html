@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+        <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+        <link rel="stylesheet" href="styles/common.css">
+        <link rel="stylesheet" href="styles/index.css">
+        <script type="text/javascript" src="js/base.js"></script>
+    </head>
+    <body>
+        <!-- head部分开始 -->
+        <div class="zsaichuanxiangjie wapper hidden">
+            <a href="javascript:;" class="back"></a>
+            <h3 class="ztitle"></h3>
+        </div>
+        <!-- head部分结束 -->
+        <!-- 图片上传内容部分开始 -->
+        <div class="wapper hidden contentTop">
+            <ul id="iconarea_wapper_ul_id" class="iconarea wapper hidden">
+                
+            </ul>
+            <div class="scheduleConChild newsAddmore hidden" id="newsListAddmoreDiv">
+                <a href="javascript:;" class="scheduleLinka newsAddmorea">
+                    <img src="images/bigwave.svg" alt="" class="addmorewave">
+                    <p class="newsAddmorep">点击一下  坐等风来</p>
+                </a>
+            </div>
+        </div>
+        <!-- 图片上传内容部分结束 -->
+        <!-- <div class="zsctpform hidden">
+                <a href="javascript:;" class="zscbut"></a>
+        </div> -->
+    </body>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/fastclick.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script>
+    var page = 0; 
+    var matchId = $.cookie('match_more_id');
+    var type = 6;//新闻
+    var requestCount = 4;//分页大小
+    var islock = 0;//0:解锁，1:枷锁
+    $(function(){
+        //初始化页面
+        fillData();
+    });
+    //填充页面页面
+    function fillData(){
+        var action = getUrl()+'/match/getContentList';
+        var data = {page:page,type:type,size:requestCount,matchId:matchId};
+        jQuery.ajax({
+            url:action,
+            type:"get",
+            async:false,
+            data:data,
+            beforeSend:function(){
+            },
+            success:function(returnData){                                                    
+                var data = JSON.parse(returnData);
+                if(data.statusCode === 0){                   
+                    //获取总的新闻条数
+                    newsListLen=data['pageSize'];                            
+                    // if(data.pageSize > 0){
+                        for(var i in data.data){
+                            if($("#saishizhijili"+data.data[i]['cid']).length<=0){
+                                $("#iconarea_wapper_ul_id").append(appendHtmlPress(data.data[i]));
+                                
+                            }
+                        }
+                    }else{
+//                        alert("加载完成");
+                    }
+                // }else{
+                //     alert(data.message);
+                // }
+                //判断加载更多是否显示;
+                newListIfShow();
+            }
+        });
+    }
+    //依据赛事行程内容多少判断‘点击加载更多’，是否显示
+    function newListIfShow(){
+        if(newsListLen<requestCount){
+            $("#newsListAddmoreDiv").hide();
+            page=page;
+        }else{
+            $("#newsListAddmoreDiv").show();
+            page=page+1;
+        };
+        $("#newsListAddmoreDiv").click(function(){
+            fillData();
+        })
+    };
+    //日期转格式yyyy-MM-dd h:m:s
+    function getTime(timestamp){
+            var newDate = new Date();
+            newDate.setTime(timestamp*1000);
+            Date.prototype.format = function(format) {
+                var date = {
+                     "M+": this.getMonth() + 1,
+                     "d+": this.getDate(),
+                     "h+": this.getHours(),
+                     "m+": this.getMinutes(),
+                     "s+": this.getSeconds(),
+                     "q+": Math.floor((this.getMonth() + 3) / 3),
+                     "S+": this.getMilliseconds()
+                };
+                if (/(y+)/i.test(format)) {
+                     format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+                }
+                for (var k in date) {
+                     if (new RegExp("(" + k + ")").test(format)) {
+                            format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                                   ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+                     }
+                }
+                return format;
+            }
+            return  newDate.format('yyyy-MM-dd h:m:s')
+        }    
+    //接口地址
+    function getUrl(){
+        return 'http://api.hanghai.onairm.cn';
+    }           
+    //获取数据
+    function appendHtmlPress(data) {
+        var html = '';
+        var time = getTime(data.createdTime);            
+        html += '<li class="saishizhijili" id="saishizhijili'+data['cid']+'">';
+        html += '<div class="safe hidden">';
+        html += '<a href="javascript:matchInfo(\''+data['matchId']+'\',\''+data['name']+'\',\''+data['cid']+'\',\''+data['type']+'\')" class="lilinka">';
+        html += '<h2 class="saishizhijih">'+data.title+'</h2>';
+        html += '<div href="javascript:;" class="zhijijieshao">';
+        if(data.icon){
+            var icon = formatFileUrl(data.icon, 'images/11.png');
+            html += '<img src="'+icon+'" alt="" class="zhijijieshaoimg">';
+            html += '<div class="shjswenzi">';
+            if(data.description){
+                html += '<p class="shzjwenzip">'+data.description+'</p>';
+            }
+        }else{
+            html += '<div class="shjswenzi" style="width:720px;">';
+            html += '<p class="shzjwenzip" style="width:720px;">'+data.description+'</p>';
+        }
+        html += '<p class="shzjwenzitime">'+time+'</p>';
+        html += '</div> </div> </a> </div> </li> ';
+        return html;
+    }
+    //检测滚动条是否到底
+    // $(window).scroll(function () {
+    //     if(!islock){
+    //         var viewH = $(window).height();//可视页面高度
+    //         var pageH = $(document).height(); //整个页面高度
+    //         var scrollH =   $(document).scrollTop();//对顶部已滚动距离
+    //         if(scrollH >=  pageH - viewH - 100){
+    //             islock = 1;
+    //             fillData();
+    //         }
+    //     }
+    // });
+
+     $(".ztitle").html(saveMatchName());
+     document.title=saveMatchName();
+    </script>
+</html>

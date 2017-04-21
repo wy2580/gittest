@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle zhuanghaibei"></h3>
+		<a href="gerenyemian.html" class="shipinsuoluetu hidden" id="cdbmzhuyetouxiang">
+			<img src="images/weidenglu.png" alt="" class="headsuoluetu">
+		</a>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 船队报名系列部分内容开始 -->
+	<div class="wapper hidden zcdbmkuang">
+		<div class="zfenlei hidden">
+			<a href="cdbmziye.html" class="zfenleia zfenleia1">船队报名</a>
+			<a href="gerenbaoming.html" class="zfenleia">个人报名</a>
+		</div>
+		<div class="zfenleicon">
+			<div class="zbianju">
+				<div class="zcdbmsafe">
+					<h3 class="zcdbmtitle">船队报名</h3>
+					<p class="zcdbmp">如果您是船长或船队经理，想组队参赛，第一次登陆本系统的时候，需要创建船队信息。如需人工帮助，请拨打 4006 5151 60，或发邮件：race@51hanghai.com</p>
+					<a id="createTeamBtn" href="javascript:toCreateTeam();" class="zceratecd">创立您的船队</a>
+                    <a id="enrollBtn" href="javascript:toEnrollTeam();" class="zceratecd">已有船队直接报名</a>
+                    <a id="createTeamStatusBtn" href="javascript:void(0);" class="zceratecd" style="display: none;">等待审核</a>
+					<p class="zcdbmp zcdbmp2">如果您不是船长或船队经理，则可以点击上面的“个人报名”菜单，申请加入已经报名的船队。</p>
+				</div>
+			</div>
+		</div>		
+	</div>
+	<!-- 船队报名系列部分内容结束 -->
+	<!-- 合作伙伴部分开始 -->
+	<div class="chuanduijieshao hidden">
+		<div class="sychuansai wapper hidden bisaicj">
+			<h2 class="syh">合作伙伴</h2>
+		</div>
+		<div class="hezuolianjie hidden">
+			<!-- <a href="javascript:;" class="hezuolianjiea hezuolianjiea1"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea2"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea3"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea4"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea5"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea6"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea7"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea8"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea3"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea4"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea5"></a>
+			<a href="javascript:;" class="hezuolianjiea hezuolianjiea2"></a> -->
+			<img src="images/hezuologo.png" alt="" class="hezuologo">
+		</div>
+	</div>
+	<!-- 合作伙伴部分结束 -->
+	<!-- footer部分开始 -->
+	<div class="footer wapper">
+		<p class="footp">cnsa.cc 中国帆船赛事联盟</p>
+	</div>
+	<!-- footer部分结束 -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script>
+    //页面初始化
+    $(function(){
+        var enrollTeam = getEnrollInfo();
+        if(enrollTeam){
+            var status = '';
+            if(enrollTeam.status == '1'){
+                status = '等待审核';
+            }else if(enrollTeam.status == '2'){
+                status = '审核通过';
+            }else if(enrollTeam.status == '3'){
+                status = '审核未通过';
+            }
+            $('#createTeamBtn').hide();
+            $('#enrollBtn').hide();
+            $('#createTeamStatusBtn').text(status).show();
+        }
+    });
+    //获取报名信息
+    function getEnrollInfo(){
+        if(!getLoginUser()){
+            return false;
+        }
+        return getData({
+            url : '/match/getIsMatchEnroll',
+            data : {matchId : getMatchId()},
+        });
+    }
+    //去创建团队
+    function toCreateTeam(){
+        if(loginCheck()){
+            window.location.href="cdbmziye.html";
+        }
+    }
+    //去报名团队
+    function toEnrollTeam(){
+        if(loginCheck()){
+            window.location.href="cdcansaixinxi.html";
+        }
+    }
+    $(".zhuanghaibei").html(saveMatchName());
+    $(function(){
+    	new FastClick(document.body);
+	});
+    $("#cdbmzhuyetouxiang").on("click",function(){
+    	loginCheck();
+    	window.location.href="gerenyemian.html";
+    })
+    document.title=saveMatchName();
+</script>
+</html>

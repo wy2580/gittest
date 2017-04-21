@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="18px" viewBox="0 0 7 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>切图/赛事/轨迹-船-赛船/boat#006EFF@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="674" y="1072" width="412" height="668"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="412" height="668" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="素材和切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="中帆联/切图/" transform="translate(-912.000000, -1567.000000)">
+            <use id="Rectangle-4" stroke="#979797" mask="url(#mask-2)" stroke-width="2" fill="#011019" xlink:href="#path-1"></use>
+            <g id="切图/赛事/轨迹-船-赛船/boat#006EFF" transform="translate(911.000000, 1567.000000)" fill="#0062E3">
+                <path d="M-3.83582423,6.8163703 C-1.91548034,5.86694912 0.794610238,5.27529262 3.79800858,5.27529262 C7.85192683,5.27529262 11.3714682,6.35323051 13.1358117,7.93392974 C11.5671709,9.6718907 8.43225784,11.2015737 4.66059115,11.8666203 C1.52327415,12.4198139 -1.40465008,12.260149 -3.49126803,11.559632 C-3.71801125,10.907938 -3.87398934,10.2201739 -3.94921921,9.50440952 C-4.04598022,8.58379 -4.00244598,7.68070619 -3.83582423,6.8163703 Z" id="Oval-69-Copy-23" transform="translate(4.567906, 8.737354) rotate(-87.000000) translate(-4.567906, -8.737354) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

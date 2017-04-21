@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/chuanduizuye.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<div class="dengluzhuce">
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle zhuanghaibei">新用户注册</h3>
+		<a href="javascript:;" class="chuanduitouxiang denglutou"></a>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 登录注册部分内容开始 -->
+	<div class="wapper dengluzhucecon hidden">
+		<div class="consafe">
+			<h3 class="dlzch3">请登陆</h3>
+			<p class="dlzcp">中国帆船赛事联盟与我要航海网为统一的用户系统，您可以直接用我要航海网账户登陆。</p>
+			<form class="dlzcform" onsubmit="return register();">
+				<div class="dlzcinputkuang hidden">
+					<label for="nickname" class="dlzcformlabel">账号：</label>
+                    <input type="text" id="nickname" placeholder="请输入您的登陆账号" class="dlzcforminput dengluinput">
+					<img src="images/xing.png" alt="" class="dlxing">
+				</div>
+				<p class="zhucetiship">可使用中文账号</p>
+				<div class="dlzcinputkuang hidden">
+					<label for="password" class="dlzcformlabel">密码：</label>
+                    <input type="password" id="password" placeholder="请输入密码" class="dlzcforminput dengluinput">
+					<img src="images/xing.png" alt="" class="dlxing">
+				</div>
+				<div class="dlzcinputkuang hidden">
+					<label for="rePassword" class="dlzcformlabel">密码：</label>
+                    <input type="password" id="rePassword" placeholder="请再次输入密码" class="dlzcforminput dengluinput">
+					<img src="images/xing.png" alt="" class="dlxing">
+				</div>
+				<div class="dlzcinputkuang hidden">
+					<label for="username" class="dlzcformlabel">手机：</label>
+                    <input type="text" id="username" placeholder="请输入手机号码" class="dlzcforminput dengluinput">
+					<img src="images/xing.png" alt="" class="dlxing">
+				</div>
+				<div class="dlzcinputkuang hidden">
+					<label for="verifyCode" class="dlzcformlabel">验证码：</label>
+                    <input type="text" id="verifyCode" placeholder="请输入手机验证码" class="dlzcforminput zhuceyanzheng">
+                    <input type="button" value="获取验证码" class="getyanzhengma" onclick="getVerifyCode();">
+				</div>
+				<div class="dlzcinputkuang hidden">
+					<input type="checkbox" id="checkbox" checked><label for="checkbox" class="dlzcformlabel"><a href="fuwuxieyi.html" class="forgetpass">同意用户服务协议</a></label>
+				</div>
+				<a href="javascript:register();" class="denglubuta"><input type="submit" class="qrsqa1 denglubut" value="提交注册信息"></a>
+				<a href="#" class="denglubuta quexiaoa"><input type="button" class="qrsqa1 qrsqa2 zhucebut" value="取消"></a>
+			</form>
+		</div>
+	</div>
+	<!-- 登录注册部分内容结束 -->
+</div>	
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+document.title=saveMatchName();
+    //注册
+    function register(){
+        var baseUrl = 'http://api.hanghai.onairm.cn';
+        //验证数据有效性和完整性
+        var validate = function(){
+            //处理错误信息
+            var error = function(id, msg){
+                if(id){
+                    $('#'+id).focus();
+                }
+                alert(msg);
+                return false;
+            };
+            //账号
+            var nickname = $('#nickname').val();
+            if(nickname.length < 1){
+                return error('nickname', '账号不能为空');
+            }
+            //密码
+            var password = $('#password').val();
+            if(password.length < 1){
+                return error('password', '密码不能为空');
+            }
+            if(password.length < 6){
+                return error('password', '密码太短');
+            }
+            if(password.length > 20){
+                return error('password', '密码太长');
+            }
+            //密码1
+            var rePassword = $('#rePassword').val();
+            if(rePassword.length < 1){
+                return error('rePassword', '密码不能为空');
+            }
+            if(password !== rePassword){
+                return error('rePassword', '密码不一致');
+            }
+            //手机号
+            var username = $('#username').val();
+            if(username.length !== 11){
+                return error('username', '手机号码格式有误');
+            }
+            //验证码
+            var verifyCode = $('#verifyCode').val();
+            if(verifyCode.length < 1){
+                return error('verifyCode', '验证码不能为空');
+            }
+            //服务协议
+            if(!$('#checkbox').attr('checked')){
+                return error('', '验证码不能为空');
+            }
+            return true;
+        }
+        //验证
+        if(!validate()){
+            return false;
+        }
+        jQuery.ajax({
+            url: baseUrl+'/user/register',
+            data:{
+                nickname : $('#nickname').val(),
+                password : $('#password').val(),
+                username : $('#username').val(),
+                verifyCode : $('#verifyCode').val()
+            },
+            type:"POST",
+            async:true,
+            beforeSend:function(){},
+            success:function(returnData){
+                //提醒用户
+                var dataRaw = JSON.parse(returnData);
+                if(dataRaw.statusCode+'' === '0'){//成功
+                    alert('注册成功！');
+                    window.location.href="dengluzhuce.html";
+                }else{//其它错误
+                    alert('注册信息有误！');
+                }
+            },
+            error:function(){
+                alert('网络请求失败！');
+            }
+        });
+        return false;
+    }
+    //获取验证码
+    function getVerifyCode(){
+        var baseUrl = 'http://api.hanghai.onairm.cn';
+        var username = $('#username').val();
+        if(username.length !== 11){
+            alert('请填写正确的手机号码');
+            return false;
+        }
+        jQuery.ajax({
+            url: baseUrl+'/user/verifyCode',
+            data:{
+                username : $('#username').val(),
+                type : '1'
+            },
+            type:"POST",
+            async:true,
+            beforeSend:function(){},
+            success:function(returnData){
+                //提醒用户
+                var dataRaw = JSON.parse(returnData);
+                if(dataRaw.statusCode+'' === '0'){//成功
+                    alert('验证码发送成功!');
+                }else{//其它错误
+                    alert('注册信息有误！');
+                }
+            },
+            error:function(){
+                alert('网络请求失败！');
+            }
+        });
+    }
+</script>
+</html>

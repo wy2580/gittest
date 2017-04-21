@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>CNSA中国帆船赛</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/swiper.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<!-- <div class="conbj"></div> -->
+<!-- 二期航海首页部分开始 -->
+	<!-- 首页头部部分开始 -->
+	<div class="indexHeader wapper hidden">
+		<ul class="indexHeaderUl hidden">
+			<li class="indexHeaderli f_left indexHeaderli1">赛事行程</li>
+			<li class="indexHeaderli f_left indexHeaderli1" id="matchNewsHead">赛事新闻</li>
+		</ul>
+	</div>
+	<!-- 首页头部部分结束 -->
+	<!-- 首内容部分开始 -->
+	<div class="indexCon wapper hidden">
+		<div class="indexConPart indexConPart1 hidden">
+			<div class="scheduleState wapper hidden">
+				<div class="smState f_left hidden">
+					<span class="stateDash f_left"></span>
+					<span class="stateWord f_left">已完成</span>
+				</div>
+				<div class="smState f_left hidden">
+					<span class="stateDash stateDashLan f_left"></span>
+					<span class="stateWord f_left">进行中</span>
+				</div>
+				<div class="smState f_left hidden">
+					<span class="stateDash stateDashGreen f_left"></span>
+					<span class="stateWord f_left">未开始</span>
+				</div>
+			</div>
+			<div class="scheduleCon wapper hidden" id="scheduleCon">
+				<div id="scheduleArrCon" class="scheduleConChild hidden">
+					<!--div class="scheduleArrangePart hidden">
+						<span class="scheduleDate f_left">2016年09月</span>
+						<div class="scheduleConPar f_left">
+							<div class="scheduleConLeft f_left">
+								<span class="stateDash stateDashGreen lineDash"></span>
+							</div>
+							<div class="scheduleConRight hidden f_right">
+								<a href="noindex.html" class="scheduleLinka">
+									<div class="scheduleConDate f_left">
+										<span class="scheduleConDateSpan">10.22</span>
+										<span class="scheduleConDateSpan">10.23</span>
+									</div>
+									<div class="scheduleArrange f_left">
+										<h3 class="schedulName">武汉东湖国际帆船赛</h3>
+										<div class="schedulIntro">
+											<span class="schedulIntroiconEnter f_left"></span>
+											<span class="schedulIntrospan schedulIntroEnter f_left">88支船队参赛</span>
+											<span class="schedulIntroiconMap f_left"></span>
+											<span class="schedulIntrospan schedulIntroDizhi f_left">上海</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div-->
+					
+				</div>
+				<div class="scheduleConChild newsAddmore hidden" id="arrangeAddmoreDiv">
+					<a href="javascript:;" class="scheduleLinka newsAddmorea">
+						<img src="images/bigwave.svg" alt="" class="addmorewave">
+						<p class="newsAddmorep">点击一下  坐等风来</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="indexConPart indexConPart2 hidden" id="indexConPart2">
+			<div class="matchNewConKuang hidden" id="matchNewConKuang">
+				<!-- <div class="matchNew hidden">
+					<div class="safe hidden">
+						<a href="javascript:;" class="scheduleLinka">
+							<h4 class="matchNewName">青岛飞驰俱乐部月赛</h4>
+							<h3 class="matchNewTitle">竞赛公告2016秦皇岛</h3>
+							<div class="matchNewCon hidden">
+								<img src="images/10.png" alt="" class="matchNewImg f_left">
+								<div class="matchNewWord f_right hidden">
+									<p class="matchNewWordp">
+										终于有风了，今日增加2场比赛，选手们爆发狂热的激情还有什么比这更有意思的呢？我要去航海船队勇夺此次比赛的胜利。
+									</p>
+									<p class="matchNewWordTime">2016.08.01 17:45</p>
+								</div>
+							</div>
+						</a>
+					</div>	
+				</div>
+				<div class="matchNew hidden">
+					<div class="safe hidden">
+						<a href="javascript:;" class="scheduleLinka">
+							<h4 class="matchNewName">青岛飞驰俱乐部月赛</h4>
+							<h3 class="matchNewTitle">竞赛公告2016秦皇岛</h3>
+							<div class="matchNewCon hidden">
+								<div class="matchNewVedio f_left">
+									<img src="images/10.png" alt="" class="matchNewImg f_left">
+									<img src="images/bofangicon.svg" alt="" class="matchNewBofangIcon">
+								</div>
+								<div class="matchNewWord f_right hidden">
+									<p class="matchNewWordp">
+										终于有风了，今日增加2场比赛，选手们爆发狂热的激情还有什么比这更有意思的呢？我要去航海船队勇夺此次比赛的胜利。
+									</p>
+									<p class="matchNewWordTime">2016.08.01 17:45</p>
+								</div>
+							</div>
+						</a>
+					</div>	
+				</div>
+				<div class="matchNew hidden">
+					<div class="safe hidden">
+						<a href="javascript:;" class="scheduleLinka">
+							<h4 class="matchNewName">青岛飞驰俱乐部月赛</h4>
+							<h3 class="matchNewTitle">竞赛公告2016秦皇岛</h3>
+							<div class="matchNewCon hidden">
+								<p class="matchNewWordp matchNewWordpword">
+									终于有风了，今日增加2场比赛，选手们爆发狂热的激情还有什么比这更有意思的呢？我要去航海船队勇夺此次比赛的胜利。
+								</p>
+								<p class="matchNewWordTime">2016.08.01 17:45</p>
+							</div>
+						</a>
+					</div>	
+				</div> -->
+			</div>
+			<div class="newsAddmore wapper hidden" id="newsAddMoreDiv">
+				<a href="javascript:;" class="scheduleLinka newsAddmorea">
+					<img src="images/bigwave.svg" alt="" class="addmorewave">
+					<p class="newsAddmorep">点击一下  坐等风来</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 首内容部分结束 -->
+<!-- 二期航海首页部分结束 -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+$(".indexHeaderUl .indexHeaderli").click(function(){
+	$(".scheduleCon .scheduleConChild").hide();
+	var indexx=$(this).index();
+	$(".scheduleCon .scheduleConChild").eq(indexx).show();
+})
+
+var theCurrentDate = '';
+var requestCount=5;
+var timestamp = (new Date()).valueOf(); 
+var real_time = new Date(timestamp) / 1000; 
+//获取赛事行程数据
+	function getMatchArrange(){
+		return getAllData({
+            url : '/match/getMatchList',
+            data : {page :  matchArrangePage,
+            		size:  requestCount
+            	}
+        });
+	}
+// 获取赛事新闻数据
+	function getMatchNews(){
+		return getAllData({
+            url : '/match/getAllNewsList?type=6',
+            data : {page :  newsPage,
+            		size: requestCount
+            	}
+        });
+	}
+//定义赛事行程的page值
+var matchArrangePage=0,matchArrangePageLen=0;
+//页面初始化
+$(function(){
+	getMatchNewsCon();
+	getArrangeCon()
+	getDeviceWidth();
+});
+
+// 判断状态以显示什么背景图片
+function decideColor(item){
+	if(real_time<item['begin_time']){
+		$("#match_id"+item['match_id']).find("span.lineDash").css({"backgroundColor":"#71bf56"});
+		$("#match_id"+item['match_id']).find("h3.schedulName").css({"color":"#71bf56"});
+	}else if(item['begin_time']<real_time && real_time<item['end_time']){
+		$("#match_id"+item['match_id']).find("span.lineDash").css({"backgroundColor":"#55ccff"});
+		$("#match_id"+item['match_id']).find("h3.schedulName").css({"color":"#55ccff"});
+	}else if(real_time>item['end_time']){
+		$("#match_id"+item['match_id']).find("span.lineDash").css({"backgroundColor":"#7f909d"});
+		$("#match_id"+item['match_id']).find("h3.schedulName").css({"color":"#7f909d"});
+	}
+}
+//定义新闻列表的page值
+var newsPage=0,newsPageLen=0;
+
+//赛事新闻部分内容
+function getMatchNewsCon(){
+	var matchNew=getMatchNews();
+	//取赛事新闻的值：page和pagesize
+	newsPageLen=matchNew['pageSize'];
+	//循环数据，添加到页面
+	var matchNewAll= matchNew.data;
+	if(!matchNew){
+		alert("网络错误！");
+		return;
+	}
+	for(var i in matchNewAll){
+		var item=matchNewAll[i];
+		if($("#match_id"+item['match_id']).length<=0){
+			$("#matchNewConKuang").append(item['icon'] ? matchNewsPic(item) : matchNewNoPic(item));
+		}		
+	};
+	newsIfShow();
+}
+//依据赛事行程内容多少判断‘点击加载更多’，是否显示
+function arrangeIfShow(){
+	if(matchArrangePageLen<requestCount){
+		$("#arrangeAddmoreDiv").hide();
+		matchArrangePage=matchArrangePage;
+	}else{
+		$("#arrangeAddmoreDiv").show();
+		matchArrangePage=matchArrangePage+1;
+	};
+	$("#arrangeAddmoreDiv").click(function(){
+		getArrangeCon();
+	})
+};
+//依据赛事新闻内容多少判断‘点击加载更多’，是否显示
+function newsIfShow(){
+	if(newsPageLen<requestCount){
+		$("#newsAddMoreDiv").hide();
+		newsPage=newsPage;
+	}else{
+		$("#newsAddMoreDiv").show();
+		newsPage=newsPage+1;
+	}
+	$("#newsAddMoreDiv").click(function(){
+		getMatchNewsCon();
+	})
+};
+//赛事行程点击加载更多发送申请
+function getArrangeCon(){	
+	var match=getMatchArrange();
+	if(!match){
+		alert("网络错误！");
+		return;
+	}
+	//取赛事新闻的值：page和pagesize
+	matchArrangePageLen=match['pageSize'];
+	//循环数据，添加到页面
+	var items=match.data;
+	for(var i in items){
+		var item=items[i];
+		if($("#match_id"+item['match_id']).length<=0){
+			$("#scheduleArrCon").append(matchSingle(item));
+			decideColor(item);
+		};
+	};
+	arrangeIfShow();	
+}
+
+//时间戳的年月的处理
+function handleYearMonth(times){
+	var getTime=getTime1(times);
+	return getTime.substring(0, 7).replace('-', '年')+'月';
+}
+//时间戳的月日的处理
+function handleMonthDate(times){
+	var getTimeDate=getTime1(times);
+	return getTimeDate.substring(5, 10).replace('-', '.');
+}
+//获取赛事行程大块
+function matchSingle(item){
+	var date = handleYearMonth(item['begin_time']);	
+	var itemObj = $([
+		'<div class="scheduleArrangePart hidden" id="match_id'+item['match_id']+'">',
+		'   <div class="scheduleConPar f_left">',
+		'        <div class="scheduleConLeft f_left">',
+		'             <span class="stateDash  lineDash"></span>',
+		'        </div>',
+		'        <div class="scheduleConRight hidden f_right" id="scheduleConRight">',
+		'             <a href="javascript:MatchId(\''+item['match_id']+'\')" class="scheduleLinka" matchId="'+item['match_id']+'" target="_blank">',
+		'                 <div class="scheduleConDate f_left">',
+		'                      <span class="scheduleConDateSpan">'+handleMonthDate(item['begin_time'])+'</span>',
+		'                      <span class="scheduleConDateSpan">'+handleMonthDate(item['end_time'])+'</span>',
+		'                 </div>',
+		'	              <div class="scheduleArrange f_left">',
+		'		          		<h3 class="schedulName">'+item['name']+'</h3>',
+		'		          		<div class="schedulIntro">',
+		'			                  <span class="schedulIntroiconEnter f_left"></span>',
+		'			                  <span class="schedulIntrospan schedulIntroEnter f_left">'+item['team_count']+'支船队</span>',
+		'			                  <span class="schedulIntroiconMap f_left"></span>',
+		'			                  <span class="schedulIntrospan schedulIntroDizhi f_left">'+item['location']+'</span>',
+		'		                 </div>',
+		'		           </div>',
+		'	           </a>',
+		'         </div>',
+		'    </div>',
+		'</div>',
+	].join(''));
+	// $(".scheduleConRight").append(matchSingleArrange(item));
+	if(theCurrentDate == '' || theCurrentDate != date){
+		$('<span class="scheduleDate f_left">'+handleYearMonth(item['begin_time'])+'</span>').prependTo(itemObj);
+	}
+	theCurrentDate = date;
+	return itemObj;
+}
+
+//赛事新闻内容
+//有图片的类型
+function matchNewsPic(item){
+	return $([
+		'<div class="matchNew hidden" id="match_id'+item['cid']+'">',
+		'	<div class="safe hidden">',
+		'		<a href="javascript:matchInfo(\''+item['matchId']+'\',\''+item['name']+'\',\''+item['cid']+'\',\''+item['type']+'\');" class="scheduleLinka" cid="'+item['cid']+'" matchId="'+item['matchId']+'" target="_blank">',
+		'			<h4 class="matchNewName">'+item['name']+'</h4>',
+		'			<h3 class="matchNewTitle">'+item['title']+'</h3>',
+		'			<div class="matchNewCon hidden">',
+		'				<img src="'+formatFileUrl(item['icon'])+'?imageView2/1/w/270/h/180'+'" alt="" class="matchNewImg f_left">',
+		'				<div class="matchNewWord f_right hidden">',
+		'					<p class="matchNewWordp">'+item['description']+'</p>',
+		'					<p class="matchNewWordTime">'+getTime1(item['createdTime'])+'</p>',
+		'				</div>',
+		'			</div>',
+		'		</a>',
+		'	</div>'	,
+		'</div>',
+	].join(''));
+}
+//无图片的类型
+function matchNewNoPic(item){
+	return $([
+		'<div class="matchNew hidden" id="match_id'+item['cid']+'">',
+		'	<div class="safe hidden">',
+		'		<a href="javascript:matchInfo(\''+item['matchId']+'\',\''+item['name']+'\',\''+item['cid']+'\',\''+item['type']+'\');" class="scheduleLinka" cid="'+item['cid']+'" matchId="'+item['matchId']+'" target="_blank">',
+		'			<h4 class="matchNewName">'+item['name']+'</h4>',
+		'			<h3 class="matchNewTitle">'+item['title']+'</h3>',
+		'			<div class="matchNewCon hidden">',
+		'				<p class="matchNewWordp matchNewWordpword">'+item['description']+'</p>',
+		'				<p class="matchNewWordTime">'+getTime1(item['createdTime'])+'</p>',
+		'			</div>',
+		'		</a>',
+		'	</div>',
+		'</div>',
+	].join(''));
+}
+//有视频的类型
+function matchNewVedio(item){
+	return $([
+		'<div class="matchNew hidden">',
+		'	<div class="safe hidden">',
+		'		<a href="javascript:matchInfo(\''+item['matchId']+'\',\''+item['name']+'\',\''+item['cid']+'\',\''+item['type']+'\');" class="scheduleLinka" cid="'+item['cid']+'" matchId="'+item['matchId']+'" target="_blank">',
+		'			<h4 class="matchNewName">'+item['name']+'</h4>',
+		'			<h3 class="matchNewTitle">'+item['title']+'</h3>',
+		'			<div class="matchNewCon hidden">',
+		'				<div class="matchNewVedio f_left">',
+		'					<img src="'+formatFileUrl(user['icon'], defaultIcon)+'" alt="" class="matchNewImg f_left">',
+		'					<img src="images/bofangicon.svg" alt="" class="matchNewBofangIcon">',
+		'				</div>',
+		'				<div class="matchNewWord f_right hidden">',
+		'					<p class="matchNewWordp">'+item['description']+'</p>',
+		'					<p class="matchNewWordTime">'+getTime1(item['createdTime'])+'</p>',
+		'				</div>',
+		'			</div>',
+		'		</a>',
+		'	</div>',
+		'</div>',
+	].join(''));
+}
+//设备高度
+function getDeviceWidth(){
+	$("#scheduleCon").css({minHeight:'10rem'});
+	$("#indexConPart2").css({minHeight:'10rem'});
+};
+</script>
+</html>

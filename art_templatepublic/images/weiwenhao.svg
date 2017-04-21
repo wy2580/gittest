@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>切图/船队/未安排的角色</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="27.5" cy="27.5" r="27.5"></circle>
+    </defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="中帆联/切图/" transform="translate(-36.000000, -327.000000)">
+            <g id="切图/船队/未安排的角色" transform="translate(36.000000, 327.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#797979" xlink:href="#path-1"></use>
+                <path d="M18.6785714,17.0410317 C18.6785714,12.3426786 22.4874306,8.53174603 27.1878571,8.53174603 C31.8841369,8.53174603 35.6950694,12.3426786 35.6950694,17.0410317 C35.6950694,21.7393849 31.8841369,25.5503175 27.1878571,25.5503175 L27.1878571,31.4657639" id="Stroke-3610" stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M27,37.5595238 L27,38.8554067" id="Stroke-3612" stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" mask="url(#mask-2)"></path>
+                <rect id="Rectangle-2" fill="#1F2832" mask="url(#mask-2)" x="0" y="40" width="55" height="20"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

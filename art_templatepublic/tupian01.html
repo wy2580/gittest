@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="dropload/dropload.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle"></h3>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 图片上传内容部分开始 -->
+    <div id="matchMapContent" class="wapper hidden contentTop">
+    	<div id="wapper_icon_div_id" class="wapper hidden">
+    		
+    	</div>
+    </div>
+	<!-- 图片上传内容部分结束 -->
+	<!-- <div class="zsctpform hidden">
+		<a href="javascript:;" class="zscbut"></a>
+	</div> -->
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="dropload/dropload.min.js"></script>
+<script type="text/javascript" >
+    var page = 0; 
+    var matchId = $.cookie('match_image_id');
+    var type = $.cookie('match_image_type');//图片
+    var size = 5;//分页大小
+    var islock = 0;//0:解锁，1:枷锁
+    $(function(){
+        //初始化页面
+        fillData();
+    });
+    function getUrl(){
+        return 'http://api.hanghai.onairm.cn';
+    }
+    //填充页面页面
+    function fillData(){
+        var action = getUrl()+'/match/getResourceList';
+        var data = {page:page,type:type,size:size,matchId:matchId};
+        jQuery.ajax({
+            url:action,
+            type:"get",
+            async:false,
+            data:data,
+            beforeSend:function(){
+            },
+            success:function(returnData){                                                    
+                var data = JSON.parse(returnData);
+                if(data.statusCode === 0){
+                    if(data.data==0){
+                        page=page;
+                        alert("暂无数据");
+                        return;
+                    }
+                    var html = "";                            
+                    if(data.pageSize > 0){
+                        for(var i in data.data){
+                            if($("#picture"+data.data[i].rid).length<=0){
+                                html += appendHtmlPress(data.data[i]);   
+                            }
+                           
+                        }
+                        $("#wapper_icon_div_id").append(html);
+                        // page++; 
+                        if(islock){
+                            islock = 0;
+                        }
+                    }else{
+//                        alert("加载完成");
+                    }
+                    dropLoad();
+                }else{
+                    alert(data.message);
+                }
+            }
+        });
+    }
+    function appendHtmlPress(data){
+        var html = '';
+        var icon = formatFileUrl(data.ext, '/images/1.png');
+        var num=0;
+        html += '<div class="zshtupianpart hidden" id="picture'+data.rid+'">';
+        html += '<img src="'+icon+'?imageView2/1/w/750/h/500'+'" alt="" class="zshtupianimg">';
+        if(data.name !== undefined && data.name !== '' && data.name !== null){
+            html +='<a href="javascript:;" class="zsctpsheying hidden"><img src="images/weidenglu.png" alt="" class="uploaderIcon"><span class="uploadName">'+data.name+'</span></a>';
+        }
+        html +='<div class="zshtppizhu hidden pictureZshtppizhu">';
+       
+        if(data.teamName !== undefined && data.teamName !== '' && data.teamName !== null){
+            num++;
+            html +='<a href="javascript:;" class="zsctpchuandui">'+data.teamName+'</a>';  
+        }
+        // if(data.sailingName !== undefined && data.sailingName !== '' && data.sailingName !== null){
+        //     html +='<a href="javascript:;" class="zsctpchuanxing">'+data.sailingName+'</a>';
+        // }
+        if(data.userName !== undefined && data.userName !== '' && data.userName !== null){
+            num++;
+            html +='<a href="javascript:;" class="zsctpmingzi">'+data.userName+'</a>';
+        }
+        $.each(data.keywords.split(","),function(i){
+            if(num > 3){
+                return;
+            }
+            html += '<a href="javascript:;" class="zsctpmingzi">'+data.keywords.split(",")[i]+'</a>';
+            num++;
+        }) 
+
+        html +='</div></div>';
+        return html;              
+    } 
+
+    //检测滚动条是否到底
+    // $(window).scroll(function () {
+    //     if(!islock){
+    //         var viewH = $(window).height();//可视页面高度
+    //         var pageH = $(document).height(); //整个页面高度
+    //         var scrollH =   $(document).scrollTop();//对顶部已滚动距离
+    //         if(scrollH >=  pageH - viewH - 100){
+    //             islock = 1;
+    //             fillData();
+    //         }
+    //     }
+    // });
+    $(".ztitle").html(saveMatchName()); 
+    document.title=saveMatchName();
+
+
+
+function dropLoad(){
+    var page = 0; 
+    var matchId = $.cookie('match_image_id');
+    var type = $.cookie('match_image_type');//图片
+    var size = 5;//分页大小
+    var islock = 0;//0:解锁，1:枷锁
+    // dropload
+    var action = getUrl()+'/match/getResourceList';
+    var data = {page:page,type:type,size:size,matchId:matchId};
+    $('#matchMapContent').dropload({
+        scrollArea : window,
+        domUp : {
+            domClass   : 'dropload-up',
+            domRefresh : '<div class="dropload-refresh">↓下拉刷新</div>',
+            domUpdate  : '<div class="dropload-update">↑释放更新</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>'
+        },
+        domDown : {
+            domClass   : 'dropload-down',
+            domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+            domNoData  : '<div class="dropload-noData">已经没有数据啦</div>'
+        },
+        loadUpFn : function(me){
+            setTimeout(function(){
+                islock = 1;
+                fillData();
+                // 每次数据加载完，必须重置
+                me.resetload();
+                // 重置页数，重新获取loadDownFn的数据
+                page = 0;
+                // 解锁loadDownFn里锁定的情况
+                me.unlock();
+                me.noData(false);
+                // $('.dropload-up').show();
+            },1000);
+        },
+        loadDownFn : function(me){
+            page++;
+            var action = getUrl()+'/match/getResourceList';
+            var data = {page:page,type:type,size:size,matchId:matchId};
+            jQuery.ajax({
+                url:action,
+                type:"get",
+                async:false,
+                data:data,
+                beforeSend:function(){
+                },
+                success:function(returnData){                                                    
+                    var data = JSON.parse(returnData);
+                    if(data.statusCode === 0){
+                        var html = "";                            
+                        if(data.pageSize > 0){
+                            for(var i in data.data){
+                                if($("#picture"+data.data[i].rid).length<=0){
+                                    html += appendHtmlPress(data.data[i]);   
+                                }
+                                if(data.data.length<size){
+                                    // 再往下已经没有数据
+                                    // 锁定
+                                    me.lock();
+                                    // 显示无数据
+                                    me.noData();
+                                    page=page;
+                                    break;
+                                }
+                               
+                            }
+                            // 为了测试，延迟1秒加载
+                            setTimeout(function(){
+                                // 加载 插入到原有 DOM 之后
+                                $("#wapper_icon_div_id").append(html);
+                                // 每次数据加载完，必须重置
+                                me.resetload();
+                            },1000);
+                            
+                            // page++; 
+                            if(islock){
+                                islock = 0;
+                            }
+                        }else{
+    //                        alert("加载完成");
+                        }
+                    }else{
+                        alert(data.message);
+                    }
+                }
+            });
+            
+        },
+        threshold : 5, //提前加载距离
+        distance : 55,
+
+    });
+};
+
+</script>
+</html>

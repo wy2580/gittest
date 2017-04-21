@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/swiper.min.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+	<!-- head部分开始 -->
+	<div class="zsaishijieshao wapper hidden">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle"></h3>
+	</div>
+	<!-- head部分结束 -->
+	<!-- 内容部分开始 -->
+	<div class="matchmapcon wapper hidden">
+		<div class="safe hidden" id="detialMatchCon"></div>
+	</div>
+	<!-- 内容部分结束 -->
+	<!-- 合作伙伴部分开始 -->
+	<div class="chuanduijieshao hidden">
+		<div class="sychuansai wapper hidden bisaicj">
+			<h2 class="syh">合作伙伴</h2>
+		</div>
+		<div class="hezuolianjie hidden">
+			<img src="images/sinanBai_cooperate.png" alt="" class="cooperateLogo">
+		</div>
+	</div>
+	<!-- 合作伙伴部分结束 -->
+	<!-- 支持媒体部分开始 -->
+	<div class="chuanduijieshao hidden">
+		<div class="sychuansai wapper hidden bisaicj">
+			<h2 class="syh">支持媒体</h2>
+			<!-- <a href="#" class="morea"></a> -->
+		</div>
+		<div class="hezuolianjie hidden">
+			<img src="images/sinanBei_organizer.png" alt="" class="organizerLogo">
+		</div>
+	</div>
+	<!-- 支持媒体部分结束 -->
+	<!-- 承办单位部分开始 -->
+	<div class="wapper hidden chengbandanwei">
+		<div class="safe hidden" id="organizerSafe">
+			<div class="zuweihui">
+				<p class="chengbandanweip">
+					司南杯大帆船赛组委会
+				</p>
+				<p class="chengbandanweip">三亚司南航海推广发展有限公司 </p>
+				<p class="chengbandanweip">地址：海南省三亚市榆亚大道2号鸿洲时代海岸2号楼2601室 </p>
+				<p class="chengbandanweip">电话：0898-88601866 </p>
+			</div>
+			<div class="lianxifangshi">
+				<p class="chengbandanweip">报名咨询：baoming2016@sinanregatta.com </p>
+				<p class="chengbandanweip">媒体联络：media@sinanregatta.com </p>
+			</div>
+			<div class="zhidaodanwei">
+				<p class="chengbandanweip">指导单位：中国帆船帆板运动协会、海南省文化广电出版体育厅</p>
+				<p class="chengbandanweip">主办单位：三亚市人民政府、三沙市人民政府 </p>
+				<p class="chengbandanweip">支持单位：海南省海防与口岸办公室、交通部南海救助局三亚基地 </p>
+				<p class="chengbandanweip">承办单位：三亚市文化广电出版体育局、三亚司南航海推广发展有限公司 </p>
+				<p class="chengbandanweip">协办单位：三亚亚龙湾游艇会 </p>
+			</div>
+		</div>
+	</div>
+	<!-- 承办单位部分结束 -->
+	<!-- logo部分开始 -->
+	<div class="wapper hidden logo">
+		<img src="images/cnsalogo.png" alt="" class="logoimgCnsa">
+		<img src="images/logo.png" alt="" class="logoimg">
+	</div>
+	<!-- logo部分结束 -->
+	<!-- footer部分开始 -->
+	<div class="footer wapper">
+		<p class="footp">CNSA 中国帆船赛</p>
+	</div>
+	<!-- footer部分结束 -->
+
+</body>
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!-- <script type="text/javascript" src="js/lib.js"></script> -->
+<script type="text/javascript">
+$(".ztitle").html(saveMatchName()); 
+document.title=saveMatchName();
+$(function(){
+    var mapId = $.cookie('match_linka_id');
+    var cid=$.cookie('match_linka_cid');
+    var name=$.cookie('match_linka_name');
+    var type=$.cookie('match_linka_type');
+    // var type=3; //赛场地图type值：3；
+    var sailing = {};
+	$.ajax({
+	    type:"GET",
+	    url: "http://api.hanghai.onairm.cn/match/getContentDetail",
+	    dataType:"json",
+	    data: {"cId":cid,
+	    		"matchId":mapId,
+	    		"type":type
+			},   
+	    async:false,  
+	    cache:true,  
+	    success: function(data){
+	        if(data.statusCode==0){
+	            var info = data.data;
+	            $(".ztitle").text(info['name']);
+	             // $('#infoTitle').html(info['title']);
+	            $('#detialMatchCon').html(info['content']);
+	        }
+	    }
+	});
+});
+</script>
+</html>

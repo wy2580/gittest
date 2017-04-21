@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="55px" viewBox="0 0 55 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>切图/船队/船长未定</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M27.5,55 C42.6878306,55 55,42.6878306 55,27.5 C55,12.3121694 42.6878306,0 27.5,0 C12.3121694,0 0,12.3121694 0,27.5 C0,42.6878306 12.3121694,55 27.5,55 Z" id="path-1"></path>
+    </defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="中帆联/切图/" transform="translate(-174.000000, -327.000000)">
+            <g id="切图/船队/船长未定" transform="translate(174.000000, 327.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Oval-4" fill="#797979" xlink:href="#path-1"></use>
+                <path d="M19.6785714,16.0410317 C19.6785714,11.3426786 23.4874306,7.53174603 28.1878571,7.53174603 C32.8841369,7.53174603 36.6950694,11.3426786 36.6950694,16.0410317 C36.6950694,20.7393849 32.8841369,24.5503175 28.1878571,24.5503175 L28.1878571,30.4657639" id="Stroke-3610" stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <path d="M28,36.5595238 L28,37.8554067" id="Stroke-3612" stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" mask="url(#mask-2)"></path>
+                <rect id="Rectangle-2" fill="#FA5B45" mask="url(#mask-2)" x="-1" y="39" width="55" height="20"></rect>
+                <text id="船长" mask="url(#mask-2)" font-family="PingFangSC-Regular, PingFang SC" font-size="10" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="18" y="50">船长</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

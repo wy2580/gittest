@@ -1,0 +1,1081 @@
+/**
+ * 船队介绍系列
+ */
+/*船队介绍首页开始*/
+
+/*首页头部开始*/
+.chuanduitouxiang{
+	float: right;
+	width: .47rem;
+	height: .47rem;
+	border-radius: 50%;
+	background-image: url(../images/shuihsou.png);
+	background-repeat: no-repeat;
+	background-size: .47rem .47rem;
+	margin: .28rem .2rem 0 0;
+}
+.cdsybanner{
+	height: 3.76rem;
+	position: relative;
+}
+.cdsybanimg{
+	width: 7.5rem;
+	height: 3.76rem;
+}
+.cdsybanh{
+	width: 6.86rem;
+	font-size: .48rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .52rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	text-shadow: .04rem .04rem .08rem #000000;
+  	position: absolute;
+  	left: .32rem;
+  	bottom: .32rem;
+}
+.cdsyfenxiang{
+	position: absolute;
+	width: .68rem;
+	height: .66rem;
+	right: .3rem;
+	top: .2rem;
+}
+.jbguanjun{
+	position: absolute;
+	top: 0;
+	left: 2.94rem;
+	width: 1.6rem;
+ 	height: .52rem;
+  	border-radius: .04rem;
+  	background-color: #1f2832;
+}
+
+.first{
+	float: left;
+	position: relative;
+	width: .5rem;
+	height: .4rem;
+	margin-left: .02rem;
+}
+.firstimg{
+	position: absolute;
+  	left: 0;
+  	top: 0;
+	width: .48rem;
+	height: .38rem;
+}
+ .small-font{    
+　　font-size: .07rem; 
+    -webkit-transform-origin-x: 0;
+    -webkit-transform: scale(0.90);
+}
+.smallsize-font {
+ 　	font-size: .07rem;
+}
+.jbcount{
+	font-size: .07rem;
+ 	font-weight: 800;
+  	font-style: normal;
+  	font-stretch: condensed;
+  	line-height: .1rem;
+  	text-align: center;
+  	color: #956d00;
+  	position: absolute;
+  	left: 0.18rem;
+  	top: .05rem;
+}/*首页头部结束*/
+/*文字部分*/
+.cdsywenzi{
+	background-color: #274050;
+}
+.cdsywenzip{
+	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .34rem;
+  	text-align: justify;
+  	color: #e2e2e2;
+  	padding: .28rem 0;
+}
+
+/*船队介绍首页结束*/
+/*正在参与的船队开始*/
+.cdzybisaihead{
+	width: 100%;
+  	height: 1rem;
+  	line-height: 1rem;
+  	background-color: #262f38;
+}
+.cdzybisaiheadh{
+	width: 6rem;
+	font-size: .36rem;
+ 	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	text-align: justify;
+  	color: #55ccff;
+  	padding-left: .3rem;
+}
+.cdzybisaicon{
+	width: 100%;
+  	background-color: #2e3840;
+}
+.cdzydate{
+	float: left;
+	width: 1.84rem;
+  	height: .9rem;
+  	border-radius: .04rem;
+  	background-color: rgba(74,171,214,1);
+  	overflow: hidden;
+  	margin-top: .1rem;
+}
+.cdzydatep{
+	float: left;
+	width: 100%;
+	text-align: center;
+	font-size: .28rem;
+ 	 font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .32rem;
+  	color: #ffffff;
+}
+.cdzydatep1{
+	margin-top: .1rem;
+}
+
+.cdsychuansaixinxi{
+	float: left;
+	margin-left: .24rem;
+	width: 5.04rem;
+	padding-top: .1rem;
+}
+.zcdsyh3{
+	float: left;
+	width: 100%;
+	font-size: .36rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .46rem;
+  	color: #ffffff;
+}
+.zcdsya{
+	float: left;
+	background-image: url(../images/twopeople.svg); 
+	background-repeat: no-repeat;
+	background-size: .28rem .26rem;
+	text-indent: .34rem;
+	font-size: .24rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	color: #9b9b9b;
+  	margin: .08rem .1rem 0 0;
+}
+.zcdsya2{
+	background-image: url(../images/dingwei2.svg); 
+}
+.zcdsya3{
+	background-image: url(../images/zubie.svg); 
+}
+.zcdsya4{
+	background-image: url(../images/sanhuiren.svg); 
+}
+.xmxwrapper{
+	height: 2.1rem;
+	width: 6.9rem;
+	overflow: hidden;
+}
+.cdzychengyuan{
+	margin-top: .2rem;
+	height: 1.8rem;
+}
+.chuanduizhenrong{
+	position: relative;
+	padding-bottom: .2rem;
+}
+.chuanduizhenrongp{
+	 font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	margin: .3rem 0;
+}
+.chuanduicdwrapper{
+	width: 100%;
+	height: 2rem;
+	position: relative;
+}
+#cdscroller2{
+	/*width: 100%;*/
+	height: 2rem;
+}
+#wrapper{
+	width: 6.9rem;
+	overflow: hidden;
+}
+
+.cdzychengyuanli{
+	float: left;
+	width: 1.1rem;
+	margin-right: .1rem;
+	padding-bottom: .3rem;
+}
+.cdzychengyuantu{
+	width: 1.1rem;
+	height: 1.1rem;
+	position: relative;
+}
+.chengyuan{
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: 50%;
+}
+.captainbj{
+	position: absolute;
+	left: .045rem;
+	bottom: 0;
+	z-index: 1;
+	width: 1.02rem;
+	height: .32rem;
+}
+.captainp{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 1.1rem;
+	font-size: .12rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	text-align: center;
+  	color: #ffffff;
+  	z-index: 2;
+}
+.captainname{
+	width: 1.1rem;
+	opacity: 0.9;
+  	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .34rem;
+  	text-align: center;
+  	color: #fa5b45;
+  	margin-top: .16rem;
+}
+.captainname2{
+	color: #fff;
+}
+/*正在参与的船队结束*/
+/*已报名的船队开始*/
+.cdzybisaiheadh2{
+	color: #71bf56;
+}
+.cdzydate2{
+	background-color: rgba(113,191,86,1);
+}
+.zhuangtaicolor2{
+	margin-left: .04rem;
+	color: #55ccff;
+}
+.cdzychengyuanlis{
+	width: 1.1rem;
+}
+.huijia{
+	float: left;
+	width: 1.0rem;
+	height: 1.0rem;
+	margin: 0 .05rem .1rem;
+}
+.shenqingrudui{
+	float: left;
+	width: 1.1rem;
+  	height: .48rem;
+  	line-height: .48rem;
+  	text-align: center;
+  	border-radius: .04rem;
+  	background-color: #fa5b45;
+  	font-size: .27rem;
+	color: #ffffff;
+	margin-top: .09rem;
+}
+/*已报名的船队结束*/
+/*历史成绩开始*/
+.more{
+	float: right;
+	width: .4rem;
+	height: .22rem;
+	margin-top: -.62rem;
+	margin-right: .3rem;
+}
+.zdzylishichengji{
+	background-color: #1f2832;
+}
+.zdzylishichengji1{
+	height: .58rem;
+	line-height: .58rem;
+	margin-bottom: .02rem;
+	background-color: #2e3840;
+}
+.zdzylishichengjip{
+	float: left;
+	width: 3.74rem;
+	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	color: #ffffff;
+}
+.zdzylishichengjip2{
+	width: 1.08rem;
+	text-align: center;
+}
+.zdzylishichengjip4{
+	float: right;
+	text-align: center;
+	width: 1rem;
+}
+/*历史成绩结束*/
+/*联系方式部分开始*/
+.cdzylianxihead{
+	background-color: #1f2832;
+}
+.cdzylianxicon{
+	padding-bottom: .3rem;
+	background-color: #2e3840;
+}
+.cdzylianxip{
+	 font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .44rem;
+  	color: #9b9b9b;
+}
+.cdzylianxip1{
+	padding-top: .2rem;
+}
+.cdzylianxip5{
+	padding-top: .4rem;
+}
+/*联系方式部分结束*/
+/*船队管理部分开始*/
+.cdglalert2{
+	background-color: #2e3840;
+	padding-bottom: .3rem;
+}
+.cdglclose{
+	/*width: 1.16rem;*/
+	border-top: .02rem solid #000;
+}
+.cdglclosep{
+	padding-top: .2rem;
+	float: left;
+	width: 6.26rem;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	text-align: justify;
+  	color: #e2e2e2;
+}
+.cdglclosep2{
+	color: #fa5b45;
+}
+.close{
+	float: right;
+	width: .46rem;
+	height: .46rem;
+	margin-top: .2rem;
+}
+.cdglsaichuan{
+	float: left;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	color: #9b9b9b;
+  	font-size: .24rem;
+  	margin: .08rem .1rem 0 0;
+}
+.cdgldatep1{
+	margin-top: .25rem; 
+}
+.chuanduizhenrongp1{
+	float: left;
+}
+.chuanduizhenrongp2{
+	float: right;
+	font-size: .24rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	text-align: right;
+  	color: #fa5b45;
+}
+.captainname3{
+	float: left;
+	width: 1.2rem;
+	color:  #55ccff;
+	margin-top: .06rem;
+	line-height: .34rem;
+	height: .34rem; 
+}
+/*船队相册部分*/
+.cdglxiangce{
+	width: 8.4rem;
+	height: 1.8rem;
+	background-color: #1f2832;
+}
+.cdglxiangceimg{
+	float: left;
+	width: 2.7rem;
+	height: 1.8rem;
+	margin-right: .1rem;
+}
+/*船队管理部分结束*/
+/*新梦想船队部分开始*/
+.xinmengxiang{
+	width: 7.5rem;
+	background-image: url(../images/mohubj.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.xmxtdhuadong{
+	position: relative;
+}
+.xmxguanlip{
+  	font-size: .36rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .5rem;
+  	color: #ffffff;
+  	padding-top: .36rem;
+}
+.xmxwenzi{
+	width: 7.5rem;
+	background-color: #1f2832;
+}
+.xmxjuesexinxi{
+	margin: .28rem 0 0;
+}
+.xmxjuesexinxi1{
+	clear: both;
+	margin-bottom: .1rem;
+}
+.xmxjuesexinxi1 .xmxinput{
+	float: left;
+	height: .84rem;
+  	line-height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #0f1518;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	text-align: center;
+  	color: #7f909d;
+  	padding: 0 .2rem;
+}
+.xmxwenzip{
+	font-size: .28rem;
+  	font-weight: 300;
+ 	font-style: normal;
+ 	font-stretch: normal;
+  	line-height: .4rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	padding: .22rem 0;
+}
+.xuhao{
+	width: .5rem;
+	margin-right: .1rem;	
+}
+.xmxjuesek{
+	float: left;
+	width: 2.54rem;
+  	height: .88rem;
+  	margin-right: .1rem;
+  	position: relative;
+}
+.xmxjuese{
+	width: 2.1rem;
+}
+.xmxname{
+	width: 2.1rem;
+}
+.jianhao,.xmxjiahao{
+	float: right;
+	width: .4rem;
+	height: .4rem;
+	margin-top: .22rem;
+}
+.xmxtiship{
+	float: left;
+	width: 100%;
+	 font-size: .24rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .32rem;
+  	text-align: center;
+  	color: #fa5b45;
+  	padding: .16rem 0;
+}
+.xmxbut1,.xmxbut2{
+	float: left;
+	width: 6.86rem;
+  	height: .84rem;
+  	line-height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #00b1ff;
+  	border: solid .02rem #00b1ff;
+	text-align: center;
+	font-size: .36rem;
+  	font-weight: 300;
+  	color: #ffffff;
+}
+.xmxbut2{
+	background-color: #274050;
+	color: #00b1ff;
+	margin: .18rem 0 .3rem;
+}
+.xmxquexiaoa{
+	margin-bottom: .2rem;
+}
+/*新梦想船队部分结束*/
+/*个人报名页面部分开始*/
+.grbmkuang{
+	background-color: #2e3840;
+	margin: 1rem 0 0 0;
+}
+.grbmzycon{
+	border-bottom: .02rem solid #1f2832;
+}
+.grbmpart{
+	margin-top: .44rem;
+	position: relative;
+}
+.grbmimga{
+	float: left;
+	width: 1.6rem;
+	height: 1.9rem;
+	background-image: url(../images/13.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	margin: .04rem .2rem 0 0;
+}
+.grbmimga2{
+	background-image: url(../images/14.png);
+}
+.grbmimga3{
+	background-image: url(../images/15.png);
+}
+.grbmzymid{
+	float: left;
+	width: 5.1rem;
+}
+.grbmzyh3{
+	font-size: .32rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	padding-bottom: .12rem;
+}
+.grbmstate{
+	margin-left: .1rem;
+	color: #55ccff;
+}
+.grbmstate2{
+	color: #fff;
+}
+.grbmzyp{
+	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .36rem;
+  	text-align: justify;
+  	color: #a2a2a2;
+}
+.grbmjingbei{
+	float: right;
+}
+.gebmjbguanjun{
+	position: absolute;
+	right: 0;
+	top: .52rem;
+	height: .52rem;
+	
+}
+.grbmwenzip{
+	clear: both;
+	padding: .2rem 0 0;
+}
+.grbmshenqingjiaru{
+	display: block;
+	width: 4.10rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #00b3ff;
+  	font-size: 18px;
+ 	 line-height: .84rem;
+  	text-align: center;
+  	color: #a5acaf;
+  	margin: .24rem 1.4rem;
+}
+.grbmshenqingjiaru2{
+	background-color: #333d46;
+  	border: solid .02rem #797979;
+}
+/*个人报名页面部分结束*/
+/*确认申请页面开始*/
+.qrsqnj{
+	width: 7.5rem;
+	height: 13.34rem;
+	background-image: url(../images/mohubj.png);
+	background-repeat: no-repeat;
+	background-size: 7.5rem 13.34rem;
+}
+.qrsqcon{
+	margin-top: .76rem;
+}
+.qrsqconp1{
+	font-size: .36rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .46rem;
+  	color: #ffffff;
+}
+.qrsqconp2{
+	font-size: .28rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .38rem;
+  	text-align: justify;
+  	color: #cecece;
+  	margin-top: .1rem;
+}
+.qrsqa1,.qrsqa2{
+	float: left;
+	width: 6.86rem;
+  	height: .84rem;
+ 	border-radius: .04rem;
+  	background-color: #00b1ff;
+  	border: solid .02rem #00b1ff;
+  	font-size: .36rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .84rem;
+  	text-align: center;
+  	color: #ffffff;
+  	margin-top: 1rem;
+}
+.qrsqa2{
+  	background-color: #274050;
+  	color: #00b1ff;
+  	margin-top: .5rem;
+}
+/*确认申请页面结束*/
+/*登录注册页面开始*/
+.denglutou{
+	width: .64rem;
+	height: .64rem;
+	background-image: url(../images/weidenglu.png);
+	background-size: .64rem .64rem;
+	margin: .18rem .15rem 0 0;
+}
+.dengluzhucecon{
+	background-color: #2e3840;
+	/*height: 12.34rem;*/
+	margin: 1rem 0 0 0;
+}
+
+.dlzch3{
+	font-size: .36rem;
+  	font-weight: normal;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .4rem;
+  	color: #ffffff;
+  	margin: .38rem 0 .32rem;
+}
+.dlzcp{
+	opacity: 0.7;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .38rem;
+  	text-align: justify;
+  	color: #ffffff;
+  	padding-bottom: .3rem;
+}
+.dlzcinputkuang{
+	width: 100%;
+	margin-top: .16rem;
+}
+.dlzcformlabel{
+	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .3rem;
+  	color: #ffffff;
+  	float: left;
+  	margin-top: .28rem;
+}
+.dlzcforminput{
+	float: right;
+	width: 5.6rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #0f1518;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .38rem;
+  	color: #7f909d;
+  	padding: 0 .2rem;
+}
+.denglubuta{
+	clear: both;
+	float: left;
+	width: 6.86rem;
+ 	height: .84rem;
+ 	margin-top: .26rem;
+}
+.denglubut{
+	margin-top: 0;
+}
+.zhucebut{
+	margin-top: 0;
+	width: 6.84rem;	
+	/*padding: 0 .12rem;*/
+}
+.forgetpass{
+	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .34rem;
+  	color: #00b3ff;
+  	margin-top: .3rem;
+}
+/*登录注册页面结束*/
+/*注册页面开始*/
+.zhucetiship{
+	opacity: 0.5;
+  	font-size: .24rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .3rem;
+  	color: #ffffff;
+  	text-indent: .92rem;
+  	margin: .1rem 0;
+}
+.zhuceyanzheng{
+	float: left;
+	 width: 3.2rem;
+  	height: .84rem;
+}
+.getyanzhengma{
+	float: right;
+	 width: 2rem;
+  	height: .84rem;
+  	border-radius: .04rem;
+  	background-color: #00b1ff;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .84rem;
+  	text-align: center;
+  	color: #ffffff;
+}
+.dengluinput{
+	float: left;
+	width: 5.4rem;
+}
+.dlxing{
+	float: right;
+	width: .12rem;
+	height: .12rem;
+	margin-top: .4rem;
+}
+#checkbox{
+	float: left;
+	margin: .32rem .1rem 0 0;
+}
+/*注册页面结束*/
+/*身份认证页面开始*/
+.renzhengform{
+	width: 6.9rem;
+	padding-bottom: .5rem;
+}
+.sfrzleft{
+	float: left;
+	width: 2rem;
+}
+.loginimga{
+	float: left;
+	width: 2rem;
+	height: 2rem;
+}
+.loginimg{
+	width: 2rem;
+	height: 2rem;
+}
+.loginwenzia{
+	float: left;
+	width: 1.12rem;
+	font-size: .28rem;
+  	font-weight: 300;
+  	font-style: normal;
+  	font-stretch: normal;
+  	line-height: .32rem;
+  	color: #7f909d;
+  	margin: .14rem .12rem 0 .3rem;
+}
+.renzhengxing{
+	float: left;
+	margin-top: .24rem;
+}
+.sfrzright{
+	float: right;
+	width: 4.58rem;
+}
+.dlzcinputkuang{
+	width: 100%;
+}
+.rzname{
+	float: left;
+	width: 3.9rem;
+}
+.rztiship{
+	float: left;
+	text-indent: 0;
+}
+.idzhengmian{
+	clear: both;
+	float: left;
+	width: 4.38rem;
+	position: relative;
+}
+.idjindu{
+	width: 40%;
+	height: .84rem;
+	border-radius: .04rem;
+	background-color: #00b1ff;
+ 	border: solid .02rem #274050;
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ 	z-index: 1;
+}
+.idxinxi{
+	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .84rem;
+  	color: #ffffff;
+  	text-indent: .7rem;
+  	text-align: center;
+  	position: absolute;
+  	left: 0;
+  	top: 0;
+  	z-index: 2;
+}
+.idxinxi2{
+	color: #7f909d;
+}
+/*身份认证页面结束*/
+/*服务协议页面开始*/
+.fwxyh3{
+	font-size: .36rem;
+  	line-height: .4rem;
+  	color: #010101;
+  	margin-top: .26rem;
+}
+.fwxyp{
+	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .36rem;
+  	text-align: justify;
+  	color: #414141;
+  	margin-top: .4rem;
+}
+.fwxymid{
+	width: 100%;
+}
+.fwxyshipdiv{
+	float: left;
+	width: 1.64rem;
+	height: .7rem;
+	position: relative;
+	margin: .2rem .1rem 0 .1rem; 
+}
+.fwxyinput{
+	float: left;
+	width: 1.62rem;
+	height: .65rem;
+	line-height: .65rem;
+	text-align: center;
+	border-radius: .04rem;
+  	background-color: #274050;
+  	border: solid .02rem #0f1518;
+  	font-size: .28rem;
+  	font-weight: 300;
+  	text-align: center;
+  	color: #7f909d;
+}
+.fwxyxiaojiantou{
+	top: .3rem;
+}
+.fwxyshipdiv2,.fwxyinput2{
+	width: 2rem;
+}
+.fwxyp2{
+	font-size: .28rem;
+  	font-weight: 300;
+  	line-height: .36rem;
+  	text-align: justify;
+  	color: #414141;
+}
+.fwxyp3{
+	margin-top: .34rem;
+}
+.fwxyp4{
+	margin-top: .34rem;
+	padding-bottom: .4rem;
+}
+/*服务协议页面结束*/
+/*个人页面开始*/
+.gerenhead{
+	width: 7.5rem;
+  	height: 1.92rem;
+  	background-color: #333d46;
+}
+.gerenback{
+	margin-top: .8rem;
+}
+.gerentouxiang{
+	float: left;
+	width: 1.1rem;
+	height: 1.1rem;
+	margin: .46rem 0 0 2.5rem;
+}
+.gerenxinxi{
+	width: 1.7rem;
+	float: right;
+	margin: .6rem .2rem 0 0;
+}
+.gerenname{
+	float: right;
+	font-size: .36rem;
+  	line-height: .44rem;
+  	color: #ffffff;
+}
+.gerenmobile{
+	float: right;
+	font-size: .28rem;
+  	line-height: .34rem;
+  	color: #ffffff;
+  	margin-top: .06rem;
+}
+.gerenconpart{
+	border-bottom: .02rem solid #303a44;
+}
+.gerencon{
+	background-color: #1f2832;
+  	box-shadow: -.05rem 0 .2rem 0 rgba(0, 0, 0, 0.5);
+}
+.grcph3{
+	float: left;
+	width: 100%;
+	font-size: .36rem;
+  	line-height: .4rem;
+  	color: #55ccff;
+  	padding: .4rem 0 .3rem 0;
+}
+.grcppa{
+	float: left;
+	width: 100%;
+}
+.grcpa{
+	float: left;
+	background-image: url(../images/baomingbisai.svg);
+	background-size: .26rem .26rem;
+	background-repeat: no-repeat;
+	background-position: 0 .03rem;
+	text-indent: .4rem;
+	font-size: .28rem;
+	line-height: .32rem;
+  	color: #ffffff;
+  	padding-bottom: .4rem;
+}
+.grcpa2{
+	background-image: url(../images/chuanduiguanli.svg);
+}
+.grcpa3{
+	background-image: url(../images/create.svg);
+}
+.grcpa4{
+	background-image: url(../images/photography.svg);
+}
+.grcpa5{
+	background-image: url(../images/shvedio.svg);
+}
+.grcpa6{
+	background-image: url(../images/noartical.svg);
+	color: #626262;
+}
+.grcpa7{
+	background-image: url(../images/huigoumai.svg);
+	color: #626262;
+}
+.grcpa8{
+	background-image: url(../images/notrade.svg);
+	color: #626262;
+}
+.grcpa9{
+	background-image: url(../images/wentisousuo.svg);
+}
+.grcpa10{
+	background-image: url(../images/onlinekefu.svg);
+}
+.gerenconpartlast{
+	border: none;
+}
+/*个人页面结束*/
+/*报名成功部分开始*/
+.bmcgyishenqing{
+	background-color: #2e3840;
+  	border: solid .02rem #797979;
+  	color: #fff;
+  	opacity: 0.9;
+}
+/*报名成功部分结束*/
+/*视频播放页面开始*/
+.myvid{
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0 auto;
+}
+.vediop{
+	color: #000;
+	font-size: .4rem;
+	line-height: .46rem;
+}
+/*视频播放页面结束*/

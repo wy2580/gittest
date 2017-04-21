@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/mobile-reset.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/chuanduizuye.css">
+    <script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+<div class="wapper hidden xinmengxiang">
+	<!-- head部分开始 -->
+	<div class="zsaichuanxiangjie wapper hidden zbaomingxitong">
+		<a href="javascript:;" class="back"></a>
+		<h3 class="ztitle zhuanghaibei" id="ownTeamTitle"></h3>
+		<a href="gerenyemian.html" class="chuanduitouxiang"></a>
+	</div>
+	<!-- head部分结束 -->
+	<!-- content部分开始 -->
+	<div class="consafe hidden chuanduizhenrong xmxtdhuadong">
+		<p class="xmxguanlip">船队角色管理</p>
+		<p class="chuanduizhenrongp chuanduizhenrongp1">船队招募中</p>
+		<p class="chuanduizhenrongp  chuanduizhenrongp2">有3个备选水手等您安排上船</p>
+		<div id="xmxwrapper" class="xmxwrapper">
+            <div id="xmxscroller">
+                <ul id="memberListContainer" class="cdzychengyuan hidden">
+                </ul>
+            </div>
+		</div>
+	</div>
+	<div class="xmxwenzi hidden">
+		<div class="consafe">
+			<p class="xmxwenzip">合理的帆船队拥有包括船队经理、船长、战术师、导航员、主缭、前缭、前甲板、球帆手… … 等不同角色的船员。</p>
+		</div>
+	</div>
+
+	<div class="consafe hidden">
+        <form action="chuanduizhuye.html" class="xmxform" onsubmit="return roleManage();">
+			<div id="roleSelectContainer" class="xmxjuesexinxi cdbmformsafe add">
+			</div>
+			<p class="xmxtiship">你参赛的级别，同时仅限5-8人上船</p>
+			<!-- <button class="xmxbut1">保存</button>
+			<button class="xmxbut2">取消</button> -->
+			<a href="javascript:roleManage();" class="chuanlichuanduia"><button type="submit" class="submitbut">保存</button></a>
+			<a href="javascript:;" class="quexiaoa xmxquexiaoa"><button class="cancelbut">取消</button></a>
+		</form>
+	</div>
+	<!-- content部分结束 -->
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/lib.js"></script>
+<script>
+document.title=saveMatchName();
+	//页面初始化
+    $(function(){
+        loginCheck();//登录验证
+        var team = getMemberList();
+        if(!team){
+            alert('网络错误！');
+            return ;
+        }
+        //初始化船员列表
+        (function(){
+            $("#ownTeamTitle").text("船队主页-"+team['teamName']);
+            var members = team.matchEnroll.members;
+            for(var i in members){
+                var member = members[i];
+                $('#memberListContainer').append(getMemberItem(member));
+                
+            }
+            var len=members.length;
+            $(".chuanduizhenrongp2").text("有"+len+"个备选水手等您安排上船");
+            var wid4=1.2*($(".cdzychengyuanli").length)+"rem";
+           
+            $('#memberListContainer').width(wid4);
+            $('#xmxscroller').width(wid4);
+            var myScroll = new IScroll('#xmxwrapper', { scrollX: true, scrollY: false,preventDefault: false , mouseWheel: false ,eventPassthrough: true});
+        })();
+        //初始化角色管理
+        initRoleManage(team.matchEnroll.members);
+    });
+    //获取用户条目
+    function getMemberItem(user){
+        var memberRoleMap = getMemberRoleMap();
+        var captainBG = 'images/captainbj.svg';
+        var memberBG = 'images/toumingyuan.png';
+        var defaultIcon = '9a7127776928f53d4dac809d4b92f176';
+        return $([           
+            '<li class="cdzychengyuanli">',
+            '    <a href="javascript:;" class="lilinka">',
+            '        <div class="cdzychengyuantu">',
+            '            <img src="'+formatFileUrl(user['icon'], defaultIcon)+'" alt="" class="chengyuan">',
+            '            <img src="'+(user.role+'' === '1' ? captainBG : memberBG)+'" alt="" class="captainbj">',
+            '            <p class="captainp">'+(memberRoleMap['r_'+user.role] || '船员')+'</p>',
+            '        </div>',
+            '        <p class="captainname '+(user.role+'' !== '1' ? 'captainname2' : '')+'">'+(user.realName || user.nickname || '')+'</p>',
+            '    </a>',
+            '</li>'
+        ].join(''));
+    }
+    //获取用户列表
+    function getMemberList(){
+        return getData({
+            url : '/team/getTeamMember',
+            data : {
+                matchId : $.cookie('manageTeamMatchId'), 
+                teamId : $.cookie('manageTeamId')
+            }
+        });
+    }
+    //获取角色管理条目
+    function initRoleManage(users){
+        var roles = getMemberRoleMap();
+        var rolesForSelect = [];
+        var usersForSelect = [];
+        var itemCount = 0;
+        //填充角色
+        for(var key in roles){
+            rolesForSelect.push({
+                key : key.substr(2),
+                name : roles[key]
+            });
+        }
+        //填充用户
+        for(var i in users){
+            usersForSelect.push({
+                key : users[i]['userId'],
+                name : users[i]['realName']
+            });
+        }
+        //初始化
+        var roleSelectors = [];
+        var userSelectors = [];
+        var selectUserCallback = function(){
+            //alert();
+        };
+        var beforeShow = function(){
+            for(var i in roleSelectors){
+                roleSelectors[i].hide();
+            }
+            for(var i in userSelectors){
+                userSelectors[i].hide();
+            }
+        };
+        //单选框
+        var getSelector = function(config){
+            var items = config.items || [];
+            var name = config.name || 'name';
+            var className = config.className || 'name';
+            var title = config.title || '点击选择';
+            var beforeShow = config.beforeShow || function(){};
+            var afterSelect = config.afterSelect || function(){};
+            return {
+                data : {},
+                selector : null,
+                init : function(){
+                    var self = this;
+                    var item = $([
+                        '<div class="xmxjuesek">',
+                        '    <input type="text" class="xmxinput xmxjuese selectLabel" placeholder="'+title+'">',
+                        '    <input type="hidden" class="selectValue" value="">',
+                        '    <img src="images/xiajiantou.svg" alt="" class="xiajiantou">',
+                        '    <ul class="xialaselect hidden">',
+                        '    </ul>',
+                        '</div>'
+                    ].join(''));
+                    if(name){
+                        item.find('.selectValue').attr('name', name);
+                    }
+                    if(className){
+                        item.addClass(className);
+                    }
+                    //填充选项
+                    for(var i in items){
+                        //填充选项
+                        var key = items[i].key;
+                        var name = items[i].name;
+                        var li = $('<li class="xlselectli" data-key="'+key+'">'+name+'</li>');
+                        item.find('ul').append(li);
+                        //填充数据
+                        self.data['k_'+key] = {
+                            key : key,
+                            name : name
+                        };
+                    }
+                    //选项点击初始化
+                    item.find('li').click(function(){
+                        self.select($(this).attr('data-key'));
+                    });
+                    //获取焦点初始化
+                    item.find('.selectLabel').focus(function(){
+                        beforeShow();
+                        self.show();
+                    });
+                    self.selector = item;
+                    return self;
+                },
+                getOption : function(value){
+                    var self = this;
+                    var option = null;
+                    self.selector.find('li').each(function(){
+                        if($(this).attr('data-key')+'' === value+''){
+                            option = $(this);
+                        }
+                    });
+                    return option;
+                },
+                select : function(value){
+                    var self = this;
+                    var data = self.data['k_'+value];
+                    if(!data){
+                        return ;
+                    }
+                    self.selector.find('.selectLabel').val(data.name);
+                    self.selector.find('.selectValue').val(data.key);
+                    self.selector.find('li').removeClass('xlselectli1');
+                    self.getOption(value).addClass('xlselectli1');
+                    self.selector.find('ul').hide();
+                    afterSelect();
+                },
+                hide : function(){
+                    this.selector.find('ul').hide();
+                },
+                show : function(){
+                    this.selector.find('ul').show();
+                },
+                val : function(){
+                    return this.selector.find('.selectValue').val();
+                },
+                reset : function(){
+                    self.selector.find('.selectLabel').val('');
+                    self.selector.find('.selectValue').val('');
+                }
+            }.init();
+        };
+        //获取一行
+        var getItem = function(userId, roleStatus){
+            var item = $([
+                '<div class="xmxjuesexinxi1 roleItem">',
+                '    <input type="text" class="xmxinput xuhao sortValue" placeholder="">',
+                '    <img src="images/jianhao.svg" alt="" class="jianhao deleteBtn">',
+                '</div>'
+            ].join(''));
+            var roleSelector = getSelector({
+                items : rolesForSelect,
+                name : 'role',
+                className : 'role',
+                title : '点击选择角色',
+                beforeShow : beforeShow
+            });
+            roleSelectors.push(roleSelector);
+            if(roleStatus){
+                roleSelector.select(roleStatus);
+            }
+            var userSelector = getSelector({
+                items : usersForSelect,
+                name : 'user',
+                className : 'user',
+                title : '点击选择船员',
+                beforeShow : beforeShow,
+                afterSelect : selectUserCallback
+            });
+            userSelectors.push(userSelector);
+            if(userId){
+                userSelector.select(userId);
+            }
+            item.find('.deleteBtn').before(roleSelector.selector);
+            item.find('.deleteBtn').before(userSelector.selector);
+            //删除事件
+            item.find('.deleteBtn').unbind('click').click(function(){
+                itemCount--;
+                item.remove();
+                var i = 0;
+                $('#roleSelectContainer .sortValue').each(function(){
+                    i++;
+                    $(this).attr('placeholder', ((i+'').length < 2 ? '0'+i : i)).val('');
+                });
+            });
+            return item;
+        };
+        //添加行
+        var addItem = function(userId, role){
+            itemCount++;
+            if(itemCount > users.length){
+                itemCount--;
+                return false;
+            }
+            $('#roleSelectContainer .addBtn').remove();
+            $('#roleSelectContainer .deleteBtn').show();
+            var item = getItem(userId, role);
+            item.find('.deleteBtn').hide();
+            item.append($('<img src="images/yuanjiahao.svg" alt="" class="xmxjiahao addBtn">'));
+            item.find('.addBtn').unbind('click').click(addItem);
+            $('#roleSelectContainer').append(item);
+            var i = 0;
+            $('#roleSelectContainer .sortValue').each(function(){
+                i++;
+                $(this).attr('placeholder', ((i+'').length < 2 ? '0'+i : i)).val('');
+            });
+        };
+        //初始化
+        for(var i in users){
+            var user = users[i];
+            if(user.role){
+                addItem(user.userId, user.role);
+            }
+        }
+    }
+    //提交信息
+    function roleManage(){
+        var data = [];
+        var dataRaw = {};
+        $('#roleSelectContainer .roleItem').each(function(){
+            var role = $(this).find('.role .selectValue').val();
+            var userId = $(this).find('.user .selectValue').val();
+            data['k_'+userId] = {
+                userId : userId,
+                role : role
+            };
+        });
+        for(var i in data){
+            data.push(data[i]);
+        }
+        if(data.length < 1){
+            alert('未设置角色!');
+            return false;
+        }
+        postData({
+            url : '/team/updateMember',
+            data : {
+                matchId : $.cookie('manageTeamMatchId'), 
+                teamId : $.cookie('manageTeamId'),
+                memberJson : JSON.stringify(data)
+            },
+            callback : function(data){
+                alert('保存成功');
+            }
+        });
+        return false;
+    }
+</script>
+</html>

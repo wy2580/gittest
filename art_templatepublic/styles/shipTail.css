@@ -1,0 +1,460 @@
+body, html {width: 100%;height: auto;margin:0;font-family:"微软雅黑";overflow: hidden;}
+#allmap{width:7.5rem;height:8rem;margin:auto;overflow: hidden;}
+p{margin-left:5px; font-size:14px;}
+#mapbox{width:7.5rem; position:relative; background-color:#CCC; font-size:.12rem;left:0; top:0;overflow:hidden;margin: 1rem auto 0;overflow: hidden;}    
+#mapbox #map{width:100%;height:100%; float:left;}    
+#mapbox #results{width:2.5rem; margin-top:.1rem; float:right;}    
+.mapheader{ height:.25rem;width:2.5rem; float:right; overflow:hidden;}    
+#mapbox h2{ margin:auto; padding-left:.1rem; height:.6rem; line-height:.6rem; font-size:.24rem; color:#0066CC; font-weight:100; background:#9CF; cursor:move}    
+#mapbox .close{ display:block; position:absolute; right:10px; top:0px; line-height:.22rem; text-decoration:none; color:#0000}
+.shipNameSelect{
+    position: absolute;
+    right: 0;
+    bottom: 1.6rem;
+    width: 5.2rem;
+    background-color: #2e3840;
+    overflow: hidden;
+    padding-bottom: .2rem;
+    display: none;
+    z-index: 7;
+}
+.sellectBox{
+	width: 100%;
+} 
+.btnoption{
+    position: absolute;
+    left: 3%;
+    bottom: 30%;
+    width:4rem;
+    overflow: hidden;
+}
+.option,.btnSelectDiv{
+	overflow: hidden;
+	width: 100%;
+	height:auto;
+    margin-bottom: .1rem;
+}
+.sellectBox .shipName{
+	float: left;
+	/*width: 80%;*/
+	overflow: hidden;
+	font-size: .28rem;
+	color: #9b9b9b;
+	line-height: .34rem;
+}
+.hidden{
+    overflow: hidden;
+}
+.f_left{
+    float: left;
+}
+.sellectBoxHead{
+    width: 100%;
+    height: .56rem;
+    background-color: #21313b;
+}
+.closeMenu{
+    float: right;
+    font-size: .28rem;
+    line-height: .56rem;
+    margin-right: .2rem;
+    color: #fff;
+}
+.titleInfo{
+    width: 100%;
+    height: .36rem;
+    line-height: .36rem;
+    margin-bottom: .15rem;
+}
+.kaiguanSpan,.bianhaoSpan,.shipNameSpan{
+    font-size: .28rem;
+    color: #9b9b9b;
+     margin-left: .15rem; 
+}
+.shipRoutLine{
+    position: absolute;
+    right: 5%;
+    bottom: 1.6rem;
+    width: .56rem;
+    height: .56rem;
+    border-radius: 50%;
+    display: block;
+}
+.shipRoutLine1{
+    position: absolute;
+    left: 5%;
+    bottom: .9rem;
+    width: .56rem;
+    height: .56rem;
+    border-radius: 50%;
+}
+input[type=checkbox]::-ms-check,input[type=radio]::-ms-check{
+    display: none;
+}
+input[type=checkbox],input[type=radio]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: .2rem;
+    height: .2rem;
+    cursor: pointer;
+    vertical-align: middle;
+    background-image: url(../images/noselected.png);
+    background-size: .2rem .2rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    float: left;
+    margin: .05rem 0 .13rem .25rem;
+}
+input[type=checkbox]:checked,input[type=radio]:checked {
+    background-image: url(../images/selected.png);
+}
+.btn{
+    width: 1rem;
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    font-size: .2rem;
+    color:#000;
+    background-color: #666;
+    outline: none;
+    border: none;
+    margin-bottom: .1rem; 
+}
+.layerSetBtn{
+    position: absolute;
+    left: 5%;
+    bottom: 1.6rem;
+    width: .56rem;
+    height: .58rem;
+}
+.showSelect{
+    position: absolute;
+    width: 1.66rem;
+    left: 0;
+    bottom: 1.6rem;
+    background-color: #274050;
+    padding-top: .1rem;
+    display: none;
+}
+
+.btnSelectLabel{
+    font-size: .28rem;
+    color: #cecece;
+    line-height: .36rem;
+    margin-left: .17rem;
+}
+.btnSelectCloseDiv{
+    width: 100%;
+    height: .56rem;
+    background-color: #21313b;
+}
+.showSelectCloseBtn{
+    width: 100%;
+    font-size: .28rem;
+    color: #fff;
+    line-height: .56rem;
+    text-align: center;
+}
+.btnSelectDiv .btnInput{
+    margin: .1rem 0 .13rem .15rem;
+}
+.dateselect{
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 100%;
+    height: .3rem;
+}
+#d412{
+    width: 2rem;
+    height: .3rem;
+    border: none;
+    color: #fff;
+    font-size: .26rem;
+    line-height: .3rem;
+    outline: none;
+    background-color: #21313b;
+    padding: .05rem .1rem;
+}
+.shipRoutLine,.layerSetBtn{
+    display: none;
+}
+
+/*赛事场次选择*/
+.matchSelect{
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 1rem;
+    background-color: #2e3840;
+    display: none;
+}
+.matchSelectTitleDiv{
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    position: relative;
+}
+.matchSelectTitleDiv1{
+    width: 2.78rem;
+    height: .52rem;
+    line-height: .52rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.39rem;
+    top: -.03rem;
+}
+.matchSelectTitleDiv2{
+    background-color: #1f2832;
+}
+.matchSelectTitleDiv3{
+    width: 60%;
+    background-color: transparent;
+    top: -.02rem;
+    margin-left: -30%;
+    font-size: .28rem;
+    color: #fff;
+    opacity: .8;
+}
+.levelDetial{
+    width: 90%;
+    position: absolute;
+    left: 10%;
+    top: 0;
+}
+.getMatchSelectName{
+    z-index: 5;
+}
+.matchSelectTitleBj{
+    width: 2.76rem;
+    height: .54rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -1.38rem;
+}
+.getMatchSelectjiantou{
+    width: .18rem;
+    height: .14rem;
+    position: absolute;
+    right: 18%;
+    top: 20%;
+    
+}
+
+.matchSelectTitle{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    font-size: .28rem;
+    line-height: .8rem;
+    text-align: center;
+    color: #7f909d;
+}
+.matchSelectTitle1{
+    line-height: .54rem;
+}
+.hidden{
+    overflow: hidden;
+}
+.matchSelectUl{
+    width: 100%;
+    background-color: #2e3840;
+}
+.matchSelectLi{
+    width: 7.1rem;
+    margin: 0 auto;
+    height: .8rem;
+    line-height: .8rem;
+    padding: .1rem 0;
+    border-bottom: solid .03rem rgba(151,151,151,.3);
+    color: #7f909d;
+}
+.matchSelectLi:first-of-type{
+    border-top: solid .03rem rgba(151,151,151,.3);
+}
+.matchSelectName{
+    font-size: .28rem;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: .8rem;
+    letter-spacing: normal;
+    /*color: #ffffff;*/
+    margin-left: .7rem;
+}
+.matchPlayed{
+    margin-left: .1rem;
+    font-size: .28rem;
+}
+.matchSelectDate{
+    width: 2.5rem;
+    margin-right: .6rem;
+}
+.matchSelectDateBegin,.matchSelectDateEnd{
+    width: 100%;
+    font-size: .28rem;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: .34rem;
+    letter-spacing: normal;
+    text-align: right;
+    margin-bottom: .1rem;
+}
+.getMatchSelectDateEnd{
+    margin-left: .2rem;
+}
+.speedControlDov{
+    position: absolute;
+    width: 100%;
+    height: 1.22rem;
+    background-color: #1f2832;
+    left: 0;
+    bottom: 0;
+}
+.playedImg{
+    width: .3rem;
+    height: .44rem;
+    margin: .42rem .26rem .4rem .42rem;
+}
+.inputDrafting{
+    width: 1.1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.rangeColor{
+    width: .9rem;
+    height: .02rem;
+    background-color: #cecece;
+    margin: .54rem 0 .06rem;
+}
+input[type="range"] {
+    background-color: #cecece;
+    width: .9rem;
+    height: .1rem;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    color: #fff;
+}
+input[type="range"]::-webkit-slider-thumb {
+    cursor: default;
+    width: .14rem;
+    height: .14rem;
+    background: none repeat scroll 0 0 #cecece;
+    border-radius: 50%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    background-color: #fff;
+}
+.draftingSpeedSpan{
+    font-size: .24rem;
+    line-height: .3rem;
+    text-align: center;
+    color: #cecece;
+}
+#box{
+    width: 100%;
+    height: .16rem;
+    position: relative;
+    margin: .55rem 0 .11rem 0;
+}
+.allRoute{
+    width: 100%;
+    height: .04rem;
+    background-color: #626262;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -.02rem;
+   
+}
+.activeRoute{
+    width: 100%;
+    height: .04rem;
+    background-color: #cecece;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -.02rem;
+}
+.activeDash{
+    width: .14rem;
+    height: .14rem;
+    background-color: #cecece;
+    border-radius: 50%;
+    position: absolute;
+    left: 88%;
+    top: 50%;
+    margin-top: -.07rem;
+}
+.routTimePlay{
+    width: 4.3rem;
+    height: 100%;
+    margin-right: .4rem;
+}
+.routTimeLine{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: .2rem;
+}
+.routTimeLineDash1,.routTimeLineDash2{
+    width: .14rem;
+    height: .14rem;
+    border-radius: 50%;
+    background-color: #cecece;
+  /*  position: absolute;
+    left: 0;
+    bottom: 10%;*/
+    z-index: 10;
+    margin-top: .38rem;
+}
+.routTimeLineDash2{
+    background-color: #626262;
+    margin-right: 0.01rem;
+}
+.routTimeLineJinDU{
+    width: 4.02rem;
+    height: .04rem;
+    background-color: #626262;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.01rem;
+    top: 35%;
+}
+.routTimeLineJinDUactive{
+    height: .04rem;
+    background-color:  #cecece;
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    top:0;
+    left: 0;
+}
+.routTimePlayimg{
+    width: .2rem;
+    height: .4rem;
+    position: absolute;
+    left: 0;
+    bottom: 1%;
+    margin-left: -0.1rem;
+}
+.routTimeTimeDiv{
+    width: 100%;
+    margin-top: .63rem;
+}
+.routTimeBeginTime,.routTimeEndTime{
+    opacity: 0.9;
+    font-size: .24rem;
+    line-height: .32rem;
+    letter-spacing: normal;
+    text-align: center;
+    color: #cecece;
+}
